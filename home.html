@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aggie Hoops Analytics – Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind config for Aggie colors (from teammate) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'aggie-blue': '#004b8d',
+            'aggie-gold': '#fdb927',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Chart.js for teammate’s charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+      * {
+          box-sizing: border-box;
+      }
+
+      html,
+      body {
+          margin: 0;
+          padding: 0;
+          min-height: 100vh;
+          /* Fallback gradient if video fails */
+          background: radial-gradient(circle at top, #0f172a 0, #020617 48%, #000 100%);
+          color: #e5e7eb;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      }
+
+      a {
+          color: inherit;
+          text-decoration: none;
+      }
+
+      /* === FULLSCREEN VIDEO BACKGROUND === */
+      .video-bg {
+          position: fixed;
+          inset: 0;
+          z-index: -2;
+          overflow: hidden;
+      }
+
+      .video-bg video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: brightness(0.25) saturate(1.2); /* darken so UI is readable */
+      }
+
+      .video-overlay {
+          position: fixed;
+          inset: 0;
+          z-index: -1;
+          pointer-events: none;
+          background: radial-gradient(circle at top, rgba(15,23,42,0.85), rgba(0,0,0,0.95));
+      }
+
+      /* ---------- Top bar / nav ---------- */
+      .top-bar {
+          position: sticky;
+          top: 0;
+          z-index: 20;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0.7rem 3.5rem;
+          background: linear-gradient(90deg, #0b1120, #020617f2);
+          border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+          backdrop-filter: blur(16px);
+      }
+
+      .logo-lockup {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+      }
+
+      .logo-mark {
+          height: 44px;
+          width: auto;
+          object-fit: contain;
+      }
+
+      .site-title {
+          font-weight: 800;
+          font-size: 1.1rem;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: #facc15;
+          text-shadow: 0 0 18px rgba(250, 204, 21, 0.55);
+      }
+
+      .nav-group {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+      }
+
+      .nav-pill {
+          padding: 0.45rem 1.2rem;
+          border-radius: 999px;
+          font-size: 0.8rem;
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          font-weight: 600;
+          border: 1px solid rgba(148, 163, 184, 0.55);
+          background: radial-gradient(circle at top left, #1e293b, #020617);
+          color: #e5e7eb;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.35rem;
+          cursor: pointer;
+          transition:
+                  border-color 0.18s ease,
+                  background 0.18s ease,
+                  transform 0.15s ease,
+                  box-shadow 0.18s ease,
+                  color 0.18s ease;
+      }
+
+      .nav-pill:hover {
+          border-color: rgba(250, 204, 21, 0.9);
+          color: #fefce8;
+          transform: translateY(-1px);
+          box-shadow: 0 8px 26px rgba(0, 0, 0, 0.4);
+      }
+
+      .nav-pill.nav-active {
+          background: linear-gradient(135deg, #facc15, #f97316);
+          color: #111827;
+          border-color: transparent;
+          box-shadow: 0 12px 32px rgba(250, 204, 21, 0.45);
+      }
+
+      .nav-pill.nav-pill-small {
+          padding-inline: 0.9rem;
+          font-size: 0.75rem;
+          letter-spacing: 0.16em;
+      }
+
+      /* ---------- Hero section ---------- */
+      .hero {
+          padding: 3rem 3.5rem 2.5rem;
+          display: grid;
+          grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+          gap: 2.5rem;
+          align-items: center;
+      }
+
+      @media (max-width: 960px) {
+          .top-bar {
+              padding-inline: 1.5rem;
+          }
+
+          .hero {
+              grid-template-columns: minmax(0, 1fr);
+              padding-inline: 1.5rem;
+          }
+      }
+
+      .hero-kicker {
+          font-size: 0.85rem;
+          text-transform: uppercase;
+          letter-spacing: 0.18em;
+          color: #a5b4fc;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+      }
+
+      .hero-kicker-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 999px;
+          background: #22c55e;
+          box-shadow: 0 0 14px rgba(34, 197, 94, 0.9);
+      }
+
+      .hero-title {
+          font-size: clamp(2.7rem, 4vw, 3.3rem);
+          line-height: 1.05;
+          font-weight: 900;
+          margin: 0.8rem 0 0.6rem;
+          text-transform: uppercase;
+          letter-spacing: 0.14em;
+          color: #e5e7eb;
+          text-shadow: 0 0 32px rgba(0, 0, 0, 0.9);
+      }
+
+      .hero-title span.highlight {
+          color: #facc15;
+          text-shadow: 0 0 26px rgba(250, 204, 21, 0.7);
+      }
+
+      .hero-subtitle {
+          max-width: 600px;
+          color: #cbd5f5;
+          font-size: 0.98rem;
+          line-height: 1.7;
+          margin-bottom: 1.5rem;
+      }
+
+      .hero-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+          margin-bottom: 1.8rem;
+      }
+
+      .btn-primary {
+          padding: 0.8rem 1.5rem;
+          border-radius: 999px;
+          background: linear-gradient(135deg, #facc15, #f97316);
+          color: #111827;
+          font-size: 0.9rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          border: none;
+          box-shadow: 0 16px 40px rgba(250, 204, 21, 0.45);
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.45rem;
+          transition:
+                  transform 0.18s ease,
+                  box-shadow 0.2s ease,
+                  filter 0.18s ease;
+      }
+
+      .btn-primary:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 20px 55px rgba(250, 204, 21, 0.55);
+          filter: brightness(1.03);
+      }
+
+      .btn-ghost {
+          padding: 0.8rem 1.25rem;
+          border-radius: 999px;
+          font-size: 0.85rem;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          border: 1px solid rgba(148, 163, 184, 0.65);
+          background: radial-gradient(circle at top left, #111827, #020617);
+          color: #e5e7eb;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          cursor: pointer;
+          transition:
+                  border-color 0.18s ease,
+                  background 0.18s ease,
+                  transform 0.15s ease,
+                  box-shadow 0.2s ease;
+      }
+
+      .btn-ghost:hover {
+          border-color: rgba(129, 140, 248, 0.85);
+          box-shadow: 0 12px 32px rgba(15, 23, 42, 0.95);
+          transform: translateY(-1px);
+      }
+
+      .hero-metrics {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1.5rem;
+          font-size: 0.8rem;
+          text-transform: uppercase;
+          letter-spacing: 0.14em;
+          color: #9ca3af;
+      }
+
+      .hero-metrics strong {
+          display: block;
+          font-size: 1.1rem;
+          color: #e5e7eb;
+          letter-spacing: 0.05em;
+      }
+
+      /* ---------- Right hero column ---------- */
+
+      .hero-right {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+      }
+
+      .hero-video-card {
+          position: relative;
+          border-radius: 1.2rem;
+          overflow: hidden;
+          border: 1px solid rgba(148, 163, 184, 0.3);
+          box-shadow: 0 22px 55px rgba(0, 0, 0, 0.75);
+          background: radial-gradient(circle at top, #1f2937, #020617);
+          min-height: 230px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          isolation: isolate;
+      }
+
+      .hero-video-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+                  135deg,
+                  rgba(15, 23, 42, 0.7),
+                  rgba(8, 47, 73, 0.4)
+          );
+          pointer-events: none;
+      }
+
+      .hero-video-content {
+          position: relative;
+          text-align: center;
+          z-index: 1;
+          padding: 1.25rem;
+      }
+
+      .hero-video-tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          padding: 0.28rem 0.75rem;
+          border-radius: 999px;
+          background: rgba(15, 23, 42, 0.82);
+          border: 1px solid rgba(148, 163, 184, 0.7);
+          font-size: 0.72rem;
+          text-transform: uppercase;
+          letter-spacing: 0.18em;
+          margin-bottom: 0.9rem;
+      }
+
+      .hero-video-title {
+          font-size: 1.05rem;
+          font-weight: 700;
+          margin-bottom: 0.35rem;
+      }
+
+      .hero-video-sub {
+          font-size: 0.83rem;
+          color: #e5e7eb;
+          opacity: 0.82;
+      }
+
+      .play-badge {
+          position: absolute;
+          bottom: 1.3rem;
+          right: 1.4rem;
+          height: 42px;
+          width: 42px;
+          border-radius: 999px;
+          background: radial-gradient(circle at 20% 20%, #facc15, #f97316);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 12px 30px rgba(250, 204, 21, 0.65);
+      }
+
+      .play-badge::before {
+          content: "";
+          border-style: solid;
+          border-width: 8px 0 8px 13px;
+          border-color: transparent transparent transparent #111827;
+          margin-left: 3px;
+      }
+
+      /* ---------- Team strip ---------- */
+
+      .team-strip {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0.9rem;
+      }
+
+      @media (max-width: 720px) {
+          .team-strip {
+              grid-template-columns: minmax(0, 1fr);
+          }
+      }
+
+      .team-card {
+          position: relative;
+          overflow: hidden;
+          border-radius: 1rem;
+          border: 1px solid rgba(148, 163, 184, 0.38);
+          background: #020617;
+          cursor: pointer;
+          transition:
+                  transform 0.18s ease,
+                  box-shadow 0.2s ease,
+                  border-color 0.18s ease;
+      }
+
+      .team-card:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 18px 48px rgba(0, 0, 0, 0.8);
+          border-color: rgba(250, 204, 21, 0.85);
+      }
+
+      .team-photo {
+          width: 100%;
+          height: 150px;
+          object-fit: cover;
+          display: block;
+          filter: saturate(1.05) contrast(1.05);
+      }
+
+      .team-card-footer {
+          padding: 0.55rem 0.85rem 0.6rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 0.8rem;
+      }
+
+      .team-label {
+          text-transform: uppercase;
+          letter-spacing: 0.16em;
+          font-weight: 600;
+      }
+
+      .team-meta {
+          font-size: 0.7rem;
+          opacity: 0.7;
+          text-transform: uppercase;
+      }
+
+      footer {
+          padding: 1.5rem 3.5rem 2rem;
+          font-size: 0.7rem;
+          text-transform: uppercase;
+          letter-spacing: 0.18em;
+          color: #6b7280;
+          border-top: 1px solid rgba(31, 41, 55, 0.9);
+          margin-top: 1.5rem;
+          background: rgba(0,0,0,0.7);
+      }
+
+      @media (max-width: 960px) {
+          footer {
+              padding-inline: 1.5rem;
+          }
+      }
+
+      /* ---------- Teammate's custom classes (safe to reuse) ---------- */
+      body {
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+      }
+      .data-card {
+          /* Tailwind @apply won't run at runtime, but class kept for structure */
+      }
+      .data-value {}
+      .data-label {}
+      .stat-button {}
+      .tab-button {}
+      .tab-panel {}
+      .input-field {
+          color: #004b8d !important;
+          color-scheme: light;
+      }
+      .input-field option {
+          color: black !important;
+          background-color: white !important;
+      }
+      .input-label {}
+      .prediction-output-card {}
+      .prediction-output-value {}
+      .prediction-output-label {}
+      .accuracy-table {
+          min-width: 800px;
+      }
+      .diff-positive { color: #4ade80; font-weight: bold; }
+      .diff-negative { color: #f87171; font-weight: bold; }
+      .diff-neutral { color: #9ca3af; }
+  </style>
+</head>
+
+<body>
+<!-- FULLSCREEN VIDEO BACKGROUND -->
+<div class="video-bg">
+  <video id="bgVideo" autoplay muted playsinline></video>
+</div>
+<div class="video-overlay"></div>
+
+<header class="top-bar">
+  <!-- LEFT: Logo -->
+  <div class="logo-lockup">
+    <img
+      src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/NC_A%26T_Logo_Icon_2C.png"
+      alt="NC A&T Logo"
+      class="logo-mark"
+    />
+    <span class="site-title">Aggie Hoops Analytics</span>
+  </div>
+
+  <!-- RIGHT: Nav + Actions -->
+  <div class="flex items-center gap-5">
+
+    <!-- Navigation -->
+    <nav class="nav-group">
+      <a href="home.html" class="nav-pill nav-active">Home</a>
+      <a href="strategy-lab.html" class="nav-pill">Strategy Lab</a>
+    </nav>
+
+    <!-- Notifications -->
+    <button
+      id="notifBtn"
+      class="relative h-10 w-10 rounded-full
+         bg-gradient-to-br from-aggie-blue to-slate-800
+         border border-aggie-gold/40
+         flex items-center justify-center
+         hover:scale-110 transition duration-200 shadow-lg"
+      title="Notifications"
+    >
+      <span class="text-lg">🔔</span>
+      <span id="notifDot"
+            class="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500 hidden">
+  </span>
+    </button>
+    <!-- ================= NOTIFICATION MODAL ================= -->
+    <div
+      id="notifModal"
+      class="fixed inset-0 hidden z-[9999] flex items-center justify-center
+         bg-black/70 backdrop-blur-sm"
+    >
+
+      <div
+        class="bg-gradient-to-br from-slate-900 to-slate-800
+           border border-slate-600 rounded-2xl
+           shadow-2xl p-6 w-[90%] max-w-sm text-center"
+      >
+        <h2 class="text-lg font-bold text-yellow-400 mb-2">
+          Notifications
+        </h2>
+
+        <p class="text-sm text-gray-300 mb-4">
+          🚧 Coming soon!
+          <br />
+          Game alerts, uploads, and updates will appear here.
+        </p>
+
+        <button
+          id="closeNotif"
+          class="mt-2 px-4 py-2 rounded-full
+             bg-yellow-400 text-black text-xs font-bold uppercase
+             hover:bg-yellow-300 transition"
+        >
+          Got it
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Login -->
+    <button
+      id="loginBtn"
+      class="nav-pill nav-pill-small"
+    >
+      Login
+    </button>
+
+  </div>
+</header>
+
+
+<main class="hero">
+  <!-- LEFT: Title, actions, quick metrics -->
+  <section>
+    <div class="hero-kicker">
+      <span class="hero-kicker-dot"></span>
+      Live Aggie Basketball Insights
+    </div>
+
+    <h1 class="hero-title">
+      <span class="highlight">Aggie</span> Hoops Analytics
+    </h1>
+
+    <p class="hero-subtitle">
+      One place for NC A&amp;T Men’s and Women’s basketball data. Dive into
+      box scores, advanced metrics, and film-backed strategy – built for
+      coaches, players, and serious hoop heads who want more than just the
+      final score.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#stats-tracker" class="btn-primary">
+        Open Dynamic Stats Tracker
+        <span>↗</span>
+      </a>
+
+
+
+      <a href="strategy-lab.html" class="btn-ghost">
+        Strategy Lab
+      </a>
+    </div>
+
+    <div class="hero-metrics">
+      <div>
+        <strong>Men’s + Women’s</strong>
+        Full 2025-26 &amp; Previous Rosters
+      </div>
+      <div>
+        <strong>Box + Advanced</strong>
+        Per Game &amp; Season
+      </div>
+      <div>
+        <strong>Film Notes</strong>
+        Schemes &amp; Tendencies
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHT: Highlight + team banners -->
+  <section class="hero-right">
+    <div class="hero-video-card">
+      <div class="hero-video-overlay"></div>
+
+      <div class="hero-video-content">
+        <div class="hero-video-tag">
+          <span class="hero-kicker-dot" style="box-shadow:none;"></span>
+          Computer Vision for Team Analysis
+        </div>
+        <div class="hero-video-title">
+          Real Possessions. Real Numbers. In Real Time.
+        </div>
+        <div class="hero-video-sub">
+          Plug in live clips or practice film here and pair it with shot
+          charts, lineup data, and performance trends.
+        </div>
+      </div>
+      <a href="strategy-lab.html" class="play-badge" target="_blank"></a>
+      
+    </div>
+
+    <div class="team-strip">
+      <!-- MEN'S TEAM -->
+      <a href="#stats-tracker" class="team-card">
+        <img
+          src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/ncat-mens-team.png"
+          alt="NCAT Men's Basketball Team"
+          class="team-photo"
+        />
+        <div class="team-card-footer">
+          <div>
+            <div class="team-label">Men’s Basketball</div>
+            <div class="team-meta">Roster • Season Stats • Lineups</div>
+          </div>
+          <span>↗</span>
+        </div>
+      </a>
+
+      <!-- WOMEN'S TEAM -->
+      <a href="#stats-tracker" class="team-card">
+        <img
+          src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/ncat-women-team.png"
+          alt="NCAT Women's Basketball Team"
+          class="team-photo"
+        />
+        <div class="team-card-footer">
+          <div>
+            <div class="team-label">Women’s Basketball</div>
+            <div class="team-meta">Roster • Season Stats • Lineups</div>
+          </div>
+          <span>↗</span>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- ======================
+     TEAMMATE'S STATS TRACKER
+     (embedded with his tabs)
+     ====================== -->
+<section id="stats-tracker" class="p-4 sm:p-8">
+  <div class="max-w-7xl mx-auto">
+    <h1 class="text-3xl sm:text-4xl font-bold text-center text-aggie-gold mb-8">
+      N.C. A&T Dynamic Stats Tracker
+    </h1>
+
+    <div class="w-full max-w-6xl mx-auto">
+      <!-- TAB BUTTONS -->
+      <div class="flex justify-center mb-0 overflow-x-auto space-x-2">
+        <button id="tab-btn-charts" class="tab-button active bg-gray-800 text-aggie-gold border-t-4 border-aggie-gold rounded-t-lg mx-1" onclick="showTab('charts')">
+          View Charts
+        </button>
+        <button id="tab-btn-prediction" class="tab-button inactive bg-blue-900 text-white opacity-80 hover:opacity-100 rounded-t-lg mx-1" onclick="showTab('prediction')">
+          Prediction Sandbox
+        </button>
+        <button id="tab-btn-accuracy" class="tab-button inactive bg-blue-900 text-white opacity-80 hover:opacity-100 rounded-t-lg mx-1" onclick="showTab('accuracy')">
+          Model Validation
+        </button>
+        <button id="tab-btn-visualization" class="tab-button inactive bg-blue-900 text-white opacity-80 hover:opacity-100 rounded-t-lg mx-1" onclick="showTab('visualization')">
+          Advanced Data Visualization
+        </button>
+      </div>
+
+      <!-- TAB PANEL: CHARTS -->
+      <div id="tab-panel-charts" class="tab-panel bg-gray-800 p-8 rounded-b-lg shadow-2xl mt-0">
+        <div class="mb-6">
+          <label for="dataset-select" class="input-label block text-sm font-medium text-aggie-gold mb-2">
+            Select Dataset:
+          </label>
+          <select id="dataset-select" class="input-field w-full px-3 py-2 bg-white border-2 border-aggie-blue rounded-md font-bold focus:outline-none focus:ring-2 focus:ring-aggie-gold focus:border-transparent">
+            <option value="men_season_avg">Men's Season Averages (Games 1-4)</option>
+            <option value="women_season_avg">Women's Season Averages</option>
+            <option value="men_game_11_18">Men's Game (11/18 vs Morgan St.)</option>
+            <option value="men_game_11_13">Men's Game (11/13 vs Wash. Adventist)</option>
+            <option value="men_game_11_10">Men's Game (11/04 vs S. Carolina)</option>
+            <option value="men_game_1_2_avg">Men's Game 1-2 Averages</option>
+          </select>
+        </div>
+
+        <div id="stat-buttons-container" class="mb-6 flex flex-wrap justify-center gap-2"></div>
+
+        <div id="team-summary-container" class="hidden mb-6">
+          <h3 id="team-summary-title" class="text-xl font-semibold text-aggie-gold mb-3 text-center">Team Summary</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="data-card bg-aggie-blue bg-opacity-10 border border-blue-900 rounded-lg p-4 shadow-md text-center">
+              <div id="bench-points" class="data-value text-3xl font-bold text-aggie-gold">0</div>
+              <div class="data-label text-sm font-medium text-aggie-blue uppercase tracking-wider">Bench Points</div>
+            </div>
+            <div class="data-card bg-aggie-blue bg-opacity-10 border border-blue-900 rounded-lg p-4 shadow-md text-center">
+              <div id="fast-break-points" class="data-value text-3xl font-bold text-aggie-gold">0</div>
+              <div class="data-label text-sm font-medium text-aggie-blue uppercase tracking-wider">Fast Break Points</div>
+            </div>
+            <div class="data-card bg-aggie-blue bg-opacity-10 border border-blue-900 rounded-lg p-4 shadow-md text-center">
+              <div id="points-off-turnovers" class="data-value text-3xl font-bold text-aggie-gold">0</div>
+              <div class="data-label text-sm font-medium text-aggie-blue uppercase tracking-wider">Points off TOs</div>
+            </div>
+            <div class="data-card bg-aggie-blue bg-opacity-10 border border-blue-900 rounded-lg p-4 shadow-md text-center">
+              <div id="points-in-paint" class="data-value text-3xl font-bold text-aggie-gold">0</div>
+              <div class="data-label text-sm font-medium text-aggie-blue uppercase tracking-wider">Points in Paint</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 p-4 rounded-lg shadow-inner">
+          <div id="chart-wrapper" style="position: relative; height: 600px;">
+            <canvas id="playerStatsChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB PANEL: PREDICTION -->
+      <div id="tab-panel-prediction" class="tab-panel hidden bg-gray-800 p-8 rounded-b-lg shadow-2xl mt-0">
+        <div class="mb-4 flex justify-between items-center">
+          <button onclick="showTab('charts')" class="flex items-center text-sm font-bold text-aggie-gold hover:text-white transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+            </svg>
+            Back to Dataset
+          </button>
+        </div>
+
+        <div class="max-w-md mx-auto">
+          <h2 class="text-2xl font-bold text-center text-aggie-gold mb-4">
+            Performance Prediction Sandbox
+          </h2>
+
+          <div class="mb-6">
+            <label for="predict-game-select" class="input-label text-center block text-sm font-medium text-aggie-gold mb-2">Predicting For:</label>
+            <select id="predict-game-select" class="input-field w-full px-3 py-2 bg-white border-2 border-aggie-blue rounded-md font-bold text-center focus:outline-none focus:ring-2 focus:ring-aggie-gold focus:border-transparent">
+              <option value="game5">Upcoming Game 5 (Train on G1-4)</option>
+              <option value="game4">Game 4 (Train on G1-3)</option>
+              <option value="game3">Game 3 (Train on G1-2)</option>
+            </select>
+            <p id="prediction-context-text" class="text-center text-xs text-gray-400 mt-2">
+              Using <strong>Player-Specific</strong> Efficiency Ratings (PPM/RPM/APM).
+            </p>
+          </div>
+
+          <div class="mb-6">
+            <label for="player-select" class="input-label block text-sm font-medium text-aggie-gold mb-2">Select Player (to load baseline):</label>
+            <select id="player-select" class="input-field w-full px-3 py-2 bg-white border-2 border-aggie-blue rounded-md font-bold focus:outline-none focus:ring-2 focus:ring-aggie-gold focus:border-transparent"></select>
+          </div>
+
+          <div class="mb-8">
+            <label for="minutes-input" class="input-label text-center text-lg block text-sm font-medium text-aggie-gold mb-2">Projected Minutes</label>
+            <div class="flex justify-center">
+              <input type="number" id="minutes-input" min="0" max="40" step="1" class="input-field w-32 text-center text-2xl">
+            </div>
+            <input type="range" id="minutes-slider" min="0" max="40" step="1" class="w-full mt-4 accent-aggie-gold">
+          </div>
+
+          <div class="grid grid-cols-3 gap-4 mb-6">
+            <div class="prediction-output-card bg-blue-900 bg-opacity-50 rounded-lg p-4 text-center border border-aggie-gold">
+              <div id="pred-pts" class="prediction-output-value text-2xl font-bold text-white">--</div>
+              <div class="prediction-output-label text-xs text-aggie-gold uppercase tracking-wide mt-1">Points</div>
+            </div>
+            <div class="prediction-output-card bg-blue-900 bg-opacity-50 rounded-lg p-4 text-center border border-aggie-gold">
+              <div id="pred-reb" class="prediction-output-value text-2xl font-bold text-white">--</div>
+              <div class="prediction-output-label text-xs text-aggie-gold uppercase tracking-wide mt-1">Rebounds</div>
+            </div>
+            <div class="prediction-output-card bg-blue-900 bg-opacity-50 rounded-lg p-4 text-center border border-aggie-gold">
+              <div id="pred-ast" class="prediction-output-value text-2xl font-bold text-white">--</div>
+              <div class="prediction-output-label text-xs text-aggie-gold uppercase tracking-wide mt-1">Assists</div>
+            </div>
+          </div>
+
+          <div id="model-info" class="text-xs text-gray-400 text-center mt-4"></div>
+        </div>
+      </div>
+
+      <!-- TAB PANEL: ACCURACY -->
+      <div id="tab-panel-accuracy" class="tab-panel hidden bg-gray-800 p-8 rounded-b-lg shadow-2xl mt-0">
+        <div class="mb-4">
+          <button onclick="showTab('charts')" class="flex items-center text-sm font-bold text-aggie-gold hover:text-white transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+            </svg>
+            Back to Dataset
+          </button>
+        </div>
+
+        <div class="max-w-full mx-auto">
+          <h2 class="text-2xl font-bold text-center text-aggie-gold mb-4">
+            Historical Model Validation
+          </h2>
+
+          <div class="flex justify-center gap-4 mb-8">
+            <button class="stat-button active px-4 py-2 rounded-md text-sm font-medium bg-aggie-gold text-aggie-blue" id="btn-validate-g4" onclick="switchValidation('game4')">Vs Game 4 (Morgan St.)</button>
+            <button class="stat-button inactive px-4 py-2 rounded-md text-sm font-medium bg-blue-900 text-aggie-gold hover:bg-blue-800" id="btn-validate-g3" onclick="switchValidation('game3')">Vs Game 3 (Wash. Adv.)</button>
+          </div>
+
+          <p id="validation-desc" class="text-center text-gray-300 mb-8">
+            Comparing <strong>Player-Specific Predictions</strong> vs Actual Stats.
+          </p>
+
+          <div class="overflow-x-auto bg-gray-900 rounded-lg shadow-xl border border-gray-700">
+            <table class="accuracy-table w-full text-left border-collapse">
+              <thead>
+              <tr>
+                <th class="w-1/4 bg-blue-900 text-aggie-gold p-4 border-b border-gray-600 font-bold text-base tracking-wide">Player</th>
+                <th class="text-center bg-blue-900 text-aggie-gold p-4 border-b border-gray-600 font-bold text-base tracking-wide">MIN</th>
+                <th class="text-center bg-blue-900 text-aggie-gold p-4 border-b border-gray-600 font-bold text-base tracking-wide">Pred PTS</th>
+                <th class="text-center bg-blue-900 text-aggie-gold p-4 border-b border-gray-600 font-bold text-base tracking-wide">Act PTS</th>
+                <th class="text-center bg-blue-900 text-aggie-gold p-4 border-b border-gray-600 font-bold text-base tracking-wide">Diff</th>
+                <th class="text-center bg-blue-900 text-aggie-gold p-4 border-b border-gray-600 font-bold text-base tracking-wide">Pred REB</th>
+                <th class="text-center bg-blue-900 text-aggie-gold p-4 border-b border-gray-600 font-bold text-base tracking-wide">Act REB</th>
+              </tr>
+              </thead>
+              <tbody id="accuracy-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB PANEL: VISUALIZATION -->
+      <div id="tab-panel-visualization" class="tab-panel hidden bg-gray-800 p-8 rounded-b-lg shadow-2xl mt-0">
+        <div class="mb-4 flex justify-between items-center">
+          <button onclick="showTab('charts')" class="flex items-center text-sm font-bold text-aggie-gold hover:text-white transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+            </svg>
+            Back to Dataset
+          </button>
+          <button onclick="toggleCompare()" class="btn-ghost py-1 px-4 text-xs">
+                        Compare
+                    </button>
+        </div>
+
+
+<div class="max-w-full mx-auto">
+                    <h2 class="text-2xl font-bold text-center text-aggie-gold mb-4">
+                        Advanced Data Visualization
+                    </h2>
+
+                    <div id="viz-grid" class="grid grid-cols-1 gap-5">
+
+                        <div class="bg-gray-900 p-4 rounded-lg border border-gray-700 shadow-xl h-[500px] relative">
+                            <canvas id="menTotalStats"></canvas>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-lg border border-gray-700 shadow-xl h-[500px] relative">
+                            <canvas id="womenTotalStats"></canvas>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-lg border border-gray-700 shadow-xl h-[500px] relative">
+                            <canvas id="menTrueShooting"></canvas>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-lg border border-gray-700 shadow-xl h-[500px] relative">
+                            <canvas id="womenTrueShooting"></canvas>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-lg border border-gray-700 shadow-xl h-[500px] relative">
+                            <canvas id="menAssistTurnover"></canvas>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-lg border border-gray-700 shadow-xl h-[500px] relative">
+                            <canvas id="womenAssistTurnover"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  NC A&amp;T Aggie Hoops Analytics • Internal demo tool – not an official athletics site.
+</footer>
+
+<!-- SIMPLE JS TO LOOP THROUGH YOUR CLIP -->
+<script>
+  const videoFiles = [
+    "assets/video/game3.mp4",
+  ];
+
+  const bgVideo = document.getElementById("bgVideo");
+  let currentVideoIndex = 0;
+
+  function loadVideo(index) {
+    bgVideo.src = videoFiles[index];
+    bgVideo.load();
+    const playPromise = bgVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // some browsers need a user interaction first
+      });
+    }
+  }
+
+  bgVideo.addEventListener("ended", () => {
+    currentVideoIndex = (currentVideoIndex + 1) % videoFiles.length;
+    loadVideo(currentVideoIndex);
+  });
+
+  loadVideo(currentVideoIndex);
+</script>
+
+<!-- TEAMMATE'S JS (unchanged, just moved here) -->
+<script type="module">
+  // --- DATASET DEFINITIONS ---
+  const datasets = {
+    "men_season_avg": {
+      name: "Men's Season Averages (Games 1-4)",
+      players: [
+        {"#": "05", "Player": "Walker, Lewis", "AVG_MIN": 29.5, "AVG_PTS": 20.3, "AVG_REB": 6.3, "AVG_AST": 2.5},
+        {"#": "00", "Player": "Walker, Lureon", "AVG_MIN": 30.3, "AVG_PTS": 19.8, "AVG_REB": 2.5, "AVG_AST": 0.5},
+        {"#": "01", "Player": "Middleton, Jr., Trent", "AVG_MIN": 26.7, "AVG_PTS": 9.7, "AVG_REB": 3.0, "AVG_AST": 2.7},
+        {"#": "32", "Player": "Debrick, KJ", "AVG_MIN": 17.5, "AVG_PTS": 7.5, "AVG_REB": 5.3, "AVG_AST": 0.8},
+        {"#": "08", "Player": "Weluche-Ume, Zamoku", "AVG_MIN": 24.0, "AVG_PTS": 8.8, "AVG_REB": 3.3, "AVG_AST": 2.0},
+        {"#": "04", "Player": "Ogletree, Bryson", "AVG_MIN": 28.0, "AVG_PTS": 5.3, "AVG_REB": 3.8, "AVG_AST": 1.5},
+        {"#": "07", "Player": "Vick, Brooklyn", "AVG_MIN": 22.3, "AVG_PTS": 3.3, "AVG_REB": 1.8, "AVG_AST": 2.8},
+        {"#": "14", "Player": "Doumbia, Amadou", "AVG_MIN": 13.8, "AVG_PTS": 2.3, "AVG_REB": 5.3, "AVG_AST": 0.3},
+        {"#": "11", "Player": "Pierce, Dwayne", "AVG_MIN": 15.5, "AVG_PTS": 4.5, "AVG_REB": 1.5, "AVG_AST": 1.5},
+        {"#": "34", "Player": "Felton, Will", "AVG_MIN": 6.0, "AVG_PTS": 2.3, "AVG_REB": 1.3, "AVG_AST": 0.3},
+        {"#": "02", "Player": "Burton, Mujahiid", "AVG_MIN": 7.3, "AVG_PTS": 1.7, "AVG_REB": 0.7, "AVG_AST": 0.0},
+        {"#": "09", "Player": "Cueto, Yancarlos", "AVG_MIN": 16.0, "AVG_PTS": 4.0, "AVG_REB": 2.0, "AVG_AST": 2.0}
+      ],
+      stats: ["AVG_PTS", "AVG_REB", "AVG_AST", "AVG_MIN"]
+    },
+    "women_season_avg": {
+      name: "Women's Season Averages",
+      players: [
+        {"#": "11", "Player": "Swangin, Jordyn", "AVG_MIN": 33.5, "AVG_PTS": 14.5, "AVG_REB": 2.9, "AVG_AST": 2.0, "AVG_BLK": 0.1, "AVG_STL": 1.4, "AVG_TO": 3.0},
+        {"#": "01", "Player": "Delaney, Maleia", "AVG_MIN": 31.9, "AVG_PTS": 13.0, "AVG_REB": 3.3, "AVG_AST": 2.2, "AVG_BLK": 0.2, "AVG_STL": 1.0, "AVG_TO": 2.1},
+        {"#": "23", "Player": "Wilson, Chaniya", "AVG_MIN": 27.6, "AVG_PTS": 11.5, "AVG_REB": 5.5, "AVG_AST": 0.9, "AVG_BLK": 1.4, "AVG_STL": 0.9, "AVG_TO": 2.2},
+        {"#": "03", "Player": "Henshaw, Paris", "AVG_MIN": 27.3, "AVG_PTS": 8.0, "AVG_REB": 6.0, "AVG_AST": 0.8, "AVG_BLK": 0.8, "AVG_STL": 1.3, "AVG_TO": 1.7},
+        {"#": "02", "Player": "Roberts, Laila", "AVG_MIN": 22.8, "AVG_PTS": 6.8, "AVG_REB": 2.6, "AVG_AST": 1.1, "AVG_BLK": 0.1, "AVG_STL": 0.9, "AVG_TO": 1.5},
+        {"#": "15", "Player": "Ndu, Jacquel", "AVG_MIN": 22.8, "AVG_PTS": 5.4, "AVG_REB": 4.1, "AVG_AST": 0.6, "AVG_BLK": 0.3, "AVG_STL": 0.9, "AVG_TO": 1.6},
+        {"#": "21", "Player": "Beach, Ture", "AVG_MIN": 22.8, "AVG_PTS": 4.9, "AVG_REB": 2.5, "AVG_AST": 1.2, "AVG_BLK": 0.2, "AVG_STL": 1.0, "AVG_TO": 1.5},
+        {"#": "00", "Player": "Dillard, Kiana", "AVG_MIN": 15.1, "AVG_PTS": 3.6, "AVG_REB": 1.9, "AVG_AST": 1.0, "AVG_BLK": 0.0, "AVG_STL": 0.5, "AVG_TO": 1.4},
+        {"#": "10", "Player": "Siu, Tsin", "AVG_MIN": 12.8, "AVG_PTS": 2.8, "AVG_REB": 1.5, "AVG_AST": 0.4, "AVG_BLK": 0.1, "AVG_STL": 0.3, "AVG_TO": 0.8},
+        {"#": "14", "Player": "Riffle, Ashara", "AVG_MIN": 11.5, "AVG_PTS": 2.8, "AVG_REB": 2.4, "AVG_AST": 0.4, "AVG_BLK": 0.4, "AVG_STL": 0.4, "AVG_TO": 0.7},
+        {"#": "05", "Player": "Key, Taliya", "AVG_MIN": 10.4, "AVG_PTS": 2.6, "AVG_REB": 1.1, "AVG_AST": 0.6, "AVG_BLK": 0.0, "AVG_STL": 0.5, "AVG_TO": 1.2},
+        {"#": "22", "Player": "Baker, Truly", "AVG_MIN": 10.1, "AVG_PTS": 1.8, "AVG_REB": 2.7, "AVG_AST": 0.1, "AVG_BLK": 0.3, "AVG_STL": 0.2, "AVG_TO": 0.6},
+        {"#": "20", "Player": "Bullock, Nahla", "AVG_MIN": 4.5, "AVG_PTS": 1.0, "AVG_REB": 0.3, "AVG_AST": 0.0, "AVG_BLK": 0.0, "AVG_STL": 0.0, "AVG_TO": 0.3},
+        {"#": "12", "Player": "Holloway, Zamareya", "AVG_MIN": 5.0, "AVG_PTS": 0.5, "AVG_REB": 0.5, "AVG_AST": 0.0, "AVG_BLK": 0.0, "AVG_STL": 0.0, "AVG_TO": 0.5},
+        {"#": "04", "Player": "Fields, Nyla", "AVG_MIN": 5.4, "AVG_PTS": 0.4, "AVG_REB": 1.1, "AVG_AST": 0.2, "AVG_BLK": 0.0, "AVG_STL": 0.2, "AVG_TO": 0.4},
+        {"#": "33", "Player": "Afonkina, Polina", "AVG_MIN": 3.3, "AVG_PTS": 0.3, "AVG_REB": 0.9, "AVG_AST": 0.0, "AVG_BLK": 0.1, "AVG_STL": 0.0, "AVG_TO": 0.4}
+      ],
+      stats: ["AVG_PTS", "AVG_REB", "AVG_AST", "AVG_MIN", "AVG_STL", "AVG_BLK", "AVG_TO"]
+    },
+    "men_game_11_18": {
+      name: "Men's Game (11/18 vs Morgan St.)",
+      players: [
+        {"#": "05", "Player": "Walker, Lewis", "MIN": 40, "PTS": 24, "REB": 9, "AST": 3, "BLK": 0, "STL": 2, "TO": 4},
+        {"#": "01", "Player": "Middleton Jr., Trent", "MIN": 36, "PTS": 13, "REB": 4, "AST": 3, "BLK": 0, "STL": 0, "TO": 6},
+        {"#": "07", "Player": "Vick, Brooklyn", "MIN": 33, "PTS": 6, "REB": 1, "AST": 2, "BLK": 0, "STL": 1, "TO": 1},
+        {"#": "00", "Player": "Walker, Lureon", "MIN": 25, "PTS": 10, "REB": 0, "AST": 0, "BLK": 0, "STL": 1, "TO": 2},
+        {"#": "04", "Player": "Ogletree, Bryson", "MIN": 28, "PTS": 9, "REB": 5, "AST": 2, "BLK": 0, "STL": 1, "TO": 2},
+        {"#": "32", "Player": "Debrick, KJ", "MIN": 24, "PTS": 8, "REB": 8, "AST": 0, "BLK": 1, "STL": 2, "TO": 1},
+        {"#": "08", "Player": "Weluche-Ume, Zamoku", "MIN": 23, "PTS": 6, "REB": 0, "AST": 2, "BLK": 0, "STL": 3, "TO": 1},
+        {"#": "14", "Player": "Doumbia, Amadou", "MIN": 8, "PTS": 0, "REB": 2, "AST": 0, "BLK": 0, "STL": 0, "TO": 0},
+        {"#": "34", "Player": "Felton, Will", "MIN": 8, "PTS": 3, "REB": 2, "AST": 1, "BLK": 0, "STL": 0, "TO": 0}
+      ],
+      stats: ["PTS", "REB", "AST", "MIN", "STL", "BLK", "TO"],
+      summary: {
+        bench: 11,
+        fastBreak: 17,
+        offTurnovers: 17,
+        inPaint: 38
+      }
+    },
+    "men_game_11_13": {
+      name: "Men's Game (11/13 vs Wash. Adventist)",
+      players: [
+        {"#": "00", "Player": "Walker, Lureon", "MIN": 32, "PTS": 25, "REB": 5, "AST": 0, "BLK": 1, "STL": 1, "TO": 2},
+        {"#": "08", "Player": "Weluche-Ume, Zamoku", "MIN": 27, "PTS": 17, "REB": 5, "AST": 1, "BLK": 3, "STL": 3, "TO": 1},
+        {"#": "04", "Player": "Ogletree, Bryson", "MIN": 38, "PTS": 9, "REB": 6, "AST": 2, "BLK": 0, "STL": 0, "TO": 2},
+        {"#": "07", "Player": "Vick, Brooklyn", "MIN": 24, "PTS": 2, "REB": 4, "AST": 5, "BLK": 0, "STL": 1, "TO": 2},
+        {"#": "32", "Player": "Debrick, KJ", "MIN": 6, "PTS": 2, "REB": 1, "AST": 0, "BLK": 1, "STL": 0, "TO": 0},
+        {"#": "05", "Player": "Walker, Lewis", "MIN": 31, "PTS": 25, "REB": 8, "AST": 4, "BLK": 0, "STL": 3, "TO": 2},
+        {"#": "09", "Player": "Cueto, Yancarlos", "MIN": 16, "PTS": 4, "REB": 2, "AST": 2, "BLK": 0, "STL": 3, "TO": 3},
+        {"#": "02", "Player": "Burton, Mujahiid", "MIN": 10, "PTS": 3, "REB": 0, "AST": 0, "BLK": 0, "STL": 0, "TO": 0},
+        {"#": "14", "Player": "Doumbia, Amadou", "MIN": 16, "PTS": 2, "REB": 6, "AST": 0, "BLK": 0, "STL": 1, "TO": 1}
+      ],
+      stats: ["PTS", "REB", "AST", "MIN", "STL", "BLK", "TO"],
+      summary: {
+        bench: 34,
+        fastBreak: 27,
+        offTurnovers: 19,
+        inPaint: 50
+      }
+    },
+    "men_game_11_10": {
+      name: "Men's Game (11/04 vs S. Carolina)",
+      players: [
+        {"#": "00", "Player": "Walker, Lureon", "MIN": 35, "PTS": 22, "REB": 1, "AST": 2, "BLK": 1, "STL": 0, "TO": 0},
+        {"#": "01", "Player": "Middleton, Jr., Trent", "MIN": 22, "PTS": 10, "REB": 3, "AST": 2, "BLK": 0, "STL": 1, "TO": 5},
+        {"#": "14", "Player": "Doumbia, Amadou", "MIN": 22, "PTS": 7, "REB": 10, "AST": 1, "BLK": 1, "STL": 1, "TO": 1},
+        {"#": "11", "Player": "Pierce, Dwayne", "MIN": 30, "PTS": 6, "REB": 3, "AST": 3, "BLK": 0, "STL": 1, "TO": 1},
+        {"#": "08", "Player": "Weluche-Ume, Zamoku", "MIN": 18, "PTS": 2, "REB": 2, "AST": 1, "BLK": 0, "STL": 0, "TO": 2},
+        {"#": "05", "Player": "Walker, Lewis", "MIN": 26, "PTS": 16, "REB": 4, "AST": 2, "BLK": 0, "STL": 1, "TO": 0},
+        {"#": "32", "Player": "Debrick, KJ", "MIN": 15, "PTS": 6, "REB": 2, "AST": 0, "BLK": 1, "STL": 1, "TO": 0},
+        {"#": "04", "Player": "Ogletree, Bryson", "MIN": 17, "PTS": 3, "REB": 3, "AST": 1, "BLK": 0, "STL": 1, "TO": 0},
+        {"#": "07", "Player": "Vick, Brooklyn", "MIN": 14, "PTS": 0, "REB": 0, "AST": 0, "BLK": 0, "STL": 3, "TO": 2},
+        {"#": "34", "Player": "Felton, Will", "MIN": 1, "PTS": 0, "REB": 0, "AST": 0, "BLK": 0, "STL": 0, "TO": 0}
+      ],
+      stats: ["PTS", "REB", "AST", "MIN", "STL", "BLK", "TO"],
+      summary: {
+        bench: 25,
+        fastBreak: 28,
+        offTurnovers: 14,
+        inPaint: 34
+      }
+    },
+    "men_game_1_2_avg": {
+      name: "Men's Game 1-2 Averages",
+      players: [
+        {"#": "00", "Player": "Walker, Lureon", "AVG_MIN": 32.0, "AVG_PTS": 22.0, "AVG_REB": 2.5, "AVG_AST": 1.0},
+        {"#": "05", "Player": "Walker, Lewis", "AVG_MIN": 23.5, "AVG_PTS": 16.0, "AVG_REB": 4.0, "AVG_AST": 1.5},
+        {"#": "32", "Player": "Debrick, KJ", "AVG_MIN": 20.0, "AVG_PTS": 10.0, "AVG_REB": 7.0, "AVG_AST": 1.0},
+        {"#": "01", "Player": "Middleton, Jr., Trent", "AVG_MIN": 22.0, "AVG_PTS": 8.0, "AVG_REB": 2.5, "AVG_AST": 2.5},
+        {"#": "08", "Player": "Weluche-Ume, Zamoku", "AVG_MIN": 23.0, "AVG_PTS": 6.0, "AVG_REB": 4.0, "AVG_AST": 2.5},
+        {"#": "11", "Player": "Pierce, Dwayne", "AVG_MIN": 15.5, "AVG_PTS": 4.5, "AVG_REB": 1.5, "AVG_AST": 1.5},
+        {"#": "14", "Player": "Doumbia, Amadou", "AVG_MIN": 15.5, "AVG_PTS": 3.5, "AVG_REB": 6.5, "AVG_AST": 0.5},
+        {"#": "04", "Player": "Ogletree, Bryson", "AVG_MIN": 23.0, "AVG_PTS": 3.0, "AVG_REB": 2.0, "AVG_AST": 1.0},
+        {"#": "07", "Player": "Vick, Brooklyn", "AVG_MIN": 16.0, "AVG_PTS": 2.5, "AVG_REB": 1.0, "AVG_AST": 2.0},
+        {"#": "34", "Player": "Felton, Will", "AVG_MIN": 5.0, "AVG_PTS": 2.0, "AVG_REB": 1.5, "AVG_AST": 0.0},
+        {"#": "02", "Player": "Burton, Mujahiid", "AVG_MIN": 6.0, "AVG_PTS": 1.0, "AVG_REB": 1.0, "AVG_AST": 0.0},
+        {"#": "10", "Player": "Whittington, Chase", "AVG_MIN": 0.5, "AVG_PTS": 0.0, "AVG_REB": 0.0, "AVG_AST": 0.0}
+      ],
+      stats: ["AVG_PTS", "AVG_REB", "AVG_AST", "AVG_MIN"]
+    },
+    "men_game_1_3_avg": {
+      name: "Men's Game 1-3 Averages",
+      players: [
+        {"#": "00", "Player": "Walker, Lureon", "AVG_MIN": 32.0, "AVG_PTS": 23.0, "AVG_REB": 3.3, "AVG_AST": 0.7},
+        {"#": "05", "Player": "Walker, Lewis", "AVG_MIN": 26.0, "AVG_PTS": 19.0, "AVG_REB": 5.3, "AVG_AST": 2.3},
+        {"#": "32", "Player": "Debrick, KJ", "AVG_MIN": 15.3, "AVG_PTS": 7.3, "AVG_REB": 5.0, "AVG_AST": 0.7},
+        {"#": "01", "Player": "Middleton, Jr., Trent", "AVG_MIN": 22.0, "AVG_PTS": 8.0, "AVG_REB": 2.5, "AVG_AST": 2.5},
+        {"#": "08", "Player": "Weluche-Ume, Zamoku", "AVG_MIN": 24.3, "AVG_PTS": 9.7, "AVG_REB": 4.3, "AVG_AST": 2.0},
+        {"#": "11", "Player": "Pierce, Dwayne", "AVG_MIN": 15.5, "AVG_PTS": 4.5, "AVG_REB": 1.5, "AVG_AST": 1.5},
+        {"#": "14", "Player": "Doumbia, Amadou", "AVG_MIN": 15.7, "AVG_PTS": 3.0, "AVG_REB": 6.3, "AVG_AST": 0.3},
+        {"#": "04", "Player": "Ogletree, Bryson", "AVG_MIN": 28.0, "AVG_PTS": 4.0, "AVG_REB": 3.3, "AVG_AST": 1.3},
+        {"#": "07", "Player": "Vick, Brooklyn", "AVG_MIN": 18.7, "AVG_PTS": 2.3, "AVG_REB": 2.0, "AVG_AST": 3.0},
+        {"#": "34", "Player": "Felton, Will", "AVG_MIN": 5.0, "AVG_PTS": 2.0, "AVG_REB": 1.5, "AVG_AST": 0.0},
+        {"#": "02", "Player": "Burton, Mujahiid", "AVG_MIN": 7.3, "AVG_PTS": 1.7, "AVG_REB": 0.7, "AVG_AST": 0.0},
+        {"#": "09", "Player": "Cueto, Yancarlos", "AVG_MIN": 16.0, "AVG_PTS": 4.0, "AVG_REB": 2.0, "AVG_AST": 2.0}
+      ],
+      stats: ["AVG_PTS", "AVG_REB", "AVG_AST", "AVG_MIN"]
+    }
+  };
+
+  let myChart;
+  let currentDatasetKey = 'men_season_avg';
+  let currentStat = 'AVG_PTS';
+
+  let activePredictionModels = { players: {} };
+
+  let historicalModels = {
+    game3: { players: {} },
+    game4: { players: {} },
+    game5: { players: {} }
+  };
+
+  Chart.defaults.color = '#e0e0e0';
+  Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
+  Chart.defaults.font.family = 'Inter, sans-serif';
+  Chart.defaults.font.weight = '500';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setupTabs();
+    setupDatasetSelector();
+    updateStatButtons();
+    updateChart();
+    trainAllHistoricalModels();
+    switchPredictionContext('game5');
+    updateTeamSummary();
+    switchValidation('game4');
+  });
+
+  function setupTabs() {
+    document.getElementById('tab-btn-charts').classList.add('active');
+    document.getElementById('tab-btn-charts').classList.remove('inactive');
+    document.getElementById('tab-panel-charts').classList.remove('hidden');
+
+    window.showTab = (tabName) => {
+      const tabs = ['charts', 'prediction', 'accuracy', 'visualization'];
+      tabs.forEach(tab => {
+        document.getElementById(`tab-btn-${tab}`).classList.remove('active');
+        document.getElementById(`tab-btn-${tab}`).classList.add('inactive');
+        document.getElementById(`tab-panel-${tab}`).classList.add('hidden');
+      });
+      document.getElementById(`tab-btn-${tabName}`).classList.add('active');
+      document.getElementById(`tab-btn-${tabName}`).classList.remove('inactive');
+      document.getElementById(`tab-panel-${tabName}`).classList.remove('hidden');
+    };
+  }
+
+  function setupDatasetSelector() {
+    const selector = document.getElementById('dataset-select');
+    selector.addEventListener('change', (e) => {
+      currentDatasetKey = e.target.value;
+      const availableStats = datasets[currentDatasetKey].stats;
+      if (!availableStats.includes(currentStat)) {
+        currentStat = availableStats[0];
+      }
+      updateStatButtons();
+      updateChart();
+      updateTeamSummary();
+    });
+  }
+
+  function updateStatButtons() {
+    const container = document.getElementById('stat-buttons-container');
+    container.innerHTML = '';
+    const availableStats = datasets[currentDatasetKey].stats;
+
+    availableStats.forEach(stat => {
+      const button = document.createElement('button');
+      button.textContent = stat;
+      button.dataset.stat = stat;
+      button.className = 'stat-button';
+      if (stat === currentStat) {
+        button.classList.add('active');
+        button.classList.add('bg-aggie-gold', 'text-aggie-blue');
+      } else {
+        button.classList.add('inactive');
+        button.classList.add('bg-blue-900', 'text-aggie-gold', 'hover:bg-blue-800');
+      }
+      button.onclick = () => {
+        currentStat = stat;
+        updateStatButtons();
+        updateChart();
+      };
+      container.appendChild(button);
+    });
+  }
+
+  function updateTeamSummary() {
+    const container = document.getElementById('team-summary-container');
+    const title = document.getElementById('team-summary-title');
+    const data = datasets[currentDatasetKey];
+
+    if (data.summary) {
+      title.textContent = `Team Summary: ${data.name}`;
+      document.getElementById('bench-points').textContent = data.summary.bench;
+      document.getElementById('fast-break-points').textContent = data.summary.fastBreak;
+      document.getElementById('points-off-turnovers').textContent = data.summary.offTurnovers;
+      document.getElementById('points-in-paint').textContent = data.summary.inPaint;
+      container.classList.remove('hidden');
+    } else {
+      container.classList.add('hidden');
+    }
+  }
+
+  function updateChart() {
+    const { players } = datasets[currentDatasetKey];
+
+    const sortedPlayers = [...players].sort((a, b) => {
+      const valA = a[currentStat] === null ? -Infinity : a[currentStat];
+      const valB = b[currentStat] === null ? -Infinity : b[currentStat];
+      return valB - valA;
+    });
+
+    const labels = sortedPlayers.map(p => `${p.Player} (${p['#']})`);
+    const dataValues = sortedPlayers.map(p => p[currentStat] === null ? 0 : p[currentStat]);
+
+    const chartWrapper = document.getElementById('chart-wrapper');
+    const baseHeight = 100;
+    const heightPerBar = 30;
+    const newHeight = Math.max(baseHeight + labels.length * heightPerBar, 400);
+    chartWrapper.style.height = `${newHeight}px`;
+
+    const ctx = document.getElementById('playerStatsChart').getContext('2d');
+
+    if (myChart) {
+      myChart.destroy();
+    }
+
+    myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: currentStat,
+          data: dataValues,
+          backgroundColor: '#fdb927',
+          borderColor: '#fdb927',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        indexAxis: 'y',
+        scales: {
+          x: {
+            beginAtZero: true,
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)',
+              borderColor: 'rgba(255, 255, 255, 0.1)'
+            },
+            ticks: {
+              color: '#e0e0e0'
+            }
+          },
+          y: {
+            grid: {
+              display: false
+            },
+            ticks: {
+              color: '#e0e0e0',
+              autoSkip: false
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+          title: {
+            display: true,
+            text: `${datasets[currentDatasetKey].name}: ${currentStat}`,
+            color: '#fdb927',
+            font: {
+              size: 18,
+              weight: 'bold'
+            },
+            padding: {
+              top: 10,
+              bottom: 20
+            }
+          },
+          tooltip: {
+            backgroundColor: '#000',
+            titleColor: '#fdb927',
+            bodyColor: '#fff',
+            borderColor: '#fdb927',
+            borderWidth: 1,
+            callbacks: {
+              label: function(context) {
+                let label = context.dataset.label || '';
+                if (label) {
+                  label += ': ';
+                }
+                if (context.parsed.x !== null) {
+                  const val = datasets[currentDatasetKey].players[context.dataIndex][currentStat];
+                  if (val === null) {
+                    label += 'N/A';
+                  } else {
+                    label += context.parsed.x;
+                  }
+                }
+                return label;
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  function trainPlayerModels(datasetKey) {
+    const players = datasets[datasetKey].players;
+    const models = {};
+
+    players.forEach(player => {
+      const min = Math.max(player.AVG_MIN, 1);
+      models[player.Player] = {
+        ppm: player.AVG_PTS / min,
+        rpm: player.AVG_REB / min,
+        apm: player.AVG_AST / min
+      };
+    });
+
+    return models;
+  }
+
+  function trainAllHistoricalModels() {
+    historicalModels.game3.players = trainPlayerModels('men_game_1_2_avg');
+    historicalModels.game4.players = trainPlayerModels('men_game_1_3_avg');
+    historicalModels.game5.players = trainPlayerModels('men_season_avg');
+    activePredictionModels = historicalModels.game5;
+  }
+
+  document.getElementById('predict-game-select').addEventListener('change', (e) => {
+    switchPredictionContext(e.target.value);
+  });
+
+  function switchPredictionContext(contextKey) {
+    activePredictionModels = historicalModels[contextKey];
+
+    let baselineKey = 'men_season_avg';
+    if (contextKey === 'game3') baselineKey = 'men_game_1_2_avg';
+    if (contextKey === 'game4') baselineKey = 'men_game_1_3_avg';
+
+    const playerSelect = document.getElementById('player-select');
+    playerSelect.innerHTML = '';
+
+    const baselinePlayers = datasets[baselineKey].players;
+
+    baselinePlayers.forEach((player, index) => {
+      const option = document.createElement('option');
+      option.value = player.Player;
+      option.dataset.source = baselineKey;
+      option.dataset.index = index;
+      option.textContent = `${player.Player} (${player['#']})`;
+      playerSelect.appendChild(option);
+    });
+
+    const contextText = document.getElementById('prediction-context-text');
+    let contextLabel = "Games 1-4";
+    if (contextKey === 'game3') contextLabel = "Games 1-2";
+    if (contextKey === 'game4') contextLabel = "Games 1-3";
+
+    contextText.innerHTML = `Using <strong>Player-Specific</strong> Efficiency Models trained on ${contextLabel}.`;
+
+    playerSelect.onchange = handlePlayerChange;
+    playerSelect.selectedIndex = 0;
+    handlePlayerChange();
+  }
+
+  function handlePlayerChange() {
+    const playerSelect = document.getElementById('player-select');
+    if (playerSelect.selectedIndex === -1) return;
+
+    const selectedOption = playerSelect.options[playerSelect.selectedIndex];
+    const playerName = selectedOption.value;
+    const sourceKey = selectedOption.dataset.source;
+    const index = selectedOption.dataset.index;
+
+    const selectedPlayer = datasets[sourceKey].players[index];
+
+    const avgMin = (selectedPlayer.AVG_MIN || 0);
+    document.getElementById('minutes-input').value = avgMin.toFixed(1);
+    document.getElementById('minutes-slider').value = Math.round(avgMin);
+
+    const playerModel = activePredictionModels.players[playerName];
+    if (playerModel) {
+      const infoDisplay = document.getElementById('model-info');
+      infoDisplay.innerHTML = `
+              <strong>${playerName}'s Rates:</strong><br>
+              ${playerModel.ppm.toFixed(2)} pts/min |
+              ${playerModel.rpm.toFixed(2)} reb/min |
+              ${playerModel.apm.toFixed(2)} ast/min
+          `;
+    }
+
+    updatePrediction();
+  }
+
+  function updatePrediction() {
+    const minutes = parseFloat(document.getElementById('minutes-input').value) || 0;
+    const playerSelect = document.getElementById('player-select');
+    if (playerSelect.selectedIndex === -1) return;
+
+    const playerName = playerSelect.options[playerSelect.selectedIndex].value;
+    const playerModel = activePredictionModels.players[playerName];
+
+    if (!playerModel) {
+      document.getElementById('pred-pts').textContent = "--";
+      document.getElementById('pred-reb').textContent = "--";
+      document.getElementById('pred-ast').textContent = "--";
+      return;
+    }
+
+    const predPts = playerModel.ppm * minutes;
+    const predReb = playerModel.rpm * minutes;
+    const predAst = playerModel.apm * minutes;
+
+    document.getElementById('pred-pts').textContent = predPts.toFixed(1);
+    document.getElementById('pred-reb').textContent = predReb.toFixed(1);
+    document.getElementById('pred-ast').textContent = predAst.toFixed(1);
+  }
+
+  document.getElementById('minutes-input').addEventListener('input', updatePrediction);
+  document.getElementById('minutes-slider').addEventListener('input', (e) => {
+    document.getElementById('minutes-input').value = e.target.value;
+    updatePrediction();
+  });
+
+  window.switchValidation = (gameKey) => {
+    document.getElementById('btn-validate-g4').className =
+      gameKey === 'game4'
+        ? 'stat-button active px-4 py-2 rounded-md text-sm font-medium bg-aggie-gold text-aggie-blue'
+        : 'stat-button inactive px-4 py-2 rounded-md text-sm font-medium bg-blue-900 text-aggie-gold hover:bg-blue-800';
+
+    document.getElementById('btn-validate-g3').className =
+      gameKey === 'game3'
+        ? 'stat-button active px-4 py-2 rounded-md text-sm font-medium bg-aggie-gold text-aggie-blue'
+        : 'stat-button inactive px-4 py-2 rounded-md text-sm font-medium bg-blue-900 text-aggie-gold hover:bg-blue-800';
+
+    const desc = document.getElementById('validation-desc');
+    const tableBody = document.getElementById('accuracy-table-body');
+    tableBody.innerHTML = '';
+
+    let actualDataKey = '';
+    let modelToUse = {};
+
+    if (gameKey === 'game4') {
+      desc.innerHTML = "Comparing <strong>Game 1-3 Model</strong> (Player-Specific) vs Actual <strong>Game 4</strong> stats.";
+      actualDataKey = 'men_game_11_18';
+      modelToUse = historicalModels.game4.players;
+    } else {
+      desc.innerHTML = "Comparing <strong>Game 1-2 Model</strong> (Player-Specific) vs Actual <strong>Game 3</strong> stats.";
+      actualDataKey = 'men_game_11_13';
+      modelToUse = historicalModels.game3.players;
+    }
+
+    const actualData = datasets[actualDataKey].players;
+
+    actualData.forEach(player => {
+      const minutes = player.MIN;
+      const actPts = player.PTS;
+      const actReb = player.REB;
+      const playerName = player.Player;
+
+      const pModel = modelToUse[playerName];
+
+      let predPts = "--";
+      let predReb = "--";
+      let diffPts = "--";
+      let diffClass = "diff-neutral";
+      let diffSign = "";
+
+      if (pModel) {
+        predPts = (pModel.ppm * minutes).toFixed(1);
+        predReb = (pModel.rpm * minutes).toFixed(1);
+
+        diffPts = (actPts - parseFloat(predPts)).toFixed(1);
+
+        diffClass = parseFloat(diffPts) > 0 ? 'diff-positive' : (parseFloat(diffPts) < 0 ? 'diff-negative' : 'diff-neutral');
+        diffSign = parseFloat(diffPts) > 0 ? '+' : '';
+      }
+
+      const row = `
+              <tr>
+                  <td>${playerName}</td>
+                  <td class="text-center">${minutes}</td>
+                  <td class="text-center text-gray-400">${predPts}</td>
+                  <td class="text-center font-bold">${actPts}</td>
+                  <td class="text-center font-bold ${diffClass}">${diffSign}${diffPts}</td>
+                  <td class="text-center text-gray-400">${predReb}</td>
+                  <td class="text-center">${actReb}</td>
+              </tr>
+          `;
+      tableBody.innerHTML += row;
+    });
+  };
+
+
+window.toggleCompare = () => {
+        const grid = document.getElementById('viz-grid');
+        grid.classList.toggle('lg:grid-cols-2');
+    };
+
+
+
+
+//scatter plots (visualization)
+    function getScatterConfig(
+        label,
+        data,
+        xAxisTitle,
+        yAxisTitle,
+        colorDot,
+        colorData,
+        colorText,
+        dataHoverBorder
+    ) {
+
+        const avgX = data.length > 0 ? data.reduce((sum, item) => sum + item.x, 0) / data.length : 0;
+        const avgY = data.length > 0 ? data.reduce((sum, item) => sum + item.y, 0) / data.length : 0;
+
+        return {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: label,
+                    data: data,
+
+                    borderColor: colorDot,
+                    pointRadius: 4,
+                    pointHoverRadius: 7,
+
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: label,
+                        color: colorText,
+                        font: { size: 14, weight: 'bold' },
+                        padding: { bottom: 10 }
+                    },
+                    annotation: {
+                        annotations: {
+                            xLine: {
+
+                                type: 'line',
+                                scaleID: 'x',
+                                value: avgX,
+                                borderColor: 'rgba(255, 255, 255, 0.4)',
+                                borderDash: [5, 5],
+                                borderWidth: 2
+                            },
+                            yLine: {
+                                type: 'line',
+                                scaleID: 'y',
+                                value: avgY,
+                                borderColor: 'rgba(255, 255, 255, 0.4)',
+                                borderDash: [5, 5],
+                                borderWidth: 2
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: colorData,
+                        titleColor: colorText,
+                        bodyColor: colorText,
+
+                        borderColor: dataHoverBorder,
+                        borderWidth: 1,
+
+                        bodyFont: {
+                            weight: 'bold',
+                            size: 14,
+                            family: 'Inter, sans-serif'
+                        },
+                        padding: 10,
+                        cornerRadius: 4,
+                        displayColors: false,
+                        callbacks: {
+                            title: (ctx) => ctx[0].raw.name,
+                            label: (ctx) => {
+                            const formattedTitle = yAxisTitle.charAt(0).toUpperCase() + yAxisTitle.slice(1).toLowerCase();
+
+                            return `${formattedTitle}: ${ctx.raw.y} | Minutes: ${ctx.raw.x}`;
+                            }
+                        },
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: xAxisTitle,
+                            color: '#9ca3af',
+                            font: { weight: 'bold' }
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.1)'
+                        },
+                        ticks: {
+                            color: '#e0e0e0'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: yAxisTitle,
+                            color: '#9ca3af',
+                            font: { weight: 'bold' }
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.1)'
+                        },
+                        ticks: {
+                            color: '#e0e0e0'
+                        }
+                    }
+                }
+            }
+        };
+    }
+
+
+    //Chart Data
+    function initScatterPlots() {
+        // Data coming from these sources:
+        const men = datasets.men_season_avg.players;
+        const women = datasets.women_season_avg.players;
+
+        const formatNum = (num) => parseFloat(num.toFixed(2));
+
+        // Total Stats (Points+Rebound+Assists)
+        const mapTotal = (arr) => arr.map(playerData => ({
+            x: playerData.AVG_MIN,
+            y: formatNum(playerData.AVG_PTS + playerData.AVG_REB + playerData.AVG_AST),
+            name: playerData.Player
+        }));
+        // Points / Minutes
+        const mapEff = (arr) => arr.map(playerData => ({
+            x: playerData.AVG_MIN,
+            y: formatNum(playerData.AVG_PTS / (playerData.AVG_MIN || 1)),
+            name: playerData.Player
+        }));
+
+        // Assist / Turnovers
+        const mapRatio = (arr) => arr.map(playerData => ({
+            x: playerData.AVG_MIN,
+            y: formatNum(playerData.AVG_AST / (playerData.AVG_TO || 1)),
+            name: playerData.Player
+        }));
+
+        // Process Data
+        const menTotal = mapTotal(men);
+        const womenTotal = mapTotal(women);
+        const menTS = mapEff(men);
+        const womenTS = mapEff(women);
+        const menAT = mapRatio(men);
+        const womenAT = mapRatio(women);
+
+        // Colors
+        const aggieColor = tailwind.config.theme.extend.colors;
+        const aggieGold = aggieColor['aggie-gold'];
+        const aggieBlue = aggieColor['aggie-blue'];
+        const black = '#000000';
+
+
+        // Mens chart
+        new Chart(document.getElementById('menTotalStats'),
+            getScatterConfig('Men: Positive Box Score vs Minutes Per Game', menTotal, 'MINUTES PER GAME', 'TOTAL SCORE', aggieGold, black, aggieGold,aggieGold));
+        new Chart(document.getElementById('menTrueShooting'),
+            getScatterConfig('Men: True Shooting Percentage vs Minutes Per Game', menTS, 'MINUTES PER GAME', 'SHOOTING PERCENTAGE', aggieGold, black, aggieGold,aggieGold));
+        new Chart(document.getElementById('menAssistTurnover'),
+            getScatterConfig('Men: Assist to Turnover Ratio vs Minutes Per Game', menAT, 'MINUTES PER GAME', 'ATR Ratio', aggieGold, black, aggieGold,aggieGold));
+
+
+        // Womens chart
+        new Chart(document.getElementById('womenTotalStats'),
+            getScatterConfig('Women: Positive Box Score vs Minutes Per Game', womenTotal, 'MINUTES PER GAME', 'TOTAL SCORE', aggieBlue, black, aggieBlue,aggieBlue));
+        new Chart(document.getElementById('womenTrueShooting'),
+            getScatterConfig('Women:True Shooting Percentage vs Minutes Per Game', womenTS, 'MINUTES PER GAME', 'SHOOTING PERCENTAGE', aggieBlue, black, aggieBlue,aggieBlue));
+        new Chart(document.getElementById('womenAssistTurnover'),
+            getScatterConfig('Women: Assist to Turnover Ratio vs Minutes Per Game', womenAT, 'MINUTES PER GAME', 'AST Ratio', aggieBlue, black, aggieBlue,aggieBlue));
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        initScatterPlots();
+    });
+</script>
+</script>
+<!-- ======================
+     LOGIN / SIGNUP MODAL
+     ====================== -->
+<div id="loginModal"
+     class="fixed inset-0 hidden z-50 flex items-center justify-center
+            bg-black/70 backdrop-blur-sm">
+
+  <div class="relative w-[92%] max-w-md rounded-2xl
+              bg-gradient-to-br from-aggie-blue/80 to-slate-900/90
+               to-indigo-800/70
+              border border-white/20
+              shadow-[0_30px_120px_rgba(168,85,247,0.45)]
+              backdrop-blur-xl p-8 text-white">
+
+    <!-- CLOSE -->
+    <button id="closeLogin"
+            class="absolute top-4 right-4 text-gray-300 hover:text-white text-lg">
+      ✕
+    </button>
+
+    <!-- STEP 1: ROLE -->
+    <div id="roleStep">
+      <h2 class="text-xl font-bold text-center mb-6">Select Your Role</h2>
+
+      <div class="grid grid-cols-2 gap-4">
+        <button data-role="coach"
+                class="roleBtn py-3 rounded-xl bg-aggie-gold text-black font-bold hover:brightness-110 transition">
+          Coach
+        </button>
+        <button data-role="player"
+                class="roleBtn py-3 rounded-xl bg-indigo-400 text-black font-bold hover:brightness-110 transition">
+          Player
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 2: LOGIN / SIGN UP -->
+    <div id="formStep" class="hidden">
+
+      <h2 id="roleTitle"
+          class="text-lg font-bold text-center mb-1 uppercase tracking-wider"></h2>
+
+      <p id="modeText" class="text-center text-xs text-gray-300 mb-5">
+        Login to your account
+      </p>
+
+      <!-- USERNAME -->
+      <label class="text-xs uppercase tracking-wide">Username or Email</label>
+      <input id="usernameInput"
+             class="w-full mt-1 mb-1 rounded-full px-5 py-3
+                bg-white/10 border border-white/20
+                placeholder-gray-300"
+             placeholder="Username or Email" />
+      <p id="usernameHint" class="text-xs text-gray-300 mb-3"></p>
+
+      <!-- PASSWORD -->
+      <label class="text-xs uppercase tracking-wide">Password</label>
+      <input id="passwordInput"
+             type="password"
+             class="w-full mt-1 mb-1 rounded-full px-5 py-3
+                bg-white/10 border border-white/20
+                placeholder-gray-300"
+             placeholder="Password" />
+      <p id="passwordHint" class="text-xs text-gray-300 mb-3"></p>
+
+      <!-- REMEMBER ME -->
+      <label class="flex items-center gap-2 text-xs text-gray-300 mb-4">
+        <input id="rememberMe" type="checkbox" class="accent-aggie-gold">
+        Remember my username
+      </label>
+
+      <button id="submitLogin"
+              disabled
+              class="w-full py-3 rounded-full bg-gray-500 text-black
+                 font-bold uppercase tracking-widest opacity-50">
+        Continue
+      </button>
+
+      <!-- TOGGLE -->
+      <p class="text-center text-xs text-gray-300 mt-5">
+        <span id="toggleText">New user?</span>
+        <span id="toggleMode"
+              class="text-aggie-gold font-semibold cursor-pointer hover:underline">
+      Create an account
+    </span>
+      </p>
+
+    </div>
+
+
+  </div>
+</div>
+<script>
+  const loginBtn = document.getElementById("loginBtn");
+  const loginModal = document.getElementById("loginModal");
+  const closeLogin = document.getElementById("closeLogin");
+
+  const roleStep = document.getElementById("roleStep");
+  const formStep = document.getElementById("formStep");
+  const roleTitle = document.getElementById("roleTitle");
+  const modeText = document.getElementById("modeText");
+
+  const usernameInput = document.getElementById("usernameInput");
+  const passwordInput = document.getElementById("passwordInput");
+  const usernameHint = document.getElementById("usernameHint");
+  const passwordHint = document.getElementById("passwordHint");
+  const rememberMe = document.getElementById("rememberMe");
+  const submitBtn = document.getElementById("submitLogin");
+
+  const toggleMode = document.getElementById("toggleMode");
+  const toggleText = document.getElementById("toggleText");
+
+  let selectedRole = "";
+  let isSignup = false;
+
+  // OPEN MODAL
+  loginBtn.onclick = () => {
+    loginModal.classList.remove("hidden");
+    roleStep.classList.remove("hidden");
+    formStep.classList.add("hidden");
+
+    // load remembered username
+    const savedUser = localStorage.getItem("savedUsername");
+    if (savedUser) usernameInput.value = savedUser;
+  };
+
+  closeLogin.onclick = () => loginModal.classList.add("hidden");
+
+  // ROLE SELECT
+  document.querySelectorAll(".roleBtn").forEach(btn => {
+    btn.onclick = () => {
+      selectedRole = btn.dataset.role;
+      roleTitle.textContent = `${selectedRole.toUpperCase()} ${isSignup ? "SIGN UP" : "LOGIN"}`;
+      roleStep.classList.add("hidden");
+      formStep.classList.remove("hidden");
+    };
+  });
+
+  // TOGGLE LOGIN / SIGNUP
+  toggleMode.onclick = () => {
+    isSignup = !isSignup;
+    roleTitle.textContent = `${selectedRole.toUpperCase()} ${isSignup ? "SIGN UP" : "LOGIN"}`;
+    modeText.textContent = isSignup
+      ? "Create a new account"
+      : "Login to your account";
+    toggleText.textContent = isSignup ? "Already have an account?" : "New user?";
+    toggleMode.textContent = isSignup ? "Login" : "Create an account";
+    submitBtn.textContent = isSignup ? "Create Account" : "Continue";
+  };
+
+  // VALIDATION
+  function validate() {
+    const userVal = usernameInput.value.trim();
+    const userOk =
+      /^[a-zA-Z0-9_]{4,15}$/.test(userVal) ||
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userVal);
+
+    usernameHint.textContent = userOk
+      ? "✔ Valid username or email"
+      : "❌ 4–15 chars OR valid email";
+
+    const passVal = passwordInput.value;
+    const passOk =
+      passVal.length >= 8 &&
+      /[A-Z]/.test(passVal) &&
+      /[0-9]/.test(passVal) &&
+      /[^A-Za-z0-9]/.test(passVal);
+
+    passwordHint.textContent = passOk
+      ? "✔ Strong password"
+      : "❌ 8+ chars, uppercase, number, symbol";
+
+    submitBtn.disabled = !(userOk && passOk);
+    submitBtn.classList.toggle("opacity-50", submitBtn.disabled);
+  }
+
+  usernameInput.oninput = validate;
+  passwordInput.oninput = validate;
+
+  // SUBMIT
+  submitBtn.onclick = () => {
+    if (rememberMe.checked) {
+      localStorage.setItem("savedUsername", usernameInput.value);
+    } else {
+      localStorage.removeItem("savedUsername");
+    }
+
+    localStorage.setItem("userRole", selectedRole);
+    localStorage.setItem("username", usernameInput.value);
+
+    updateNavbarUser();
+
+    alert(
+      isSignup
+        ? `Account created for ${selectedRole}`
+        : `Logged in as ${selectedRole}`
+    );
+
+    loginModal.classList.add("hidden");
+  };
+</script>
+<script>
+  const notifBtn = document.getElementById("notifBtn");
+  const notifModal = document.getElementById("notifModal");
+  const closeNotif = document.getElementById("closeNotif");
+
+  if (notifBtn) {
+    notifBtn.addEventListener("click", () => {
+      notifModal.classList.remove("hidden");
+    });
+  }
+
+  if (closeNotif) {
+    closeNotif.addEventListener("click", () => {
+      notifModal.classList.add("hidden");
+    });
+  }
+
+  // close when clicking outside
+  notifModal?.addEventListener("click", (e) => {
+    if (e.target === notifModal) {
+      notifModal.classList.add("hidden");
+    }
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aggie Hoops Strategies</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Tailwind Theme -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'aggie-blue': '#004b8d',
+            'aggie-gold': '#fdb927',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+      body {
+          margin: 0;
+          padding: 0;
+          background: radial-gradient(circle at top, #0f172a 0%, #020617 50%, #000 100%);
+          color: #e5e7eb;
+          font-family: 'Inter', sans-serif;
+          overflow-x: hidden;
+      }
+
+      /* GOLD AURA PAGE OVERLAY */
+      .page-overlay {
+          position: fixed;
+          inset: 0;
+          z-index: -2;
+          background: radial-gradient(circle at top, rgba(15,23,42,0.85), rgba(0,0,0,0.95));
+      }
+
+      /* NAV BUTTON STYLE */
+      .nav-pill {
+          padding: 0.55rem 1.35rem;
+          border-radius: 999px;
+          font-size: 0.8rem;
+          font-weight: 800;
+          letter-spacing: 0.13em;
+          text-transform: uppercase;
+          border: 1px solid rgba(253,185,39,0.5);   /* GOLD */
+          background: radial-gradient(circle at top left, #1e293b, #020617);
+          transition: all 0.25s ease;
+          color: rgb(230,230,230);
+      }
+      .nav-pill:hover {
+          border-color: #fdb927;
+          transform: translateY(-2px);
+          color: white;
+          box-shadow: 0 0 18px rgba(253,185,39,0.5);
+      }
+      .nav-active {
+          background: linear-gradient(135deg, #fdb927, #d89b1d);
+          color: #111;
+          border-color: transparent;
+          box-shadow: 0 10px 28px rgba(253,185,39,0.4);
+      }
+
+      /* ⭐ PARTICLES ⭐ */
+      .particles {
+          position: fixed;
+          inset: 0;
+          z-index: -1;
+          pointer-events: none;
+      }
+      .particle {
+          position: absolute;
+          width: 5px;
+          height: 5px;
+          background: rgba(255,255,255,0.5);
+          border-radius: 50%;
+          animation: rise var(--duration) linear infinite;
+          opacity: 0.9;
+          filter: drop-shadow(0 0 8px rgba(255,255,255,0.9));
+      }
+      @keyframes rise {
+          0% { transform: translateY(0); opacity: 0.3; }
+          100% { transform: translateY(-130vh); opacity: 0; }
+      }
+  </style>
+</head>
+
+<body>
+
+<!-- ⭐ PARTICLES ⭐ -->
+<div class="particles" id="particles"></div>
+
+<div class="page-overlay"></div>
+
+<!-- ============================= -->
+<!-- 🔝 HEADER + NAVIGATION -->
+<!-- ============================= -->
+<header class="sticky top-0 z-50 py-4 px-8 flex justify-between items-center
+        bg-black/40 backdrop-blur-xl border-b border-aggie-gold/70 shadow-[0_0_20px_rgba(253,185,39,0.35)]">
+
+  <div class="flex items-center gap-4">
+    <img src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/NC_A%26T_Logo_Icon_2C.png"
+         class="h-12 w-12">
+
+    <h1 class="text-3xl font-extrabold tracking-wide">
+      <span class="text-aggie-gold drop-shadow-[0_0_12px_rgba(253,185,39,0.6)]">Aggie Hoops Strategies</span>
+    </h1>
+  </div>
+
+  <nav class="flex gap-3 text-xs font-bold">
+    <a href="home.html" class="nav-pill">Aggie Analytics</a>
+    <a href="strategy-lab.html" class="nav-pill nav-active">Strategy Lab</a>
+  </nav>
+
+</header>
+
+<!-- ============================= -->
+<!-- 📌 CONTENT -->
+<!-- ============================= -->
+
+
+<div class="max-w-6xl mx-auto px-6 pt-20 pb-32">
+
+  <section class="pt-10" data-aos="fade-up">
+
+    <h2 class="text-4xl font-extrabold text-aggie-gold drop-shadow-[0_0_25px_rgba(253,185,39,0.6)] mb-12 text-center">
+      Strategy Lab Console
+    </h2>
+
+
+    <!-- YOUTUBE EMBED -->
+<div class="mt-12 mb-4" data-aos="fade-up" data-aos-delay="100">
+    <div class="relative w-full max-w-3xl mx-auto rounded-3xl overflow-hidden
+                border border-aggie-gold/40 shadow-[0_0_40px_rgba(253,185,39,0.4)]">
+        <div class="aspect-video">
+            <iframe
+                src="https://www.youtube.com/embed/aS1VLyz2I7g"
+                title="Strategy Breakdown"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                class="w-full h-full">
+            </iframe>
+        </div>
+    </div>
+</div>
+
+    <div class="grid grid-cols-12 gap-10">
+
+      <!-- LEFT MENU -->
+      <div class="col-span-12 md:col-span-4 space-y-4">
+
+        <button onclick="loadStrategy('zone')"
+                class="w-full px-5 py-4 rounded-xl bg-slate-900/70 border border-aggie-gold/40
+                     hover:bg-aggie-blue transition text-left font-semibold">
+          Attack Zone Defenses
+        </button>
+
+        <button onclick="loadStrategy('scorer')"
+                class="w-full px-5 py-4 rounded-xl bg-slate-900/70 border border-aggie-gold/40
+                     hover:bg-aggie-blue transition text-left font-semibold">
+          Guard Elite Scorers
+        </button>
+
+        <button onclick="loadStrategy('lineup')"
+                class="w-full px-5 py-4 rounded-xl bg-slate-900/70 border border-aggie-gold/40
+                     hover:bg-aggie-blue transition text-left font-semibold">
+          Aggie Lineup Advantages
+        </button>
+
+        <button onclick="openFullBoard()"
+                class="w-full px-5 py-4 rounded-xl bg-aggie-blue border border-aggie-gold/40
+        hover:bg-blue-800 transition text-left font-semibold">
+          Open Full Tactical Board
+        </button>
+
+      </div>
+
+      <!-- RIGHT CONTENT PANEL -->
+      <div class="col-span-12 md:col-span-8
+                bg-black/50 backdrop-blur-xl
+                rounded-3xl p-8
+                border border-aggie-gold/40
+                shadow-[0_0_40px_rgba(253,185,39,0.35)]">
+
+        <div id="strategyContent">
+          <h3 class="text-2xl text-aggie-gold font-bold mb-4">
+            Select a strategy module.
+          </h3>
+          <p class="text-gray-300">
+            Coaching concepts, matchup planning, and film breakdown tools will appear here.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- IMAGES -->
+  <!--<div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10" data-aos="fade-up" data-aos-delay="150">
+
+    <div class="rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(253,185,39,0.4)]
+                hover:scale-[1.02] transition-all duration-300 border border-aggie-gold/40">
+      <img src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/basketball-zone-defense.jpeg"
+           class="w-full h-full object-cover">
+    </div>
+
+    <div class="rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(253,185,39,0.4)]
+                hover:scale-[1.02] transition-all duration-300 border border-aggie-gold/40">
+      <img src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/508694029_1148524223955647_1293008548997148361_n.jpg"
+           class="w-full h-full object-cover">
+    </div>
+
+  </div>-->
+
+  <!-- BACK BUTTON -->
+  <div class="flex justify-center mt-24" data-aos="fade-up" data-aos-delay="250">
+    <a href="welcome.html"
+       class="px-10 py-4 rounded-full font-extrabold text-lg tracking-wider
+              bg-gradient-to-br from-aggie-gold to-yellow-600 text-black
+              shadow-[0_0_35px_rgba(253,185,39,0.7)]
+              hover:shadow-[0_0_55px_rgba(253,185,39,1)]
+              hover:-translate-y-1 transition-all">
+      ← Back to Welcome
+    </a>
+  </div>
+
+</div>
+
+<script>
+  AOS.init();
+
+  // ⭐ Create Particles ⭐
+  for (let i = 0; i < 45; i++) {
+    const p = document.createElement("div");
+    p.classList.add("particle");
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.bottom = Math.random() * 100 + "vh";
+    p.style.setProperty("--duration", (6 + Math.random() * 6) + "s");
+    document.getElementById("particles").appendChild(p);
+  }
+</script>
+<script>
+
+  function loadStrategy(type) {
+
+    const panel = document.getElementById("strategyContent");
+    if (type === "zone") {
+      panel.innerHTML = `
+      <h3 class="text-2xl font-bold text-aggie-gold mb-6">
+        Attacking Zone Defenses
+      </h3>
+
+      <div class="space-y-6 text-gray-200">
+
+        <div>
+          <h4 class="text-lg font-semibold text-yellow-400">2–3 Zone</h4>
+          <p>High-post touch. Short corner drift. Skip opposite. Rebound gaps.</p>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold text-yellow-400">3–2 Zone</h4>
+          <p>Ball reversal. Baseline runner. Screen inside zone. High-low reads.</p>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold text-yellow-400">1–3–1 Zone</h4>
+          <p>Attack short corner. Opposite dunk-in. Drive middle → drift pass.</p>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold text-yellow-400">1–2–2 Press</h4>
+          <p>Middle flash. Advance pass. Attack numbers before defense sets.</p>
+        </div>
+
+      </div>
+    `;
+    }
+
+
+    if (type === "board") {
+
+      panel.innerHTML = `
+<h3 class="text-2xl font-bold text-aggie-gold mb-6 text-center">
+  Full Court Tactical Clipboard
+</h3>
+
+<div class="fixed inset-0 bg-black z-40 flex items-center justify-center">
+
+  <div class="relative w-[95vw] h-[75vh] max-w-[1600px]">
+
+      <canvas id="chalkboard"
+              class="absolute inset-0 w-full h-full rounded-xl border-4 border-gray-600 shadow-2xl">
+      </canvas>
+
+  </div>
+
+</div>
+
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex gap-3 flex-wrap justify-center">
+
+  <button onclick="setTool('draw')" class="nav-pill">Draw</button>
+  <button onclick="setTool('erase')" class="nav-pill">Erase</button>
+
+  <button onclick="setColor('#ffffff')" class="nav-pill">White</button>
+  <button onclick="setColor('#fdb927')" class="nav-pill">Gold</button>
+
+  <button onclick="clearBoard()" class="nav-pill">Clear</button>
+
+  <button onclick="addPlayer('offense')" class="nav-pill">Add O</button>
+  <button onclick="addPlayer('defense')" class="nav-pill">Add X</button>
+
+</div>
+`;
+
+      initializeClipboard();
+    }
+
+    if (type === "scorer") {
+      panel.innerHTML = `
+      <h3 class="text-2xl font-bold text-aggie-gold mb-6">
+        Guarding Elite Scorers
+      </h3>
+
+      <div class="space-y-6 text-gray-200">
+
+        <div>
+          <h4 class="text-lg font-semibold text-yellow-400">Force Left</h4>
+          <p>Shade dominant hand. Early nail help. Close out to weak hand.</p>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold text-yellow-400">ICE Side PnR</h4>
+          <p>Force baseline. Big drops. Weakside tags roller.</p>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold text-yellow-400">Drop Coverage</h4>
+          <p>Protect rim. Contest midrange. Control lob threats.</p>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold text-yellow-400">Hedge & Recover</h4>
+          <p>Aggressive show. Disrupt rhythm. Sprint back to roller.</p>
+        </div>
+
+      </div>
+    `;
+    }
+
+    if (type === "lineup") {
+      panel.innerHTML = `
+      <h3 class="text-2xl font-bold text-aggie-gold mb-6">
+        Aggie Lineup Advantages
+      </h3>
+
+      <div class="space-y-6 text-gray-200">
+
+        <div>
+          <h4 class="text-lg font-semibold text-yellow-400">Vs Small-Ball</h4>
+          <p>Post seals. Offensive rebounding. Inside-out spacing.</p>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold text-yellow-400">Vs Big Lineups</h4>
+          <p>5-out spacing. Drag screens. Force switches.</p>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold text-yellow-400">Vs Press Teams</h4>
+          <p>Middle flash every possession. Advance pass attack.</p>
+        </div>
+
+      </div>
+    `;
+    }
+
+  }
+
+</script>
+<script>
+  const role = localStorage.getItem("userRole");
+
+  if (role !== "coach") {
+    document.body.innerHTML = `
+      <div class="min-h-screen flex items-center justify-center bg-black text-white">
+        <div class="text-center">
+          <h1 class="text-3xl text-aggie-gold font-bold mb-4">
+            🔒 Coach Access Only
+          </h1>
+          <p class="text-gray-400">
+            Strategy War Room is restricted to coaching staff.
+          </p>
+        </div>
+      </div>
+    `;
+  }
+</script>
+<script>
+
+  let canvas, ctx;
+  let drawing = false;
+  let currentColor = "#ffffff";
+  let toolMode = "draw";
+
+  /* ================= OPEN BOARD ================= */
+
+  function openFullBoard(){
+
+    document.querySelector(".max-w-6xl").style.display = "none";
+
+    const board = document.createElement("div");
+    board.id = "fullBoard";
+    board.className = "fixed inset-0 bg-black z-50 flex flex-col";
+
+    board.innerHTML = `
+    <div class="flex justify-between items-center px-6 py-4 border-b border-gray-700">
+      <h2 class="text-xl text-aggie-gold font-bold">Full Court Tactical Board</h2>
+      <button onclick="closeFullBoard()" class="nav-pill">Exit</button>
+    </div>
+
+    <div class="flex-1 flex items-center justify-center relative">
+      <canvas id="chalkboard"
+              class="w-[95vw] h-[80vh] rounded-xl border-4 border-gray-600 shadow-2xl">
+      </canvas>
+    </div>
+
+    <div class="flex justify-center gap-3 py-4 border-t border-gray-700 flex-wrap">
+
+      <button onclick="setColor('#ffffff')" class="nav-pill">White</button>
+      <button onclick="setColor('#ff2d2d')" class="nav-pill">Red</button>
+      <button onclick="setTool('draw')" class="nav-pill">Draw</button>
+      <button onclick="setTool('erase')" class="nav-pill">Erase</button>
+
+      <button onclick="addPlayer('offense')" class="nav-pill">Add O</button>
+      <button onclick="addPlayer('defense')" class="nav-pill">Add X</button>
+
+      <select id="schemeSelect" class="nav-pill bg-black text-white border border-gray-600">
+        <option>Pick & Roll</option>
+        <option>Horns</option>
+        <option>5-Out</option>
+        <option>Zone 2-3</option>
+        <option>ICE Coverage</option>
+        <option>Switch Everything</option>
+      </select>
+
+      <button onclick="downloadBoard()" class="nav-pill">Download PNG</button>
+
+    </div>
+  `;
+
+    document.body.appendChild(board);
+
+    initializeClipboard();
+  }
+
+  /* ================= CLOSE ================= */
+
+  function closeFullBoard(){
+    document.getElementById("fullBoard").remove();
+    document.querySelector(".max-w-6xl").style.display = "block";
+  }
+
+  /* ================= INIT ================= */
+
+  function initializeClipboard(){
+    canvas = document.getElementById("chalkboard");
+    ctx = canvas.getContext("2d");
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    canvas.addEventListener("mousedown", startDraw);
+    canvas.addEventListener("mouseup", stopDraw);
+    canvas.addEventListener("mousemove", drawMove);
+  }
+
+  /* ================= RESIZE ================= */
+
+  function resizeCanvas(){
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    drawCourt();
+  }
+
+  /* ================= DRAWING ================= */
+
+  function startDraw(e){
+    drawing = true;
+    ctx.beginPath();
+    ctx.moveTo(getX(e), getY(e));
+  }
+
+  function stopDraw(){
+    drawing = false;
+    ctx.beginPath();
+  }
+
+  function drawMove(e){
+    if(!drawing) return;
+
+    ctx.lineWidth = toolMode === "erase" ? 18 : 3;
+    ctx.strokeStyle = toolMode === "erase" ? "black" : currentColor;
+    ctx.lineCap = "round";
+
+    ctx.lineTo(getX(e), getY(e));
+    ctx.stroke();
+  }
+
+  function getX(e){
+    return e.clientX - canvas.getBoundingClientRect().left;
+  }
+
+  function getY(e){
+    return e.clientY - canvas.getBoundingClientRect().top;
+  }
+
+  function setTool(tool){ toolMode = tool; }
+  function setColor(color){ currentColor = color; }
+  function clearBoard(){ drawCourt(); }
+
+  /* ================= FULL COURT DRAW ================= */
+
+  function drawCourt(){
+
+    const w = canvas.width;
+    const h = canvas.height;
+    const margin = w * 0.03;
+
+    ctx.fillStyle = "black";
+    ctx.fillRect(0,0,w,h);
+
+    ctx.strokeStyle = "white";
+    ctx.lineWidth = 2;
+
+    ctx.strokeRect(margin, margin, w-margin*2, h-margin*2);
+
+    const midX = w/2;
+    const midY = h/2;
+
+    ctx.beginPath();
+    ctx.moveTo(midX, margin);
+    ctx.lineTo(midX, h-margin);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(midX, midY, h*0.08, 0, Math.PI*2);
+    ctx.stroke();
+
+    drawHalf(true);
+    drawHalf(false);
+  }
+
+  function drawHalf(right){
+
+    const w = canvas.width;
+    const h = canvas.height;
+    const margin = w*0.03;
+
+    const hoopX = right ? w-margin-h*0.05 : margin+h*0.05;
+    const hoopY = h/2;
+
+    const keyW = h*0.18;
+    const keyH = h*0.32;
+
+    ctx.strokeRect(
+      right ? w-margin-keyW : margin,
+      hoopY-keyH/2,
+      keyW,
+      keyH
+    );
+
+    ctx.beginPath();
+    ctx.arc(hoopX, hoopY, h*0.02, 0, Math.PI*2);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(
+      hoopX,
+      hoopY,
+      h*0.45,
+      right ? Math.PI/2 : -Math.PI/2,
+      right ? 3*Math.PI/2 : Math.PI/2
+    );
+    ctx.stroke();
+  }
+
+  /* ================= PLAYERS ================= */
+
+  function addPlayer(type){
+
+    const player = document.createElement("div");
+
+    player.className = `
+    absolute w-12 h-12 rounded-full
+    flex items-center justify-center
+    font-bold text-lg cursor-move select-none
+    border border-gray-500
+  `;
+
+    player.style.background = type==="offense" ? "#ffffff" : "#ff2d2d";
+    player.style.color = type==="offense" ? "black" : "white";
+    player.innerText = type==="offense" ? "O" : "X";
+
+    player.style.left = "50%";
+    player.style.top = "50%";
+
+    document.getElementById("fullBoard").appendChild(player);
+
+    drag(player);
+  }
+
+  function drag(el){
+
+    let offsetX, offsetY, dragging=false;
+
+    el.addEventListener("mousedown", e=>{
+      dragging=true;
+      offsetX=e.offsetX;
+      offsetY=e.offsetY;
+    });
+
+    document.addEventListener("mousemove", e=>{
+      if(!dragging) return;
+      el.style.left = (e.pageX-offsetX)+"px";
+      el.style.top = (e.pageY-offsetY)+"px";
+    });
+
+    document.addEventListener("mouseup", ()=> dragging=false);
+  }
+
+  /* ================= DOWNLOAD ================= */
+
+  function downloadBoard(){
+
+    const link = document.createElement("a");
+    link.download = "Aggie_Tactical_Board.png";
+    link.href = canvas.toDataURL();
+    link.click();
+  }
+
+</script>
+<script>
+
+  function openFullBoard(){
+
+    // Hide main layout
+    document.querySelector(".max-w-6xl").style.display = "none";
+
+    // Create full screen board
+    const board = document.createElement("div");
+    board.id = "fullBoard";
+    board.className = "fixed inset-0 bg-black z-50 flex flex-col";
+
+    board.innerHTML = `
+    <div class="flex justify-between items-center px-6 py-4 border-b border-gray-700">
+      <h2 class="text-xl text-aggie-gold font-bold">Full Court Tactical Board</h2>
+      <button onclick="closeFullBoard()" class="nav-pill">Exit</button>
+    </div>
+
+    <div class="flex-1 flex items-center justify-center">
+      <canvas id="chalkboard"
+              class="w-[95vw] h-[85vh] rounded-xl border-4 border-gray-600 shadow-2xl">
+      </canvas>
+    </div>
+
+    <div class="flex justify-center gap-3 py-4 border-t border-gray-700 flex-wrap">
+      <button onclick="setTool('draw')" class="nav-pill">Draw</button>
+      <button onclick="setTool('erase')" class="nav-pill">Erase</button>
+      <button onclick="setColor('#ffffff')" class="nav-pill">White</button>
+      <button onclick="setColor('#fdb927')" class="nav-pill">Gold</button>
+      <button onclick="clearBoard()" class="nav-pill">Clear</button>
+      <button onclick="addPlayer('offense')" class="nav-pill">Add O</button>
+      <button onclick="addPlayer('defense')" class="nav-pill">Add X</button>
+    </div>
+  `;
+
+    document.body.appendChild(board);
+
+    initializeClipboard();
+  }
+
+  function closeFullBoard(){
+    document.getElementById("fullBoard").remove();
+    document.querySelector(".max-w-6xl").style.display = "block";
+  }
+
+</script>
+</body>
+</html>
