@@ -1,0 +1,3788 @@
+{
+  "game_401811988": {
+    "name": "UNC Wilmington Seahawks",
+    "date": "2025-12-30",
+    "ncat_score": 78,
+    "opp_score": 87,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 11.0,
+        "pts": 2,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "Le. Walker",
+        "min": 38.0,
+        "pts": 23,
+        "reb": 3,
+        "ast": 3,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 38.0,
+        "pts": 19,
+        "reb": 6,
+        "ast": 0,
+        "stl": 3,
+        "blk": 1,
+        "to": 2,
+        "pf": 1
+      },
+      {
+        "player": "D. Pierce",
+        "min": 34.0,
+        "pts": 18,
+        "reb": 5,
+        "ast": 4,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 7.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 1,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 7.0,
+        "pts": 0,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "W. Felton",
+        "min": 21.0,
+        "pts": 7,
+        "reb": 7,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 1,
+        "pf": 3
+      },
+      {
+        "player": "B. Vick",
+        "min": 24.0,
+        "pts": 9,
+        "reb": 3,
+        "ast": 3,
+        "stl": 0,
+        "blk": 1,
+        "to": 2,
+        "pf": 4
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 20.0,
+        "pts": 0,
+        "reb": 2,
+        "ast": 0,
+        "stl": 2,
+        "blk": 1,
+        "to": 1,
+        "pf": 5
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 78,
+      "REB": 28,
+      "AST": 11,
+      "TO": 8,
+      "STL": 7,
+      "BLK": 3
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401811989": {
+    "name": "Northeastern Huskies",
+    "date": "2025-12-31",
+    "ncat_score": 74,
+    "opp_score": 85,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 13.0,
+        "pts": 6,
+        "reb": 4,
+        "ast": 0,
+        "stl": 1,
+        "blk": 1,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "Le. Walker",
+        "min": 37.0,
+        "pts": 14,
+        "reb": 2,
+        "ast": 3,
+        "stl": 1,
+        "blk": 0,
+        "to": 3,
+        "pf": 4
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 35.0,
+        "pts": 13,
+        "reb": 10,
+        "ast": 2,
+        "stl": 0,
+        "blk": 1,
+        "to": 1,
+        "pf": 5
+      },
+      {
+        "player": "D. Pierce",
+        "min": 36.0,
+        "pts": 6,
+        "reb": 1,
+        "ast": 4,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 30.0,
+        "pts": 16,
+        "reb": 2,
+        "ast": 4,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 2.0,
+        "pts": 0,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "W. Felton",
+        "min": 22.0,
+        "pts": 16,
+        "reb": 6,
+        "ast": 1,
+        "stl": 1,
+        "blk": 1,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "B. Vick",
+        "min": 10.0,
+        "pts": 3,
+        "reb": 0,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 15.0,
+        "pts": 0,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 2
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 74,
+      "REB": 28,
+      "AST": 15,
+      "TO": 11,
+      "STL": 3,
+      "BLK": 3
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812000": {
+    "name": "Stony Brook Seawolves",
+    "date": "2026-01-03",
+    "ncat_score": 80,
+    "opp_score": 81,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 16.0,
+        "pts": 8,
+        "reb": 4,
+        "ast": 1,
+        "stl": 2,
+        "blk": 1,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "Le. Walker",
+        "min": 34.0,
+        "pts": 16,
+        "reb": 8,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 0
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 33.0,
+        "pts": 14,
+        "reb": 6,
+        "ast": 1,
+        "stl": 0,
+        "blk": 1,
+        "to": 2,
+        "pf": 4
+      },
+      {
+        "player": "D. Pierce",
+        "min": 36.0,
+        "pts": 15,
+        "reb": 4,
+        "ast": 4,
+        "stl": 1,
+        "blk": 0,
+        "to": 4,
+        "pf": 2
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 29.0,
+        "pts": 6,
+        "reb": 3,
+        "ast": 5,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 17.0,
+        "pts": 11,
+        "reb": 10,
+        "ast": 0,
+        "stl": 1,
+        "blk": 2,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "W. Felton",
+        "min": 6.0,
+        "pts": 2,
+        "reb": 1,
+        "ast": 0,
+        "stl": 2,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "B. Vick",
+        "min": 16.0,
+        "pts": 0,
+        "reb": 3,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 13.0,
+        "pts": 8,
+        "reb": 1,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 80,
+      "REB": 40,
+      "AST": 14,
+      "TO": 11,
+      "STL": 6,
+      "BLK": 4
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812005": {
+    "name": "Elon Phoenix",
+    "date": "2026-01-09",
+    "ncat_score": 64,
+    "opp_score": 69,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 18.0,
+        "pts": 6,
+        "reb": 8,
+        "ast": 0,
+        "stl": 0,
+        "blk": 4,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "Le. Walker",
+        "min": 24.0,
+        "pts": 6,
+        "reb": 3,
+        "ast": 3,
+        "stl": 1,
+        "blk": 1,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 34.0,
+        "pts": 15,
+        "reb": 13,
+        "ast": 4,
+        "stl": 0,
+        "blk": 0,
+        "to": 5,
+        "pf": 3
+      },
+      {
+        "player": "D. Pierce",
+        "min": 27.0,
+        "pts": 10,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 3
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 26.0,
+        "pts": 1,
+        "reb": 4,
+        "ast": 2,
+        "stl": 1,
+        "blk": 1,
+        "to": 4,
+        "pf": 1
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 19.0,
+        "pts": 5,
+        "reb": 4,
+        "ast": 1,
+        "stl": 0,
+        "blk": 1,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "W. Felton",
+        "min": 3.0,
+        "pts": 0,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "B. Vick",
+        "min": 11.0,
+        "pts": 2,
+        "reb": 1,
+        "ast": 2,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "M. Burton",
+        "min": 21.0,
+        "pts": 19,
+        "reb": 4,
+        "ast": 1,
+        "stl": 1,
+        "blk": 0,
+        "to": 2,
+        "pf": 2
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 17.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 2,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 0
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 64,
+      "REB": 40,
+      "AST": 15,
+      "TO": 13,
+      "STL": 4,
+      "BLK": 7
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812015": {
+    "name": "William & Mary Tribe",
+    "date": "2026-01-16",
+    "ncat_score": 89,
+    "opp_score": 97,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 19.0,
+        "pts": 3,
+        "reb": 7,
+        "ast": 1,
+        "stl": 0,
+        "blk": 1,
+        "to": 1,
+        "pf": 4
+      },
+      {
+        "player": "Le. Walker",
+        "min": 37.0,
+        "pts": 33,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 6,
+        "pf": 4
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 30.0,
+        "pts": 15,
+        "reb": 10,
+        "ast": 1,
+        "stl": 2,
+        "blk": 1,
+        "to": 4,
+        "pf": 4
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 28.0,
+        "pts": 6,
+        "reb": 0,
+        "ast": 3,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 4
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 26.0,
+        "pts": 20,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 4
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 3.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "W. Felton",
+        "min": 5.0,
+        "pts": 2,
+        "reb": 1,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "Y. Cueto",
+        "min": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "B. Vick",
+        "min": 25.0,
+        "pts": 6,
+        "reb": 7,
+        "ast": 6,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 0
+      },
+      {
+        "player": "M. Burton",
+        "min": 27.0,
+        "pts": 4,
+        "reb": 3,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 89,
+      "REB": 30,
+      "AST": 12,
+      "TO": 17,
+      "STL": 4,
+      "BLK": 2
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812023": {
+    "name": "Hampton Pirates",
+    "date": "2026-01-20",
+    "ncat_score": 61,
+    "opp_score": 82,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 10.0,
+        "pts": 2,
+        "reb": 3,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "Le. Walker",
+        "min": 32.0,
+        "pts": 5,
+        "reb": 7,
+        "ast": 2,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 3
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 30.0,
+        "pts": 10,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 3,
+        "pf": 2
+      },
+      {
+        "player": "D. Pierce",
+        "min": 31.0,
+        "pts": 16,
+        "reb": 1,
+        "ast": 2,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 4
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 28.0,
+        "pts": 14,
+        "reb": 3,
+        "ast": 2,
+        "stl": 2,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 8.0,
+        "pts": 3,
+        "reb": 3,
+        "ast": 0,
+        "stl": 0,
+        "blk": 2,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "W. Felton",
+        "min": 23.0,
+        "pts": 9,
+        "reb": 5,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      },
+      {
+        "player": "Y. Cueto",
+        "min": 2.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "B. Vick",
+        "min": 13.0,
+        "pts": 0,
+        "reb": 1,
+        "ast": 2,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "M. Burton",
+        "min": 15.0,
+        "pts": 2,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 8.0,
+        "pts": 0,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 0
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 61,
+      "REB": 28,
+      "AST": 8,
+      "TO": 9,
+      "STL": 2,
+      "BLK": 2
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812025": {
+    "name": "Hofstra Pride",
+    "date": "2026-01-23",
+    "ncat_score": 79,
+    "opp_score": 78,
+    "win": 1,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 21.0,
+        "pts": 6,
+        "reb": 7,
+        "ast": 1,
+        "stl": 0,
+        "blk": 3,
+        "to": 2,
+        "pf": 2
+      },
+      {
+        "player": "Le. Walker",
+        "min": 40.0,
+        "pts": 24,
+        "reb": 7,
+        "ast": 2,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "D. Pierce",
+        "min": 29.0,
+        "pts": 10,
+        "reb": 2,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 4
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 25.0,
+        "pts": 0,
+        "reb": 5,
+        "ast": 3,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 4
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 35.0,
+        "pts": 20,
+        "reb": 4,
+        "ast": 1,
+        "stl": 1,
+        "blk": 0,
+        "to": 2,
+        "pf": 3
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 5.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 1,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 31.0,
+        "pts": 16,
+        "reb": 10,
+        "ast": 0,
+        "stl": 1,
+        "blk": 2,
+        "to": 2,
+        "pf": 1
+      },
+      {
+        "player": "W. Felton",
+        "min": 14.0,
+        "pts": 3,
+        "reb": 4,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 79,
+      "REB": 39,
+      "AST": 8,
+      "TO": 8,
+      "STL": 2,
+      "BLK": 6
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812033": {
+    "name": "Towson Tigers",
+    "date": "2026-01-24",
+    "ncat_score": 80,
+    "opp_score": 73,
+    "win": 1,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 12.0,
+        "pts": 2,
+        "reb": 1,
+        "ast": 0,
+        "stl": 1,
+        "blk": 2,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "Le. Walker",
+        "min": 36.0,
+        "pts": 33,
+        "reb": 7,
+        "ast": 4,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 2
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 37.0,
+        "pts": 11,
+        "reb": 15,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 2,
+        "pf": 4
+      },
+      {
+        "player": "D. Pierce",
+        "min": 34.0,
+        "pts": 12,
+        "reb": 2,
+        "ast": 3,
+        "stl": 1,
+        "blk": 0,
+        "to": 3,
+        "pf": 4
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 38.0,
+        "pts": 11,
+        "reb": 1,
+        "ast": 4,
+        "stl": 0,
+        "blk": 0,
+        "to": 4,
+        "pf": 1
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 6.0,
+        "pts": 0,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "W. Felton",
+        "min": 22.0,
+        "pts": 11,
+        "reb": 3,
+        "ast": 0,
+        "stl": 1,
+        "blk": 1,
+        "to": 2,
+        "pf": 2
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 15.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 80,
+      "REB": 30,
+      "AST": 11,
+      "TO": 13,
+      "STL": 4,
+      "BLK": 3
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812038": {
+    "name": "Monmouth Hawks",
+    "date": "2026-01-30",
+    "ncat_score": 81,
+    "opp_score": 83,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 14.0,
+        "pts": 2,
+        "reb": 3,
+        "ast": 1,
+        "stl": 0,
+        "blk": 1,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "Le. Walker",
+        "min": 42.0,
+        "pts": 24,
+        "reb": 4,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 3,
+        "pf": 1
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 41.0,
+        "pts": 13,
+        "reb": 10,
+        "ast": 0,
+        "stl": 0,
+        "blk": 3,
+        "to": 2,
+        "pf": 4
+      },
+      {
+        "player": "D. Pierce",
+        "min": 40.0,
+        "pts": 5,
+        "reb": 3,
+        "ast": 2,
+        "stl": 0,
+        "blk": 1,
+        "to": 4,
+        "pf": 1
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 41.0,
+        "pts": 21,
+        "reb": 4,
+        "ast": 1,
+        "stl": 2,
+        "blk": 0,
+        "to": 4,
+        "pf": 1
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 11.0,
+        "pts": 4,
+        "reb": 4,
+        "ast": 1,
+        "stl": 0,
+        "blk": 1,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "W. Felton",
+        "min": 19.0,
+        "pts": 9,
+        "reb": 8,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 4
+      },
+      {
+        "player": "B. Vick",
+        "min": 2.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 15.0,
+        "pts": 3,
+        "reb": 1,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 81,
+      "REB": 37,
+      "AST": 7,
+      "TO": 14,
+      "STL": 2,
+      "BLK": 6
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812045": {
+    "name": "Drexel Dragons",
+    "date": "2026-01-31",
+    "ncat_score": 60,
+    "opp_score": 61,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 23.0,
+        "pts": 2,
+        "reb": 4,
+        "ast": 0,
+        "stl": 3,
+        "blk": 2,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "Le. Walker",
+        "min": 38.0,
+        "pts": 19,
+        "reb": 5,
+        "ast": 2,
+        "stl": 1,
+        "blk": 0,
+        "to": 3,
+        "pf": 4
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 29.0,
+        "pts": 6,
+        "reb": 6,
+        "ast": 0,
+        "stl": 2,
+        "blk": 0,
+        "to": 1,
+        "pf": 0
+      },
+      {
+        "player": "B. Vick",
+        "min": 25.0,
+        "pts": 10,
+        "reb": 1,
+        "ast": 3,
+        "stl": 1,
+        "blk": 0,
+        "to": 3,
+        "pf": 1
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 35.0,
+        "pts": 16,
+        "reb": 7,
+        "ast": 4,
+        "stl": 1,
+        "blk": 1,
+        "to": 2,
+        "pf": 1
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 5.0,
+        "pts": 2,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "W. Felton",
+        "min": 12.0,
+        "pts": 2,
+        "reb": 4,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "M. Burton",
+        "min": 15.0,
+        "pts": 3,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 18.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 60,
+      "REB": 30,
+      "AST": 9,
+      "TO": 9,
+      "STL": 8,
+      "BLK": 3
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812049": {
+    "name": "Charleston Cougars",
+    "date": "2026-02-06",
+    "ncat_score": 62,
+    "opp_score": 78,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 13.0,
+        "pts": 6,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 2,
+        "to": 1,
+        "pf": 3
+      },
+      {
+        "player": "Le. Walker",
+        "min": 40.0,
+        "pts": 23,
+        "reb": 10,
+        "ast": 1,
+        "stl": 2,
+        "blk": 0,
+        "to": 4,
+        "pf": 2
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 29.0,
+        "pts": 4,
+        "reb": 6,
+        "ast": 2,
+        "stl": 0,
+        "blk": 1,
+        "to": 4,
+        "pf": 0
+      },
+      {
+        "player": "B. Vick",
+        "min": 26.0,
+        "pts": 2,
+        "reb": 5,
+        "ast": 3,
+        "stl": 1,
+        "blk": 0,
+        "to": 2,
+        "pf": 1
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 32.0,
+        "pts": 12,
+        "reb": 7,
+        "ast": 2,
+        "stl": 2,
+        "blk": 0,
+        "to": 2,
+        "pf": 0
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 9.0,
+        "pts": 2,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "W. Felton",
+        "min": 18.0,
+        "pts": 4,
+        "reb": 1,
+        "ast": 0,
+        "stl": 1,
+        "blk": 1,
+        "to": 2,
+        "pf": 1
+      },
+      {
+        "player": "M. Burton",
+        "min": 15.0,
+        "pts": 6,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 0
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 18.0,
+        "pts": 3,
+        "reb": 2,
+        "ast": 1,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 62,
+      "REB": 33,
+      "AST": 9,
+      "TO": 16,
+      "STL": 7,
+      "BLK": 4
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812058": {
+    "name": "Campbell Fighting Camels",
+    "date": "2026-02-07",
+    "ncat_score": 71,
+    "opp_score": 79,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 21.0,
+        "pts": 6,
+        "reb": 7,
+        "ast": 0,
+        "stl": 1,
+        "blk": 1,
+        "to": 1,
+        "pf": 3
+      },
+      {
+        "player": "Le. Walker",
+        "min": 37.0,
+        "pts": 17,
+        "reb": 4,
+        "ast": 1,
+        "stl": 3,
+        "blk": 0,
+        "to": 1,
+        "pf": 4
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 33.0,
+        "pts": 9,
+        "reb": 6,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "D. Pierce",
+        "min": 33.0,
+        "pts": 10,
+        "reb": 3,
+        "ast": 5,
+        "stl": 3,
+        "blk": 0,
+        "to": 2,
+        "pf": 2
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 8.0,
+        "pts": 1,
+        "reb": 1,
+        "ast": 2,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 2
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 2.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "W. Felton",
+        "min": 18.0,
+        "pts": 15,
+        "reb": 6,
+        "ast": 0,
+        "stl": 0,
+        "blk": 1,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "Y. Cueto",
+        "min": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "B. Vick",
+        "min": 26.0,
+        "pts": 7,
+        "reb": 3,
+        "ast": 5,
+        "stl": 3,
+        "blk": 0,
+        "to": 3,
+        "pf": 2
+      },
+      {
+        "player": "M. Burton",
+        "min": 1.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 21.0,
+        "pts": 6,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 71,
+      "REB": 31,
+      "AST": 14,
+      "TO": 9,
+      "STL": 10,
+      "BLK": 2
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812065": {
+    "name": "Hampton Pirates",
+    "date": "2026-02-14",
+    "ncat_score": 71,
+    "opp_score": 70,
+    "win": 1,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 8.0,
+        "pts": 0,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 1,
+        "to": 0,
+        "pf": 4
+      },
+      {
+        "player": "Le. Walker",
+        "min": 39.0,
+        "pts": 18,
+        "reb": 3,
+        "ast": 3,
+        "stl": 2,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 36.0,
+        "pts": 7,
+        "reb": 3,
+        "ast": 0,
+        "stl": 3,
+        "blk": 2,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "D. Pierce",
+        "min": 24.0,
+        "pts": 6,
+        "reb": 2,
+        "ast": 3,
+        "stl": 1,
+        "blk": 1,
+        "to": 2,
+        "pf": 2
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 37.0,
+        "pts": 15,
+        "reb": 4,
+        "ast": 3,
+        "stl": 3,
+        "blk": 1,
+        "to": 2,
+        "pf": 2
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 8.0,
+        "pts": 5,
+        "reb": 5,
+        "ast": 2,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 4
+      },
+      {
+        "player": "W. Felton",
+        "min": 23.0,
+        "pts": 12,
+        "reb": 3,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "M. Burton",
+        "min": 15.0,
+        "pts": 6,
+        "reb": 1,
+        "ast": 1,
+        "stl": 2,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 10.0,
+        "pts": 2,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 71,
+      "REB": 23,
+      "AST": 13,
+      "TO": 6,
+      "STL": 11,
+      "BLK": 5
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812071": {
+    "name": "Charleston Cougars",
+    "date": "2026-02-20",
+    "ncat_score": 61,
+    "opp_score": 74,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 13.0,
+        "pts": 0,
+        "reb": 4,
+        "ast": 0,
+        "stl": 0,
+        "blk": 4,
+        "to": 2,
+        "pf": 1
+      },
+      {
+        "player": "Le. Walker",
+        "min": 35.0,
+        "pts": 16,
+        "reb": 5,
+        "ast": 3,
+        "stl": 1,
+        "blk": 0,
+        "to": 2,
+        "pf": 3
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 27.0,
+        "pts": 9,
+        "reb": 11,
+        "ast": 1,
+        "stl": 1,
+        "blk": 0,
+        "to": 2,
+        "pf": 0
+      },
+      {
+        "player": "D. Pierce",
+        "min": 37.0,
+        "pts": 13,
+        "reb": 2,
+        "ast": 4,
+        "stl": 1,
+        "blk": 1,
+        "to": 3,
+        "pf": 3
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 36.0,
+        "pts": 2,
+        "reb": 0,
+        "ast": 3,
+        "stl": 0,
+        "blk": 0,
+        "to": 3,
+        "pf": 2
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 6.0,
+        "pts": 3,
+        "reb": 2,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "W. Felton",
+        "min": 21.0,
+        "pts": 7,
+        "reb": 3,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "M. Burton",
+        "min": 25.0,
+        "pts": 11,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 61,
+      "REB": 28,
+      "AST": 12,
+      "TO": 12,
+      "STL": 3,
+      "BLK": 5
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812077": {
+    "name": "Elon Phoenix",
+    "date": "2026-02-22",
+    "ncat_score": 102,
+    "opp_score": 82,
+    "win": 1,
+    "ncat_players": [
+      {
+        "player": "Le. Walker",
+        "min": 40.0,
+        "pts": 24,
+        "reb": 4,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 3
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 35.0,
+        "pts": 19,
+        "reb": 10,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 4
+      },
+      {
+        "player": "W. Felton",
+        "min": 22.0,
+        "pts": 10,
+        "reb": 4,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "M. Burton",
+        "min": 40.0,
+        "pts": 17,
+        "reb": 1,
+        "ast": 2,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 40.0,
+        "pts": 24,
+        "reb": 7,
+        "ast": 8,
+        "stl": 1,
+        "blk": 0,
+        "to": 5,
+        "pf": 2
+      },
+      {
+        "player": "A. Doumbia",
+        "min": 1.0,
+        "pts": 0,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 22.0,
+        "pts": 8,
+        "reb": 4,
+        "ast": 1,
+        "stl": 1,
+        "blk": 1,
+        "to": 3,
+        "pf": 2
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 102,
+      "REB": 31,
+      "AST": 12,
+      "TO": 10,
+      "STL": 4,
+      "BLK": 1
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812084": {
+    "name": "UNC Wilmington Seahawks",
+    "date": "2026-02-27",
+    "ncat_score": 65,
+    "opp_score": 88,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "Le. Walker",
+        "min": 33.0,
+        "pts": 14,
+        "reb": 2,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 34.0,
+        "pts": 15,
+        "reb": 6,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 3,
+        "pf": 1
+      },
+      {
+        "player": "W. Felton",
+        "min": 25.0,
+        "pts": 8,
+        "reb": 7,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 3,
+        "pf": 1
+      },
+      {
+        "player": "D. Pierce",
+        "min": 23.0,
+        "pts": 10,
+        "reb": 2,
+        "ast": 2,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 5
+      },
+      {
+        "player": "M. Burton",
+        "min": 29.0,
+        "pts": 2,
+        "reb": 1,
+        "ast": 2,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 14.0,
+        "pts": 6,
+        "reb": 3,
+        "ast": 0,
+        "stl": 0,
+        "blk": 3,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 16.0,
+        "pts": 0,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 26.0,
+        "pts": 10,
+        "reb": 3,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 65,
+      "REB": 26,
+      "AST": 6,
+      "TO": 9,
+      "STL": 0,
+      "BLK": 3
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812091": {
+    "name": "William & Mary Tribe",
+    "date": "2026-02-28",
+    "ncat_score": 88,
+    "opp_score": 91,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "Le. Walker",
+        "min": 37.0,
+        "pts": 27,
+        "reb": 4,
+        "ast": 4,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 38.0,
+        "pts": 15,
+        "reb": 4,
+        "ast": 0,
+        "stl": 0,
+        "blk": 2,
+        "to": 3,
+        "pf": 4
+      },
+      {
+        "player": "W. Felton",
+        "min": 29.0,
+        "pts": 15,
+        "reb": 4,
+        "ast": 2,
+        "stl": 1,
+        "blk": 0,
+        "to": 1,
+        "pf": 3
+      },
+      {
+        "player": "D. Pierce",
+        "min": 27.0,
+        "pts": 4,
+        "reb": 2,
+        "ast": 8,
+        "stl": 1,
+        "blk": 0,
+        "to": 2,
+        "pf": 3
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 30.0,
+        "pts": 15,
+        "reb": 10,
+        "ast": 6,
+        "stl": 0,
+        "blk": 0,
+        "to": 4,
+        "pf": 1
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 11.0,
+        "pts": 4,
+        "reb": 3,
+        "ast": 1,
+        "stl": 0,
+        "blk": 1,
+        "to": 2,
+        "pf": 2
+      },
+      {
+        "player": "M. Burton",
+        "min": 17.0,
+        "pts": 3,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 11.0,
+        "pts": 5,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 4
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 88,
+      "REB": 31,
+      "AST": 21,
+      "TO": 14,
+      "STL": 2,
+      "BLK": 3
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401812098": {
+    "name": "Campbell Fighting Camels",
+    "date": "2026-03-04",
+    "ncat_score": 72,
+    "opp_score": 90,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "Le. Walker",
+        "min": 31.0,
+        "pts": 11,
+        "reb": 3,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 31.0,
+        "pts": 16,
+        "reb": 8,
+        "ast": 1,
+        "stl": 2,
+        "blk": 0,
+        "to": 1,
+        "pf": 3
+      },
+      {
+        "player": "W. Felton",
+        "min": 26.0,
+        "pts": 8,
+        "reb": 9,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 3,
+        "pf": 2
+      },
+      {
+        "player": "D. Pierce",
+        "min": 25.0,
+        "pts": 5,
+        "reb": 3,
+        "ast": 3,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 3
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 27.0,
+        "pts": 11,
+        "reb": 1,
+        "ast": 5,
+        "stl": 0,
+        "blk": 0,
+        "to": 4,
+        "pf": 3
+      },
+      {
+        "player": "A. Doumbia",
+        "min": 1.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 14.0,
+        "pts": 8,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 1,
+        "to": 1,
+        "pf": 0
+      },
+      {
+        "player": "B. Vick",
+        "min": 9.0,
+        "pts": 2,
+        "reb": 0,
+        "ast": 1,
+        "stl": 2,
+        "blk": 0,
+        "to": 2,
+        "pf": 0
+      },
+      {
+        "player": "M. Burton",
+        "min": 22.0,
+        "pts": 6,
+        "reb": 1,
+        "ast": 2,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 14.0,
+        "pts": 5,
+        "reb": 0,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 72,
+      "REB": 26,
+      "AST": 14,
+      "TO": 13,
+      "STL": 6,
+      "BLK": 1
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401813276": {
+    "name": "Morgan State Bears",
+    "date": "2025-11-19",
+    "ncat_score": 79,
+    "opp_score": 73,
+    "win": 1,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 22.0,
+        "pts": 5,
+        "reb": 6,
+        "ast": 0,
+        "stl": 0,
+        "blk": 2,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "Le. Walker",
+        "min": 40.0,
+        "pts": 24,
+        "reb": 9,
+        "ast": 3,
+        "stl": 2,
+        "blk": 0,
+        "to": 4,
+        "pf": 1
+      },
+      {
+        "player": "B. Vick",
+        "min": 33.0,
+        "pts": 11,
+        "reb": 5,
+        "ast": 5,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 29.0,
+        "pts": 3,
+        "reb": 4,
+        "ast": 4,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 3
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 36.0,
+        "pts": 13,
+        "reb": 4,
+        "ast": 3,
+        "stl": 0,
+        "blk": 0,
+        "to": 6,
+        "pf": 3
+      },
+      {
+        "player": "W. Felton",
+        "min": 18.0,
+        "pts": 15,
+        "reb": 8,
+        "ast": 2,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "M. Burton",
+        "min": 22.0,
+        "pts": 8,
+        "reb": 0,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 79,
+      "REB": 36,
+      "AST": 18,
+      "TO": 14,
+      "STL": 2,
+      "BLK": 2
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401820801": {
+    "name": "Charlotte 49ers",
+    "date": "2025-12-03",
+    "ncat_score": 57,
+    "opp_score": 74,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 22.0,
+        "pts": 4,
+        "reb": 5,
+        "ast": 0,
+        "stl": 2,
+        "blk": 0,
+        "to": 1,
+        "pf": 5
+      },
+      {
+        "player": "Le. Walker",
+        "min": 29.0,
+        "pts": 14,
+        "reb": 2,
+        "ast": 1,
+        "stl": 1,
+        "blk": 0,
+        "to": 1,
+        "pf": 3
+      },
+      {
+        "player": "D. Pierce",
+        "min": 29.0,
+        "pts": 8,
+        "reb": 2,
+        "ast": 3,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 3
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 30.0,
+        "pts": 4,
+        "reb": 0,
+        "ast": 1,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 30.0,
+        "pts": 14,
+        "reb": 2,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 2,
+        "pf": 0
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 14.0,
+        "pts": 2,
+        "reb": 4,
+        "ast": 0,
+        "stl": 0,
+        "blk": 1,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 28.0,
+        "pts": 8,
+        "reb": 6,
+        "ast": 1,
+        "stl": 1,
+        "blk": 0,
+        "to": 5,
+        "pf": 1
+      },
+      {
+        "player": "W. Felton",
+        "min": 4.0,
+        "pts": 1,
+        "reb": 0,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "B. Vick",
+        "min": 9.0,
+        "pts": 0,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "M. Burton",
+        "min": 5.0,
+        "pts": 2,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 57,
+      "REB": 23,
+      "AST": 6,
+      "TO": 11,
+      "STL": 7,
+      "BLK": 1
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401823042": {
+    "name": "Maryland Eastern Shore Hawks",
+    "date": "2025-12-13",
+    "ncat_score": 82,
+    "opp_score": 79,
+    "win": 1,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 13.0,
+        "pts": 4,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 2,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "Le. Walker",
+        "min": 38.0,
+        "pts": 22,
+        "reb": 4,
+        "ast": 2,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 3
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 29.0,
+        "pts": 13,
+        "reb": 9,
+        "ast": 2,
+        "stl": 0,
+        "blk": 1,
+        "to": 2,
+        "pf": 2
+      },
+      {
+        "player": "D. Pierce",
+        "min": 23.0,
+        "pts": 5,
+        "reb": 4,
+        "ast": 2,
+        "stl": 1,
+        "blk": 0,
+        "to": 4,
+        "pf": 4
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 31.0,
+        "pts": 8,
+        "reb": 3,
+        "ast": 7,
+        "stl": 1,
+        "blk": 0,
+        "to": 1,
+        "pf": 3
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 7.0,
+        "pts": 6,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "W. Felton",
+        "min": 20.0,
+        "pts": 4,
+        "reb": 7,
+        "ast": 0,
+        "stl": 1,
+        "blk": 1,
+        "to": 1,
+        "pf": 1
+      },
+      {
+        "player": "Y. Cueto",
+        "min": 9.0,
+        "pts": 7,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      },
+      {
+        "player": "M. Burton",
+        "min": 2.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 28.0,
+        "pts": 13,
+        "reb": 2,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 82,
+      "REB": 33,
+      "AST": 14,
+      "TO": 13,
+      "STL": 3,
+      "BLK": 4
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401827525": {
+    "name": "South Carolina Gamecocks",
+    "date": "2025-11-05",
+    "ncat_score": 72,
+    "opp_score": 91,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 21.0,
+        "pts": 7,
+        "reb": 10,
+        "ast": 1,
+        "stl": 1,
+        "blk": 1,
+        "to": 1,
+        "pf": 0
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 18.0,
+        "pts": 2,
+        "reb": 2,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 4
+      },
+      {
+        "player": "D. Pierce",
+        "min": 30.0,
+        "pts": 6,
+        "reb": 3,
+        "ast": 3,
+        "stl": 1,
+        "blk": 0,
+        "to": 1,
+        "pf": 3
+      },
+      {
+        "player": "Lu. Walker",
+        "min": 35.0,
+        "pts": 22,
+        "reb": 1,
+        "ast": 2,
+        "stl": 0,
+        "blk": 1,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 22.0,
+        "pts": 10,
+        "reb": 3,
+        "ast": 2,
+        "stl": 1,
+        "blk": 0,
+        "to": 5,
+        "pf": 2
+      },
+      {
+        "player": "Le. Walker",
+        "min": 27.0,
+        "pts": 16,
+        "reb": 4,
+        "ast": 2,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 4
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 15.0,
+        "pts": 6,
+        "reb": 2,
+        "ast": 0,
+        "stl": 1,
+        "blk": 1,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "W. Felton",
+        "min": 1.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "B. Vick",
+        "min": 14.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 3,
+        "blk": 0,
+        "to": 2,
+        "pf": 0
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 17.0,
+        "pts": 3,
+        "reb": 3,
+        "ast": 1,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 72,
+      "REB": 28,
+      "AST": 12,
+      "TO": 11,
+      "STL": 9,
+      "BLK": 3
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401827526": {
+    "name": "South Carolina State Bulldogs",
+    "date": "2025-11-11",
+    "ncat_score": 85,
+    "opp_score": 62,
+    "win": 1,
+    "ncat_players": [
+      {
+        "player": "KJ Debrick",
+        "min": 25.0,
+        "pts": 14,
+        "reb": 12,
+        "ast": 2,
+        "stl": 2,
+        "blk": 2,
+        "to": 2,
+        "pf": 2
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 27.0,
+        "pts": 10,
+        "reb": 6,
+        "ast": 4,
+        "stl": 2,
+        "blk": 1,
+        "to": 6,
+        "pf": 3
+      },
+      {
+        "player": "D. Pierce",
+        "min": 1.0,
+        "pts": 3,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "Lu. Walker",
+        "min": 29.0,
+        "pts": 22,
+        "reb": 4,
+        "ast": 0,
+        "stl": 1,
+        "blk": 1,
+        "to": 0,
+        "pf": 3
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 22.0,
+        "pts": 6,
+        "reb": 2,
+        "ast": 3,
+        "stl": 3,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "A. Doumbia",
+        "min": 6.0,
+        "pts": 0,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "Le. Walker",
+        "min": 21.0,
+        "pts": 16,
+        "reb": 4,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 3
+      },
+      {
+        "player": "W. Felton",
+        "min": 9.0,
+        "pts": 4,
+        "reb": 3,
+        "ast": 0,
+        "stl": 2,
+        "blk": 1,
+        "to": 1,
+        "pf": 4
+      },
+      {
+        "player": "Y. Cueto",
+        "min": 1.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "B. Vick",
+        "min": 18.0,
+        "pts": 5,
+        "reb": 2,
+        "ast": 4,
+        "stl": 1,
+        "blk": 0,
+        "to": 3,
+        "pf": 1
+      },
+      {
+        "player": "M. Burton",
+        "min": 12.0,
+        "pts": 2,
+        "reb": 2,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 29.0,
+        "pts": 3,
+        "reb": 2,
+        "ast": 1,
+        "stl": 2,
+        "blk": 0,
+        "to": 2,
+        "pf": 2
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 85,
+      "REB": 39,
+      "AST": 15,
+      "TO": 17,
+      "STL": 14,
+      "BLK": 5
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401827527": {
+    "name": "Washington Adventist Shock",
+    "date": "2025-11-14",
+    "ncat_score": 89,
+    "opp_score": 83,
+    "win": 1,
+    "ncat_players": [
+      {
+        "player": "KJ Debrick",
+        "min": 6.0,
+        "pts": 2,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 1,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 27.0,
+        "pts": 17,
+        "reb": 5,
+        "ast": 1,
+        "stl": 3,
+        "blk": 3,
+        "to": 1,
+        "pf": 1
+      },
+      {
+        "player": "B. Vick",
+        "min": 24.0,
+        "pts": 2,
+        "reb": 4,
+        "ast": 5,
+        "stl": 1,
+        "blk": 0,
+        "to": 2,
+        "pf": 3
+      },
+      {
+        "player": "Lu. Walker",
+        "min": 32.0,
+        "pts": 25,
+        "reb": 5,
+        "ast": 0,
+        "stl": 1,
+        "blk": 1,
+        "to": 2,
+        "pf": 1
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 38.0,
+        "pts": 9,
+        "reb": 6,
+        "ast": 2,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 4
+      },
+      {
+        "player": "A. Doumbia",
+        "min": 16.0,
+        "pts": 2,
+        "reb": 6,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 1,
+        "pf": 5
+      },
+      {
+        "player": "Le. Walker",
+        "min": 31.0,
+        "pts": 25,
+        "reb": 8,
+        "ast": 4,
+        "stl": 3,
+        "blk": 0,
+        "to": 2,
+        "pf": 2
+      },
+      {
+        "player": "Y. Cueto",
+        "min": 16.0,
+        "pts": 4,
+        "reb": 2,
+        "ast": 2,
+        "stl": 3,
+        "blk": 0,
+        "to": 3,
+        "pf": 3
+      },
+      {
+        "player": "M. Burton",
+        "min": 10.0,
+        "pts": 3,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 89,
+      "REB": 37,
+      "AST": 14,
+      "TO": 13,
+      "STL": 12,
+      "BLK": 5
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401827528": {
+    "name": "North Carolina Central Eagles",
+    "date": "2025-12-06",
+    "ncat_score": 69,
+    "opp_score": 54,
+    "win": 1,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 8.0,
+        "pts": 2,
+        "reb": 6,
+        "ast": 0,
+        "stl": 0,
+        "blk": 1,
+        "to": 0,
+        "pf": 4
+      },
+      {
+        "player": "Le. Walker",
+        "min": 38.0,
+        "pts": 18,
+        "reb": 14,
+        "ast": 1,
+        "stl": 1,
+        "blk": 1,
+        "to": 2,
+        "pf": 3
+      },
+      {
+        "player": "D. Pierce",
+        "min": 13.0,
+        "pts": 0,
+        "reb": 2,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 4
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 24.0,
+        "pts": 8,
+        "reb": 1,
+        "ast": 3,
+        "stl": 0,
+        "blk": 0,
+        "to": 3,
+        "pf": 0
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 35.0,
+        "pts": 14,
+        "reb": 6,
+        "ast": 4,
+        "stl": 1,
+        "blk": 0,
+        "to": 2,
+        "pf": 1
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 14.0,
+        "pts": 3,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 16.0,
+        "pts": 2,
+        "reb": 4,
+        "ast": 0,
+        "stl": 0,
+        "blk": 1,
+        "to": 2,
+        "pf": 1
+      },
+      {
+        "player": "W. Felton",
+        "min": 18.0,
+        "pts": 9,
+        "reb": 7,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 1,
+        "pf": 3
+      },
+      {
+        "player": "B. Vick",
+        "min": 7.0,
+        "pts": 0,
+        "reb": 3,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 3,
+        "pf": 1
+      },
+      {
+        "player": "Lu. Walker",
+        "min": 27.0,
+        "pts": 13,
+        "reb": 3,
+        "ast": 2,
+        "stl": 1,
+        "blk": 0,
+        "to": 3,
+        "pf": 1
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 69,
+      "REB": 47,
+      "AST": 11,
+      "TO": 18,
+      "STL": 5,
+      "BLK": 3
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401827529": {
+    "name": "Howard Bison",
+    "date": "2025-12-10",
+    "ncat_score": 69,
+    "opp_score": 73,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 6.0,
+        "pts": 0,
+        "reb": 3,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "Le. Walker",
+        "min": 33.0,
+        "pts": 15,
+        "reb": 3,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 4
+      },
+      {
+        "player": "D. Pierce",
+        "min": 26.0,
+        "pts": 6,
+        "reb": 1,
+        "ast": 2,
+        "stl": 1,
+        "blk": 1,
+        "to": 6,
+        "pf": 3
+      },
+      {
+        "player": "Lu. Walker",
+        "min": 22.0,
+        "pts": 1,
+        "reb": 2,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 28.0,
+        "pts": 18,
+        "reb": 6,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 4,
+        "pf": 2
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 20.0,
+        "pts": 8,
+        "reb": 8,
+        "ast": 0,
+        "stl": 0,
+        "blk": 6,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 31.0,
+        "pts": 10,
+        "reb": 8,
+        "ast": 1,
+        "stl": 2,
+        "blk": 0,
+        "to": 1,
+        "pf": 3
+      },
+      {
+        "player": "W. Felton",
+        "min": 13.0,
+        "pts": 4,
+        "reb": 2,
+        "ast": 0,
+        "stl": 1,
+        "blk": 1,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 21.0,
+        "pts": 7,
+        "reb": 2,
+        "ast": 1,
+        "stl": 1,
+        "blk": 1,
+        "to": 0,
+        "pf": 2
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 69,
+      "REB": 35,
+      "AST": 6,
+      "TO": 13,
+      "STL": 6,
+      "BLK": 9
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401827530": {
+    "name": "UNC Greensboro Spartans",
+    "date": "2025-12-17",
+    "ncat_score": 71,
+    "opp_score": 65,
+    "win": 1,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 9.0,
+        "pts": 0,
+        "reb": 2,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "Le. Walker",
+        "min": 16.0,
+        "pts": 12,
+        "reb": 5,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 0
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 34.0,
+        "pts": 8,
+        "reb": 10,
+        "ast": 3,
+        "stl": 0,
+        "blk": 2,
+        "to": 3,
+        "pf": 1
+      },
+      {
+        "player": "D. Pierce",
+        "min": 37.0,
+        "pts": 13,
+        "reb": 3,
+        "ast": 1,
+        "stl": 1,
+        "blk": 0,
+        "to": 4,
+        "pf": 3
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 38.0,
+        "pts": 21,
+        "reb": 4,
+        "ast": 3,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 4
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 20.0,
+        "pts": 7,
+        "reb": 9,
+        "ast": 2,
+        "stl": 0,
+        "blk": 3,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "W. Felton",
+        "min": 11.0,
+        "pts": 4,
+        "reb": 6,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "Y. Cueto",
+        "min": 4.0,
+        "pts": 0,
+        "reb": 3,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 1
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 31.0,
+        "pts": 6,
+        "reb": 3,
+        "ast": 4,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 3
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 71,
+      "REB": 45,
+      "AST": 14,
+      "TO": 10,
+      "STL": 2,
+      "BLK": 5
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401827531": {
+    "name": "Mid-Atlantic Christian Mustangs",
+    "date": "2025-12-20",
+    "ncat_score": 95,
+    "opp_score": 55,
+    "win": 1,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 18.0,
+        "pts": 11,
+        "reb": 5,
+        "ast": 0,
+        "stl": 2,
+        "blk": 3,
+        "to": 0,
+        "pf": 5
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 25.0,
+        "pts": 12,
+        "reb": 8,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "D. Pierce",
+        "min": 21.0,
+        "pts": 8,
+        "reb": 3,
+        "ast": 4,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 30.0,
+        "pts": 15,
+        "reb": 3,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 24.0,
+        "pts": 16,
+        "reb": 5,
+        "ast": 7,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 0
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 16.0,
+        "pts": 11,
+        "reb": 12,
+        "ast": 2,
+        "stl": 0,
+        "blk": 4,
+        "to": 1,
+        "pf": 0
+      },
+      {
+        "player": "W. Felton",
+        "min": 10.0,
+        "pts": 7,
+        "reb": 6,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 5,
+        "pf": 3
+      },
+      {
+        "player": "Y. Cueto",
+        "min": 20.0,
+        "pts": 3,
+        "reb": 0,
+        "ast": 1,
+        "stl": 1,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "B. Vick",
+        "min": 19.0,
+        "pts": 9,
+        "reb": 2,
+        "ast": 5,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "M. Burton",
+        "min": 17.0,
+        "pts": 3,
+        "reb": 4,
+        "ast": 1,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 95,
+      "REB": 48,
+      "AST": 21,
+      "TO": 11,
+      "STL": 4,
+      "BLK": 7
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401827733": {
+    "name": "Davidson Wildcats",
+    "date": "2025-11-28",
+    "ncat_score": 74,
+    "opp_score": 90,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "A. Doumbia",
+        "min": 22.0,
+        "pts": 5,
+        "reb": 4,
+        "ast": 1,
+        "stl": 0,
+        "blk": 2,
+        "to": 2,
+        "pf": 4
+      },
+      {
+        "player": "Le. Walker",
+        "min": 35.0,
+        "pts": 22,
+        "reb": 5,
+        "ast": 1,
+        "stl": 1,
+        "blk": 0,
+        "to": 1,
+        "pf": 4
+      },
+      {
+        "player": "B. Vick",
+        "min": 26.0,
+        "pts": 3,
+        "reb": 1,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 3,
+        "pf": 2
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 22.0,
+        "pts": 11,
+        "reb": 3,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 28.0,
+        "pts": 12,
+        "reb": 2,
+        "ast": 4,
+        "stl": 1,
+        "blk": 0,
+        "to": 0,
+        "pf": 4
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 16.0,
+        "pts": 6,
+        "reb": 4,
+        "ast": 0,
+        "stl": 0,
+        "blk": 2,
+        "to": 0,
+        "pf": 4
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 18.0,
+        "pts": 6,
+        "reb": 3,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 2
+      },
+      {
+        "player": "W. Felton",
+        "min": 2.0,
+        "pts": 3,
+        "reb": 3,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "pf": 0
+      },
+      {
+        "player": "D. Pierce",
+        "min": 27.0,
+        "pts": 6,
+        "reb": 2,
+        "ast": 2,
+        "stl": 1,
+        "blk": 0,
+        "to": 2,
+        "pf": 4
+      },
+      {
+        "player": "M. Burton",
+        "min": 4.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 0
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 74,
+      "REB": 27,
+      "AST": 8,
+      "TO": 10,
+      "STL": 5,
+      "BLK": 4
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  },
+  "game_401856422": {
+    "name": "Northeastern Huskies",
+    "date": "2026-03-06",
+    "ncat_score": 72,
+    "opp_score": 88,
+    "win": 0,
+    "ncat_players": [
+      {
+        "player": "Le. Walker",
+        "min": 33.0,
+        "pts": 17,
+        "reb": 5,
+        "ast": 2,
+        "stl": 0,
+        "blk": 0,
+        "to": 2,
+        "pf": 2
+      },
+      {
+        "player": "Z. Weluche-Ume",
+        "min": 35.0,
+        "pts": 15,
+        "reb": 7,
+        "ast": 0,
+        "stl": 1,
+        "blk": 3,
+        "to": 3,
+        "pf": 3
+      },
+      {
+        "player": "W. Felton",
+        "min": 21.0,
+        "pts": 3,
+        "reb": 4,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      },
+      {
+        "player": "D. Pierce",
+        "min": 28.0,
+        "pts": 10,
+        "reb": 2,
+        "ast": 1,
+        "stl": 1,
+        "blk": 0,
+        "to": 1,
+        "pf": 4
+      },
+      {
+        "player": "T. Middleton Jr.",
+        "min": 33.0,
+        "pts": 15,
+        "reb": 5,
+        "ast": 4,
+        "stl": 2,
+        "blk": 0,
+        "to": 4,
+        "pf": 4
+      },
+      {
+        "player": "KJ Debrick",
+        "min": 9.0,
+        "pts": 4,
+        "reb": 3,
+        "ast": 1,
+        "stl": 1,
+        "blk": 2,
+        "to": 0,
+        "pf": 2
+      },
+      {
+        "player": "M. Burton",
+        "min": 15.0,
+        "pts": 3,
+        "reb": 1,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
+        "to": 1,
+        "pf": 1
+      },
+      {
+        "player": "B. Ogletree",
+        "min": 26.0,
+        "pts": 5,
+        "reb": 3,
+        "ast": 0,
+        "stl": 0,
+        "blk": 1,
+        "to": 0,
+        "pf": 1
+      }
+    ],
+    "ncat_totals": {
+      "PTS": 72,
+      "REB": 30,
+      "AST": 8,
+      "TO": 12,
+      "STL": 6,
+      "BLK": 6
+    },
+    "stats": [
+      "PTS",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TO"
+    ]
+  }
+}

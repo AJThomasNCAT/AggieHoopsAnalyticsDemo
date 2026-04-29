@@ -1,0 +1,28 @@
+{
+    "model_metrics": {
+        "win_accuracy_percent": 50.0,
+        "point_error_margin": 12.5
+    },
+    "feature_importance": [
+        {
+            "feature": "pregame_rolling_paint",
+            "importance": 34.3
+        },
+        {
+            "feature": "pregame_rolling_pts",
+            "importance": 20.7
+        },
+        {
+            "feature": "pregame_rolling_to",
+            "importance": 20.2
+        },
+        {
+            "feature": "pregame_rolling_reb",
+            "importance": 18.8
+        },
+        {
+            "feature": "pregame_win_streak",
+            "importance": 5.9
+        }
+    ]
+}
