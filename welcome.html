@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aggie Hoops Learning Hub</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Aggie Tailwind Colors -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'aggie-blue': '#004b8d',
+            'aggie-gold': '#fdb927',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <style>
+      body {
+          margin: 0;
+          padding: 0;
+          min-height: 100vh;
+          background: radial-gradient(circle at top, #0f172a 0%, #020617 50%, #000 100%);
+          color: #e5e7eb;
+          font-family: 'Inter', sans-serif;
+          font-size: 1.05rem;
+          line-height: 1.65;
+      }
+
+      /* VIDEO BACKGROUND */
+      .video-bg {
+          position: fixed;
+          inset: 0;
+          z-index: -3;
+          overflow: hidden;
+      }
+
+      .video-bg video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: brightness(0.25) saturate(1.2);
+      }
+
+      .video-overlay {
+          position: fixed;
+          inset: 0;
+          z-index: -2;
+          background: radial-gradient(circle at top, rgba(15,23,42,0.85), rgba(0,0,0,0.95));
+      }
+
+      /* TOP NAV BAR */
+      .top-bar {
+          position: sticky;
+          top: 0;
+          z-index: 50;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0.7rem 2rem;
+          background: rgba(0, 0, 0, 0.65);
+          backdrop-filter: blur(16px);
+          border-bottom: 1px solid rgba(0,75,141,0.4);
+      }
+
+      .logo-mark {
+          height: 50px;
+      }
+
+      .site-title {
+          font-size: 1.3rem;
+          font-weight: 900;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          color: #fdb927;
+          text-shadow: 0 0 12px rgba(253,185,39,0.45);
+      }
+
+      .nav-pill {
+          padding: 0.45rem 1.25rem;
+          border-radius: 999px;
+          font-size: 0.85rem;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          border: 1px solid rgba(0,75,141,0.55);
+          background: radial-gradient(circle at top left, #1e293b, #020617);
+          transition: all 0.25s ease;
+      }
+
+      .nav-pill:hover {
+          border-color: #fdb927;
+          transform: translateY(-2px);
+          color: white;
+      }
+
+      .nav-active {
+          background: linear-gradient(135deg, #fdb927, #d89b1d);
+          color: #111;
+          border-color: transparent;
+          box-shadow: 0 10px 28px rgba(253,185,39,0.4);
+      }
+
+      .btn-primary {
+          padding: 0.8rem 2rem;
+          border-radius: 999px;
+          background: linear-gradient(135deg, #fdb927, #d89b1d);
+          color: #111;
+          font-size: 1rem;
+          font-weight: 900;
+          letter-spacing: 0.12em;
+          box-shadow: 0 12px 30px rgba(253,185,39,0.45);
+          transition: all 0.25s ease;
+      }
+
+      .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 18px 45px rgba(253,185,39,0.6);
+      }
+
+      .section-title {
+          font-size: 2.8rem;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: #fdb927;
+          margin-bottom: 1.5rem;
+      }
+
+      /* BALL ANIMATION */
+      .ball-container {
+          animation: floatUpDown 5s ease-in-out infinite;
+      }
+
+      @keyframes floatUpDown {
+          0%   { transform: translateY(-50%) translateY(-12px); }
+          50%  { transform: translateY(-50%) translateY(12px); }
+          100% { transform: translateY(-50%) translateY(-12px); }
+      }
+
+      .ball-rotate {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          animation: slowSpin 12s linear infinite;
+      }
+
+      @keyframes slowSpin {
+          0%   { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+      }
+
+
+      /* ⭐⭐⭐ SPARKLES ADDED HERE ⭐⭐⭐ */
+      .particles {
+          position: fixed;
+          inset: 0;
+          z-index: -1;
+          pointer-events: none;
+      }
+      .particle {
+          position: absolute;
+          width: 5px;
+          height: 5px;
+          background: rgba(255,255,255,0.45);
+          border-radius: 50%;
+          animation: rise var(--duration) linear infinite;
+          opacity: 0.8;
+          filter: drop-shadow(0 0 6px rgba(255,255,255,0.8));
+      }
+      @keyframes rise {
+          0% { transform: translateY(0); opacity: 0.2; }
+          100% { transform: translateY(-130vh); opacity: 0; }
+      }
+      .rim-anim {
+          animation: rimSway 4s ease-in-out infinite;
+          filter: drop-shadow(0 0 20px rgba(253,185,39,0.45));
+      }
+
+      @keyframes rimSway {
+          0%   { transform: translateY(-50%) rotate(0deg); }
+          50%  { transform: translateY(-50%) rotate(1.4deg); }
+          100% { transform: translateY(-50%) rotate(0deg); }
+      }
+
+
+  </style>
+</head>
+
+<body>
+
+<!-- ⭐⭐⭐ SPARKLE PARTICLES CONTAINER ⭐⭐⭐ -->
+<div class="particles" id="particles"></div>
+
+<!-- BACKGROUND VIDEO -->
+<div class="video-bg">
+  <video autoplay loop muted playsinline src="your-video.mp4"></video>
+</div>
+<div class="video-overlay"></div>
+
+<!-- HEADER -->
+<header class="top-bar">
+  <div class="flex items-center gap-4">
+    <img src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/NC_A%26T_Logo_Icon_2C.png" class="logo-mark">
+    <span class="site-title">Aggie Hoops Analytics</span>
+  </div>
+
+  <nav class="flex gap-4">
+    <a href="#welcome" class="nav-pill nav-active">Welcome</a>
+    <a href="#basics" class="nav-pill">Basics</a>
+    <a href="#fundamentals" class="nav-pill">Positions</a>
+    <a href="#rules" class="nav-pill">Game Structure</a>
+    <a href="#playerstats" class="nav-pill">Stats</a>
+    <a href="home.html" class="nav-pill">Aggie Tracker</a>
+    <a href="strategy-lab.html" class="nav-pill">Strategy Lab</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="welcome" class="h-[95vh] flex flex-col justify-center items-center text-center px-6 relative">
+
+  <!-- LEFT SIDE — RIM + NET -->
+  <div class="absolute left-[6%] top-1/2 -translate-y-1/2 w-[340px] z-0 rim-anim">
+    <img
+      src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/ChatGPT Image Dec 4, 2025, 08_33_31 PM.png"
+      alt="Basketball Rim"
+      class="w-full object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.25)]"
+    />
+  </div>
+
+  <!-- RIGHT SIDE — FLOATING SPINNING BALL -->
+  <div class="absolute right-[6%] top-1/2 -translate-y-1/2 w-[260px] opacity-80 ball-container">
+    <img
+      src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/ChatGPT Image Dec 4, 2025, 08_13_22 PM.png"
+      alt="Basketball"
+      class="ball-rotate"
+    />
+  </div>
+
+  <!-- MAIN TITLE -->
+  <h1 class="text-7xl md:text-8xl lg:text-[7rem] font-extrabold text-aggie-gold
+             drop-shadow-[0_0_40px_rgba(253,185,39,0.6)]"
+      data-aos="fade-up">
+    Welcome to Aggie Hoops Analytics
+  </h1>
+
+  <!-- SUBTEXT -->
+  <p class="max-w-4xl mt-10 text-gray-200 leading-relaxed text-2xl md:text-3xl"
+     data-aos="fade-up"
+     data-aos-delay="200">
+    Learn the game. Understand the numbers. Elevate your basketball IQ.
+  </p>
+
+  <!-- BUTTON -->
+  <a href="#basics"
+     class="btn-primary mt-16"
+     data-aos="fade-up"
+     data-aos-delay="350">
+    START LEARNING ↓
+  </a>
+
+</section>
+
+
+<!-- ============================== -->
+<!-- 1️⃣ THE COURT — TWO COLUMN LAYOUT -->
+<!-- ============================== -->
+
+<section id="basics" class="max-w-7xl mx-auto px-6 py-24">
+  <h2 class="section-title" data-aos="fade-right">Basketball 101</h2>
+
+  <p class="text-3xl font-bold text-aggie-gold mt-10" data-aos="fade-up">
+    (Rules, Gameplay, Stats, Court, Positions, Fouls, Violations, Analytics)
+  </p>
+
+  <!-- TWO-COLUMN WRAP -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-20">
+
+    <!-- LEFT SIDE — TEXT -->
+    <div data-aos="fade-right">
+
+      <h3 class="text-5xl font-extrabold text-blue-300">1️⃣ The Court — Everything to Know</h3>
+
+      <ul class="list-disc ml-10 mt-6 text-2xl leading-relaxed">
+        <li>Three-point line – shots behind it = 3 pts</li>
+        <li>Free-throw line – where fouled players shoot</li>
+        <li>Paint / Key – rectangle under the basket</li>
+        <li>Low post / High post – inside scoring zones</li>
+        <li>Baseline / Sideline – out of bounds</li>
+        <li>Half-court line – prevents going backwards</li>
+        <li>Restricted circle – no charges allowed under the rim</li>
+      </ul>
+
+      <h4 class="text-4xl font-semibold text-aggie-gold mt-12">Dimensions</h4>
+      <ul class="list-disc ml-10 mt-4 text-2xl">
+        <li>Court: 94 ft × 50 ft</li>
+        <li>Hoop: 10 ft high</li>
+        <li>Free throw: 15 ft</li>
+        <li>3-point line NBA: 22–23.75 ft</li>
+        <li>3-point line NCAA men: 22 ft</li>
+      </ul>
+
+    </div>
+
+    <!-- RIGHT SIDE — IMAGE AREA YOU WILL FILL -->
+    <div class="flex items-center justify-center" data-aos="fade-left">
+
+      <!-- PLACE YOUR COURT IMAGE HERE -->
+      <div class="w-full h-[400px] bg-black/40 border border-aggie-gold rounded-2xl flex items-center justify-center overflow-hidden">
+        <img src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/basketball-court-dimensions-and-markings-in-feet-720x444.png"
+             alt="Basketball Court Diagram"
+             class="w-full h-full object-cover rounded-2xl" />
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================== -->
+<!-- 2️⃣ POSITIONS -->
+<!-- ============================== -->
+
+<section id="fundamentals" class="max-w-6xl mx-auto px-6 py-24">
+
+  <h2 class="section-title" data-aos="fade-right">2️⃣ ️Players & Positions ⛹️‍♂️⛹️‍♀️</h2>
+
+  <!-- GRID: LEFT TEXT + RIGHT IMAGE -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-12">
+
+    <!-- LEFT SIDE — TEXT -->
+    <div class="space-y-12 text-2xl leading-relaxed" data-aos="fade-up">
+      <p><span class="text-aggie-gold font-bold">1. Point Guard (PG)</span> – “Floor General”<br>
+        Controls offense • Dribbles most • Calls plays • Pass-first</p>
+
+      <p><span class="text-aggie-gold font-bold">2. Shooting Guard (SG)</span> – “Scorer”<br>
+        Best shooter • Makes 3s • Midrange • Drives</p>
+
+      <p><span class="text-aggie-gold font-bold">3. Small Forward (SF)</span> – “All-Around”<br>
+        Shoots • Drives • Defends • Versatile</p>
+
+      <p><span class="text-aggie-gold font-bold">4. Power Forward (PF)</span> – “Inside/Outside Big”<br>
+        Rebounds • Screens • Paint scoring • Midrange</p>
+
+      <p><span class="text-aggie-gold font-bold">5. Center (C)</span> – “Rim Protector”<br>
+        Tallest • Shot blocks • Rebounds • Close shots / Dunks</p>
+    </div>
+
+    <!-- RIGHT SIDE — IMAGE -->
+    <div class="flex items-center justify-center" data-aos="fade-left">
+      <div class="w-full h-[400px] bg-black/40 border border-aggie-gold rounded-2xl flex items-center justify-center overflow-hidden">
+        <img src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/Basketball_Positions.png"
+             alt="Basketball Positions Diagram"
+             class="w-full h-full object-cover rounded-2xl" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================== -->
+<!-- 3️⃣ GAME STRUCTURE -->
+<!-- ============================== -->
+
+<section id="rules" class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="section-title" data-aos="fade-right">3️⃣ Game Structure 🏟️</h2>
+
+  <!-- GRID: LEFT TEXT + RIGHT IMAGE -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+
+    <!-- LEFT SIDE — TEXT -->
+    <div data-aos="fade-up">
+      <ul class="list-disc ml-10 text-2xl leading-relaxed">
+        <li>NBA: 4 × 12-min quarters</li>
+        <li>NCAA Men: 2 × 20-min halves</li>
+        <li>NCAA Women: 4 × 10-min quarters</li>
+        <li>Shot clock: NBA 24s • NCAA 30s</li>
+        <li>Shot clock resets to 14 after hitting rim</li>
+        <li>Jump ball starts game</li>
+        <li>OT: 5 minutes each</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT SIDE — IMAGE -->
+    <div class="flex items-center justify-center" data-aos="fade-left">
+      <div class="w-full h-[400px] bg-black/40 border border-aggie-gold rounded-2xl
+                  flex items-center justify-center overflow-hidden">
+        <img
+          src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/r189075_1296x729_16-9.jpg"
+          alt="Shot Clock and Game Structure"
+          class="w-full h-full object-cover rounded-2xl"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================== -->
+<!-- 4️⃣ HOW TO SCORE -->
+<!-- ============================== -->
+
+<section class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="section-title" data-aos="fade-right">4️⃣ How to Score 🔥</h2>
+
+  <!-- GRID: LEFT TABLE + RIGHT IMAGE -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+
+    <!-- LEFT SIDE — TEXT / TABLE -->
+    <div data-aos="fade-up">
+      <table class="w-full text-3xl border-separate border-spacing-y-4">
+        <tr>
+          <td class="font-bold text-aggie-gold">Free Throws</td>
+          <td>1 point — fouled while shooting</td>
+        </tr>
+        <tr>
+          <td class="font-bold text-aggie-gold">Layup</td>
+          <td>2 points — close-range finish</td>
+        </tr>
+        <tr>
+          <td class="font-bold text-aggie-gold">Dunk</td>
+          <td>2 points — strong finish</td>
+        </tr>
+        <tr>
+          <td class="font-bold text-aggie-gold">Jump Shot</td>
+          <td>2 points — inside the arc</td>
+        </tr>
+        <tr>
+          <td class="font-bold text-aggie-gold">Three-pointer</td>
+          <td>3 points — outside the arc</td>
+        </tr>
+        <tr>
+          <td class="font-bold text-aggie-gold">Putback</td>
+          <td>2 points — after rebound</td>
+        </tr>
+        <tr>
+          <td class="font-bold text-aggie-gold">And-1</td>
+          <td>Score + 1 free throw</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- RIGHT SIDE — IMAGE -->
+    <div class="flex items-center justify-center" data-aos="fade-left">
+      <div class="w-full h-[400px] bg-black/40 border border-aggie-gold rounded-2xl
+                  flex items-center justify-center overflow-hidden">
+        <img
+          src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/ESPN-InsightCast-Shot-Chart.webp"
+          alt="How to Score Diagram"
+          class="w-full h-full object-cover rounded-2xl"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================== -->
+<!-- 5️⃣ BASIC OFFENSE -->
+<!-- ============================== -->
+
+<section class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="section-title" data-aos="fade-right">5️⃣ Basic Offense 🎯</h2>
+
+  <!-- GRID: LEFT TEXT + RIGHT IMAGE -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+
+    <!-- LEFT SIDE — TEXT -->
+    <div data-aos="fade-up">
+      <ul class="list-disc ml-10 text-2xl leading-relaxed">
+        <li>Pick-and-roll — guard uses a screen from a big</li>
+        <li>Isolation (ISO) — 1v1 scoring</li>
+        <li>Fast break — running after a rebound or steal</li>
+        <li>Spacing — players around the 3-point line opening lanes</li>
+        <li>Motion offense — cuts, screens, constant movement</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT SIDE — IMAGE -->
+    <div class="flex items-center justify-center" data-aos="fade-left">
+      <div class="w-full h-[400px] bg-black/40 border border-aggie-gold rounded-2xl
+                  flex items-center justify-center overflow-hidden">
+        <img
+          src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/pickandrolldrill.gif"
+          alt="Basic Offense Diagram"
+          class="w-full h-full object-cover rounded-2xl"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================== -->
+<!-- 6️⃣ BASIC DEFENSE -->
+<!-- ============================== -->
+
+<section id="defense" class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="section-title" data-aos="fade-right">6️⃣ Basic Defense 🛡️</h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+
+    <!-- LEFT SIDE — TEXT -->
+    <div data-aos="fade-up">
+      <ul class="list-disc ml-10 text-2xl leading-relaxed">
+        <li>Man-to-man</li>
+        <li>Zones: 2–3, 3–2, 1–3–1, 2-1-2, 1-2-2</li>
+        <li>Help defense & rotations</li>
+        <li>Press defense (full court)</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT SIDE — IMAGE -->
+    <div class="flex items-center justify-center" data-aos="fade-left">
+      <div class="w-full bg-black/40 border border-aggie-gold rounded-2xl
+              flex items-center justify-center overflow-hidden">
+
+        <img src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/basketball-man-to-man-defense.jpeg"
+             alt="Basic Defense Diagram"
+             class="w-full object-contain rounded-2xl" />
+
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+<!-- ============================== -->
+<!-- 7️⃣ FOULS -->
+<!-- ============================== -->
+
+<section class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="section-title" data-aos="fade-right">7️⃣ Fouls 🚫</h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+
+    <!-- LEFT SIDE — TEXT -->
+    <div data-aos="fade-up">
+      <ul class="list-disc ml-10 text-2xl leading-relaxed">
+        <li>Personal — pushing, reaching, blocking, charging</li>
+        <li>Shooting foul — free throws</li>
+        <li>Offensive foul — charge, illegal screen</li>
+        <li>Bonus — automatic free throws after foul limit</li>
+        <li>Technical — arguing, taunting</li>
+        <li>Flagrant — dangerous or excessive contact</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT SIDE — IMAGE -->
+    <div class="flex items-center justify-center" data-aos="fade-left">
+      <div class="w-full bg-black/40 border border-aggie-gold rounded-2xl
+                  flex items-center justify-center overflow-hidden">
+
+        <!-- PLACE YOUR FOUL IMAGE HERE -->
+        <img src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/9950925_orig.jpg"
+             alt="Basketball Foul Diagram"
+             class="w-full object-contain rounded-2xl" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================== -->
+<!-- 8️⃣ VIOLATIONS -->
+<!-- ============================== -->
+
+<section class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="section-title" data-aos="fade-right">8️⃣ Violations 🚫</h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+
+    <!-- LEFT SIDE — TEXT -->
+    <div data-aos="fade-up">
+      <ul class="list-disc ml-10 text-2xl leading-relaxed">
+        <li>Traveling</li>
+        <li>Double dribble</li>
+        <li>Carry / Palming</li>
+        <li>Shot clock violation</li>
+        <li>5-second inbound violation</li>
+        <li>8-second backcourt violation</li>
+        <li>3 seconds in the paint</li>
+        <li>Backcourt violation</li>
+        <li>Out of bounds</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT SIDE — IMAGE -->
+    <div class="flex items-center justify-center" data-aos="fade-left">
+      <div class="w-full bg-black/40 border border-aggie-gold rounded-2xl
+                  flex items-center justify-center overflow-hidden">
+
+        <!-- PLACE YOUR VIOLATIONS IMAGE HERE -->
+        <img src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/Charged-with-the-Ball-e1679992036933.jpg"
+             alt="Basketball Violations Diagram"
+             class="w-full object-contain rounded-2xl" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================== -->
+<!-- 9️⃣ REBOUNDING -->
+<!-- ============================== -->
+
+<section id="rebounding" class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="section-title" data-aos="fade-right">9️⃣ Rebounding 🧱</h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+
+    <!-- LEFT SIDE — TEXT -->
+    <div data-aos="fade-up">
+      <ul class="list-disc ml-10 text-2xl leading-relaxed">
+        <li>Offensive rebound — extend possession</li>
+        <li>Defensive rebound — end opponent possession</li>
+        <li>Box out — seal defender before the ball arrives</li>
+        <li>Use two hands to secure the ball</li>
+        <li>Explode upward — timing matters more than height</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT SIDE — IMAGE -->
+    <div class="flex items-center justify-center" data-aos="fade-left">
+      <div class="w-full bg-black/40 border border-aggie-gold rounded-2xl
+                  flex items-center justify-center overflow-hidden">
+
+        <!-- PLACE YOUR IMAGE HERE -->
+        <img src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/v4-460px-Rebound-in-Basketball-Step-2-Version-4.jpg"
+             alt="Basketball Rebounding Diagram"
+             class="w-full h-full object-cover rounded-2xl" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================== -->
+<!-- 🔟 PLAYER STATS -->
+<!-- ============================== -->
+
+<section id="playerstats" class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="section-title" data-aos="fade-right">🔟 Key Basketball Stats ⭐</h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+
+    <!-- LEFT SIDE — TEXT -->
+    <div data-aos="fade-up">
+
+      <h3 class="text-4xl text-aggie-gold mt-6">Basic Stats</h3>
+      <ul class="list-disc ml-10 text-2xl leading-relaxed">
+        <li>PTS — Points</li>
+        <li>REB — Rebounds</li>
+        <li>AST — Assists</li>
+        <li>STL — Steals</li>
+        <li>BLK — Blocks</li>
+        <li>TO — Turnovers</li>
+        <li>PF — Personal Fouls</li>
+        <li>FG% • 3P% • FT%</li>
+      </ul>
+
+      <h3 class="text-4xl text-aggie-gold mt-10">Advanced Shots</h3>
+      <ul class="list-disc ml-10 text-2xl leading-relaxed">
+        <li>FGM/FGA — Field goals made/attempted</li>
+        <li>3PM/3PA — 3-pointers made/attempted</li>
+        <li>FTM/FTA — Free throws made/attempted</li>
+        <li>EFF — Efficiency rating (simple)</li>
+      </ul>
+
+      <h3 class="text-4xl text-aggie-gold mt-10">Advanced Analytics</h3>
+      <ul class="list-disc ml-10 text-2xl leading-relaxed">
+        <li>PER — Player Efficiency Rating</li>
+        <li>TS% — True Shooting %</li>
+        <li>eFG% — Effective Field Goal %</li>
+        <li>USG% — Usage Rate</li>
+        <li>Off/Def Rating — Points per 100 possessions</li>
+        <li>+/- — Impact on the game</li>
+        <li>Win Shares — Contribution to wins</li>
+      </ul>
+
+    </div>
+
+    <!-- RIGHT SIDE — IMAGE -->
+    <div class="flex items-center justify-center" data-aos="fade-left">
+      <div class="w-full bg-black/40 border border-aggie-gold rounded-2xl
+                  flex items-center justify-center overflow-hidden">
+
+        <!-- REPLACE WITH YOUR STATS IMAGE -->
+        <img src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/1676557585437.png"
+             alt="Player Stats Graphic"
+             class="w-full h-full object-cover rounded-2xl" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================== -->
+<!-- 1️⃣1️⃣ TEAM STATS -->
+<!-- ============================== -->
+
+<section id="teamstats" class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="section-title" data-aos="fade-right">1️⃣1️⃣ Team Stats 🧢</h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+
+    <!-- LEFT SIDE — TEXT -->
+    <div data-aos="fade-up">
+
+      <h3 class="text-4xl text-aggie-gold mt-6">Offense</h3>
+      <ul class="list-disc ml-10 text-2xl leading-relaxed">
+        <li>PPP — Points per possession</li>
+        <li>Assist-to-turnover ratio</li>
+        <li>Fast break points</li>
+        <li>Second-chance points</li>
+      </ul>
+
+      <h3 class="text-4xl text-aggie-gold mt-10">Defense</h3>
+      <ul class="list-disc ml-10 text-2xl leading-relaxed">
+        <li>Opponent FG%</li>
+        <li>Steals</li>
+        <li>Blocks</li>
+        <li>Paint points allowed</li>
+        <li>Defensive rebounding %</li>
+      </ul>
+
+      <h3 class="text-4xl text-aggie-gold mt-10">Style</h3>
+      <ul class="list-disc ml-10 text-2xl leading-relaxed">
+        <li>Pace (how fast a team plays)</li>
+        <li>Shot selection (3s, midrange, layups)</li>
+        <li>Transition efficiency</li>
+      </ul>
+
+    </div>
+
+    <!-- RIGHT SIDE — IMAGE -->
+    <div class="flex items-center justify-center" data-aos="fade-left">
+      <div class="w-full bg-black/40 border border-aggie-gold rounded-2xl
+                  flex items-center justify-center overflow-hidden">
+
+        <!-- PLACE TEAM STATS IMAGE HERE -->
+        <img
+          src="https://raw.githubusercontent.com/AJThomasNCAT/webimages/main/featured.jpg"
+          alt="Team Analytics Graphic"
+          class="w-full h-full object-cover rounded-2xl" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- 1️⃣2️⃣ FLOW OF POSSESSION -->
+<!-- ============================== -->
+
+<section class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="section-title" data-aos="fade-right">1️⃣2️⃣ Flow of a Possession 🧩 </h2>
+
+  <ol class="list-decimal ml-10 text-2xl leading-relaxed" data-aos="fade-up">
+    <li>Defense rebounds or inbounds</li>
+    <li>PG brings the ball up</li>
+    <li>Offense sets spacing</li>
+    <li>Screens or cuts happen</li>
+    <li>Shot attempt</li>
+    <li>Rebound or score</li>
+    <li>Transition into defense</li>
+  </ol>
+</section>
+
+<!-- ============================== -->
+<!-- 1️⃣3️⃣ TIPS -->
+<!-- ============================== -->
+
+<section class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="section-title" data-aos="fade-right">1️⃣3️⃣ Beginner Tips 🎥 </h2>
+
+  <ul class="list-disc ml-10 text-2xl leading-relaxed" data-aos="fade-up">
+    <li>Watch spacing</li>
+    <li>Watch screens</li>
+    <li>Watch help defense</li>
+    <li>Count possessions</li>
+    <li>Monitor shot clock usage</li>
+    <li>Track team fouls — bonus matters!</li>
+  </ul>
+</section>
+<!-- ============================== -->
+<!-- BOTTOM NAVIGATION BUTTON -->
+<!-- ============================== -->
+
+<section class="w-full py-24 flex flex-col items-center justify-center text-center">
+
+  <h2 class="text-4xl font-extrabold text-aggie-gold mb-10" data-aos="fade-up">
+    Ready to Use the Aggie Tracker?
+  </h2>
+
+  <a href="home.html"
+     class="btn-primary text-2xl px-10 py-4"
+     data-aos="fade-up"
+     data-aos-delay="200">
+    Go to Aggie Stats Tracker →
+  </a>
+
+
+</section>
+
+<!-- END PAGE -->
+<script>AOS.init();
+// ⭐⭐⭐ SPARKLE GENERATOR ⭐⭐⭐
+for (let i = 0; i < 45; i++) {
+  const p = document.createElement("div");
+  p.classList.add("particle");
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.bottom = Math.random() * 100 + "vh";
+  p.style.setProperty("--duration", (6 + Math.random() * 6) + "s");
+  document.getElementById("particles").appendChild(p);
+}
+</script>
+
+</body>
+</html>
