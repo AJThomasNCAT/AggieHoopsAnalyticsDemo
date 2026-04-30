@@ -1,0 +1,1036 @@
+{
+  "feature_set": "FULL",
+  "train_rows": 544,
+  "test_rows": 136,
+  "train_cutoff": "2025-12-30",
+  "stat_metrics": {
+    "pts_per40": {
+      "stat_display": "Points per 40",
+      "mae_model": 5.583,
+      "mae_baseline": 5.487,
+      "r2": 0.147,
+      "beats_baseline": false
+    },
+    "reb_per40": {
+      "stat_display": "Rebounds per 40",
+      "mae_model": 3.238,
+      "mae_baseline": 3.319,
+      "r2": 0.154,
+      "beats_baseline": true
+    },
+    "ast_per40": {
+      "stat_display": "Assists per 40",
+      "mae_model": 1.548,
+      "mae_baseline": 1.491,
+      "r2": 0.264,
+      "beats_baseline": false
+    },
+    "to_per40": {
+      "stat_display": "Turnovers per 40",
+      "mae_model": 1.567,
+      "mae_baseline": 1.647,
+      "r2": -0.022,
+      "beats_baseline": true
+    },
+    "stl_per40": {
+      "stat_display": "Steals per 40",
+      "mae_model": 1.173,
+      "mae_baseline": 1.112,
+      "r2": -0.235,
+      "beats_baseline": false
+    },
+    "blk_per40": {
+      "stat_display": "Blocks per 40",
+      "mae_model": 0.981,
+      "mae_baseline": 0.72,
+      "r2": 0.204,
+      "beats_baseline": false
+    }
+  },
+  "projection_cards": [
+    {
+      "player": "R. Forrest",
+      "games_played": 21,
+      "avg_minutes": 32.6,
+      "season_avg_ts_pct": 0.488,
+      "season_avg_usg_pct": 33.87,
+      "projections": {
+        "pts_per40": {
+          "predicted": 28.12,
+          "season_avg": 24.19,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 4.19,
+          "season_avg": 4.59,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 2.32,
+          "season_avg": 1.55,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 2.13,
+          "season_avg": 2.99,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 1.18,
+          "season_avg": 1.44,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.2,
+          "season_avg": 0.53,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2025-01-25",
+      "last_opponent": "Stony Brook Seawolves"
+    },
+    {
+      "player": "L. Glasper",
+      "games_played": 45,
+      "avg_minutes": 36.0,
+      "season_avg_ts_pct": 0.478,
+      "season_avg_usg_pct": 31.29,
+      "projections": {
+        "pts_per40": {
+          "predicted": 21.28,
+          "season_avg": 21.88,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 3.54,
+          "season_avg": 3.98,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 2.51,
+          "season_avg": 2.54,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.88,
+          "season_avg": 2.04,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 0.5,
+          "season_avg": 1.57,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.08,
+          "season_avg": 0.17,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2025-01-25",
+      "last_opponent": "Stony Brook Seawolves"
+    },
+    {
+      "player": "J. Lamothe",
+      "games_played": 32,
+      "avg_minutes": 36.2,
+      "season_avg_ts_pct": 0.506,
+      "season_avg_usg_pct": 23.37,
+      "projections": {
+        "pts_per40": {
+          "predicted": 21.08,
+          "season_avg": 15.03,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 5.88,
+          "season_avg": 7.98,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 1.77,
+          "season_avg": 2.86,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 3.54,
+          "season_avg": 3.02,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 1.0,
+          "season_avg": 1.74,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.13,
+          "season_avg": 0.33,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2025-03-07",
+      "last_opponent": "Hofstra Pride"
+    },
+    {
+      "player": "T. Middleton Jr.",
+      "games_played": 27,
+      "avg_minutes": 31.2,
+      "season_avg_ts_pct": 0.56,
+      "season_avg_usg_pct": 23.61,
+      "projections": {
+        "pts_per40": {
+          "predicted": 17.07,
+          "season_avg": 17.13,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 5.86,
+          "season_avg": 4.86,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 4.08,
+          "season_avg": 4.24,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 2.38,
+          "season_avg": 3.08,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 2.37,
+          "season_avg": 1.17,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.04,
+          "season_avg": 0.14,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2026-03-06",
+      "last_opponent": "Northeastern Huskies"
+    },
+    {
+      "player": "W. Felton",
+      "games_played": 27,
+      "avg_minutes": 18.7,
+      "season_avg_ts_pct": 0.663,
+      "season_avg_usg_pct": 18.96,
+      "projections": {
+        "pts_per40": {
+          "predicted": 16.46,
+          "season_avg": 17.61,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 16.11,
+          "season_avg": 12.34,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 1.64,
+          "season_avg": 0.75,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.43,
+          "season_avg": 2.18,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 0.7,
+          "season_avg": 0.89,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 1.63,
+          "season_avg": 0.49,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2026-03-06",
+      "last_opponent": "Northeastern Huskies"
+    },
+    {
+      "player": "Le. Walker",
+      "games_played": 29,
+      "avg_minutes": 34.2,
+      "season_avg_ts_pct": 0.642,
+      "season_avg_usg_pct": 24.46,
+      "projections": {
+        "pts_per40": {
+          "predicted": 16.32,
+          "season_avg": 22.13,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 7.48,
+          "season_avg": 6.02,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 2.45,
+          "season_avg": 2.19,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.72,
+          "season_avg": 2.03,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 0.38,
+          "season_avg": 0.84,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.47,
+          "season_avg": 0.09,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2026-03-06",
+      "last_opponent": "Northeastern Huskies"
+    },
+    {
+      "player": "Z. Weluche-Ume",
+      "games_played": 29,
+      "avg_minutes": 30.7,
+      "season_avg_ts_pct": 0.506,
+      "season_avg_usg_pct": 21.94,
+      "projections": {
+        "pts_per40": {
+          "predicted": 15.67,
+          "season_avg": 14.5,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 10.42,
+          "season_avg": 9.41,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 1.53,
+          "season_avg": 1.26,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.68,
+          "season_avg": 3.05,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 1.23,
+          "season_avg": 1.07,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 2.42,
+          "season_avg": 1.09,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2026-03-06",
+      "last_opponent": "Northeastern Huskies"
+    },
+    {
+      "player": "J. Robinson",
+      "games_played": 20,
+      "avg_minutes": 21.2,
+      "season_avg_ts_pct": 0.585,
+      "season_avg_usg_pct": 18.54,
+      "projections": {
+        "pts_per40": {
+          "predicted": 14.6,
+          "season_avg": 13.91,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 7.44,
+          "season_avg": 4.97,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 1.8,
+          "season_avg": 0.86,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 2.0,
+          "season_avg": 1.96,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 0.07,
+          "season_avg": 0.29,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.75,
+          "season_avg": 0.23,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2024-01-27",
+      "last_opponent": "Drexel Dragons"
+    },
+    {
+      "player": "D. Pierce",
+      "games_played": 23,
+      "avg_minutes": 29.1,
+      "season_avg_ts_pct": 0.448,
+      "season_avg_usg_pct": 21.24,
+      "projections": {
+        "pts_per40": {
+          "predicted": 14.59,
+          "season_avg": 11.73,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 4.65,
+          "season_avg": 3.49,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 4.32,
+          "season_avg": 3.89,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 2.14,
+          "season_avg": 3.14,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 1.44,
+          "season_avg": 0.82,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.15,
+          "season_avg": 0.23,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2026-03-06",
+      "last_opponent": "Northeastern Huskies"
+    },
+    {
+      "player": "B. Vick",
+      "games_played": 15,
+      "avg_minutes": 20.7,
+      "season_avg_ts_pct": 0.406,
+      "season_avg_usg_pct": 16.29,
+      "projections": {
+        "pts_per40": {
+          "predicted": 13.73,
+          "season_avg": 8.34,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 5.87,
+          "season_avg": 4.48,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 3.45,
+          "season_avg": 5.7,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.95,
+          "season_avg": 3.28,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 1.57,
+          "season_avg": 1.69,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.16,
+          "season_avg": 0.11,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2026-02-07",
+      "last_opponent": "Campbell Fighting Camels"
+    },
+    {
+      "player": "KJ Debrick",
+      "games_played": 15,
+      "avg_minutes": 16.5,
+      "season_avg_ts_pct": 0.626,
+      "season_avg_usg_pct": 19.1,
+      "projections": {
+        "pts_per40": {
+          "predicted": 12.92,
+          "season_avg": 16.35,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 10.07,
+          "season_avg": 12.6,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 1.82,
+          "season_avg": 1.56,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.8,
+          "season_avg": 1.42,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 2.49,
+          "season_avg": 0.67,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 1.4,
+          "season_avg": 4.6,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2026-03-04",
+      "last_opponent": "Campbell Fighting Camels"
+    },
+    {
+      "player": "Lu. Walker",
+      "games_played": 5,
+      "avg_minutes": 29.0,
+      "season_avg_ts_pct": 0.535,
+      "season_avg_usg_pct": 23.35,
+      "projections": {
+        "pts_per40": {
+          "predicted": 12.12,
+          "season_avg": 21.56,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 3.78,
+          "season_avg": 4.2,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 1.73,
+          "season_avg": 1.41,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.84,
+          "season_avg": 1.39,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 0.68,
+          "season_avg": 0.82,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.23,
+          "season_avg": 0.75,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2025-12-10",
+      "last_opponent": "Howard Bison"
+    },
+    {
+      "player": "N. Chitikoudis",
+      "games_played": 56,
+      "avg_minutes": 27.0,
+      "season_avg_ts_pct": 0.537,
+      "season_avg_usg_pct": 19.29,
+      "projections": {
+        "pts_per40": {
+          "predicted": 11.85,
+          "season_avg": 13.33,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 10.59,
+          "season_avg": 10.54,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 1.41,
+          "season_avg": 1.65,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 2.7,
+          "season_avg": 2.47,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 0.99,
+          "season_avg": 1.7,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.89,
+          "season_avg": 2.09,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2025-03-07",
+      "last_opponent": "Hofstra Pride"
+    },
+    {
+      "player": "K. Duke",
+      "games_played": 25,
+      "avg_minutes": 22.6,
+      "season_avg_ts_pct": 0.554,
+      "season_avg_usg_pct": 18.38,
+      "projections": {
+        "pts_per40": {
+          "predicted": 11.03,
+          "season_avg": 12.55,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 5.81,
+          "season_avg": 4.26,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 3.21,
+          "season_avg": 2.76,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.97,
+          "season_avg": 1.67,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 2.88,
+          "season_avg": 1.43,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.15,
+          "season_avg": 0.22,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2024-03-02",
+      "last_opponent": "Campbell Fighting Camels"
+    },
+    {
+      "player": "E. Joyner",
+      "games_played": 30,
+      "avg_minutes": 19.7,
+      "season_avg_ts_pct": 0.355,
+      "season_avg_usg_pct": 14.12,
+      "projections": {
+        "pts_per40": {
+          "predicted": 11.01,
+          "season_avg": 7.86,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 9.45,
+          "season_avg": 8.96,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 0.38,
+          "season_avg": 1.29,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.11,
+          "season_avg": 1.01,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 0.09,
+          "season_avg": 1.14,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 1.19,
+          "season_avg": 1.48,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2024-03-08",
+      "last_opponent": "William & Mary Tribe"
+    },
+    {
+      "player": "U. Kellman-Nicholes",
+      "games_played": 30,
+      "avg_minutes": 25.3,
+      "season_avg_ts_pct": 0.383,
+      "season_avg_usg_pct": 13.79,
+      "projections": {
+        "pts_per40": {
+          "predicted": 9.4,
+          "season_avg": 7.58,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 6.62,
+          "season_avg": 3.97,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 2.68,
+          "season_avg": 1.65,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.07,
+          "season_avg": 1.31,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 0.61,
+          "season_avg": 0.76,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.32,
+          "season_avg": 0.2,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2024-03-08",
+      "last_opponent": "William & Mary Tribe"
+    },
+    {
+      "player": "M. Burton",
+      "games_played": 16,
+      "avg_minutes": 19.8,
+      "season_avg_ts_pct": 0.514,
+      "season_avg_usg_pct": 16.75,
+      "projections": {
+        "pts_per40": {
+          "predicted": 9.28,
+          "season_avg": 11.94,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 5.19,
+          "season_avg": 3.42,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 3.3,
+          "season_avg": 1.07,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.25,
+          "season_avg": 1.01,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 1.79,
+          "season_avg": 1.24,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.22,
+          "season_avg": 0.0,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2026-03-06",
+      "last_opponent": "Northeastern Huskies"
+    },
+    {
+      "player": "A. Doumbia",
+      "games_played": 20,
+      "avg_minutes": 16.9,
+      "season_avg_ts_pct": 0.692,
+      "season_avg_usg_pct": 12.65,
+      "projections": {
+        "pts_per40": {
+          "predicted": 9.02,
+          "season_avg": 10.56,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 8.95,
+          "season_avg": 10.5,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 0.62,
+          "season_avg": 0.65,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.39,
+          "season_avg": 1.47,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 0.57,
+          "season_avg": 1.55,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 1.55,
+          "season_avg": 3.88,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2026-02-20",
+      "last_opponent": "Charleston Cougars"
+    },
+    {
+      "player": "J. McKie",
+      "games_played": 57,
+      "avg_minutes": 21.9,
+      "season_avg_ts_pct": 0.426,
+      "season_avg_usg_pct": 17.57,
+      "projections": {
+        "pts_per40": {
+          "predicted": 8.87,
+          "season_avg": 11.36,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 3.85,
+          "season_avg": 5.09,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 0.22,
+          "season_avg": 0.55,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.0,
+          "season_avg": 0.86,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 0.56,
+          "season_avg": 0.42,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.24,
+          "season_avg": 0.5,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2025-03-07",
+      "last_opponent": "Hofstra Pride"
+    },
+    {
+      "player": "J. Murphy",
+      "games_played": 24,
+      "avg_minutes": 23.8,
+      "season_avg_ts_pct": 0.492,
+      "season_avg_usg_pct": 15.56,
+      "projections": {
+        "pts_per40": {
+          "predicted": 8.64,
+          "season_avg": 10.26,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 14.92,
+          "season_avg": 10.39,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 0.92,
+          "season_avg": 0.65,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 0.88,
+          "season_avg": 1.27,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 0.36,
+          "season_avg": 0.67,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 2.5,
+          "season_avg": 1.75,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2025-03-07",
+      "last_opponent": "Hofstra Pride"
+    },
+    {
+      "player": "E. Kalliontzis",
+      "games_played": 22,
+      "avg_minutes": 24.0,
+      "season_avg_ts_pct": 0.616,
+      "season_avg_usg_pct": 9.86,
+      "projections": {
+        "pts_per40": {
+          "predicted": 8.0,
+          "season_avg": 7.57,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 8.05,
+          "season_avg": 6.06,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 0.4,
+          "season_avg": 1.05,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.77,
+          "season_avg": 1.4,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 0.69,
+          "season_avg": 0.95,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 1.0,
+          "season_avg": 0.96,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2025-03-07",
+      "last_opponent": "Hofstra Pride"
+    },
+    {
+      "player": "A. Hamilton",
+      "games_played": 6,
+      "avg_minutes": 16.5,
+      "season_avg_ts_pct": 0.451,
+      "season_avg_usg_pct": 14.18,
+      "projections": {
+        "pts_per40": {
+          "predicted": 7.74,
+          "season_avg": 9.37,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 3.39,
+          "season_avg": 3.42,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 0.7,
+          "season_avg": 0.56,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 0.9,
+          "season_avg": 1.67,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 0.98,
+          "season_avg": 0.85,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.32,
+          "season_avg": 0.0,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2024-03-01",
+      "last_opponent": "Towson Tigers"
+    },
+    {
+      "player": "C. Shell",
+      "games_played": 61,
+      "avg_minutes": 34.7,
+      "season_avg_ts_pct": 0.525,
+      "season_avg_usg_pct": 16.83,
+      "projections": {
+        "pts_per40": {
+          "predicted": 5.79,
+          "season_avg": 11.32,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 3.08,
+          "season_avg": 3.11,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 4.2,
+          "season_avg": 4.54,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 2.1,
+          "season_avg": 1.95,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 1.83,
+          "season_avg": 1.47,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.17,
+          "season_avg": 0.09,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2025-03-01",
+      "last_opponent": "Hofstra Pride"
+    },
+    {
+      "player": "B. Ogletree",
+      "games_played": 45,
+      "avg_minutes": 25.6,
+      "season_avg_ts_pct": 0.559,
+      "season_avg_usg_pct": 11.42,
+      "projections": {
+        "pts_per40": {
+          "predicted": 5.44,
+          "season_avg": 8.68,
+          "display": "Points per 40"
+        },
+        "reb_per40": {
+          "predicted": 2.74,
+          "season_avg": 4.0,
+          "display": "Rebounds per 40"
+        },
+        "ast_per40": {
+          "predicted": 1.96,
+          "season_avg": 1.6,
+          "display": "Assists per 40"
+        },
+        "to_per40": {
+          "predicted": 1.05,
+          "season_avg": 1.32,
+          "display": "Turnovers per 40"
+        },
+        "stl_per40": {
+          "predicted": 1.77,
+          "season_avg": 0.69,
+          "display": "Steals per 40"
+        },
+        "blk_per40": {
+          "predicted": 0.11,
+          "season_avg": 0.31,
+          "display": "Blocks per 40"
+        }
+      },
+      "last_game_date": "2026-03-06",
+      "last_opponent": "Northeastern Huskies"
+    }
+  ]
+}

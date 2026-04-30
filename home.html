@@ -979,6 +979,18 @@
       </div>
     </div>
 
+    <!-- Margin of error banner -->
+    <div class="glass-card px-4 py-3 mb-5 flex items-start gap-3">
+      <span class="text-yellow-400 text-base leading-tight mt-0.5">⚠</span>
+      <div class="text-xs text-gray-300 leading-relaxed">
+        <span class="text-white font-semibold">Margin of Error:</span>
+        This model's average prediction error is
+        <span id="ml-moe-inline" class="text-yellow-400 font-semibold">—</span> pts/40 per game.
+        Each stat tile below shows <span class="text-yellow-400 font-semibold">± this margin</span> under the predicted value.
+        Hover any dot on the Predicted vs Actual chart to see per-player error, bias, and game-to-game scoring range.
+      </div>
+    </div>
+
     <!-- Per-player projection card -->
     <div class="glass-card p-6 mb-5">
       <div class="flex items-start justify-between mb-4 flex-wrap gap-3">
@@ -1544,6 +1556,8 @@
     const imp = (model.mae_pts_base - model.mae_pts_model);
     document.getElementById('ml-metric-baseline').textContent = (imp >= 0 ? '+' : '') + imp.toFixed(2);
     document.getElementById('ml-metric-rows').textContent     = model.n_rows.toLocaleString();
+    const moeEl = document.getElementById('ml-moe-inline');
+    if (moeEl) moeEl.textContent = '±' + model.mae_pts_model.toFixed(2);
 
     drawRankDiffChart(modelResults.player_summary);
     drawImportanceChart(model.feature_importance);
@@ -1723,23 +1737,51 @@
   }
 
   function drawPredictionChart(perPlayer) {
-    const pts = perPlayer.map(p => ({ x: p.actual_avg, y: p.predicted_avg, player: p.player, mae: p.mae, games: p.test_games }));
+    const pts = perPlayer.map(p => ({
+      x: p.actual_avg, y: p.predicted_avg,
+      player: p.player, mae: p.mae, bias: p.bias || 0,
+      games: p.test_games,
+      scoring_range: p.actual_std || null,
+    }));
     const bg  = pts.map(p => p.mae < 3 ? AGGIE_GREEN : p.mae < 6 ? AGGIE_GOLD_C : AGGIE_RED_C);
     const minV = Math.min(...pts.map(p => Math.min(p.x,p.y))) - 1;
     const maxV = Math.max(...pts.map(p => Math.max(p.x,p.y))) + 2;
     new Chart(document.getElementById('mlPredictionChart'), {
       type: 'scatter',
       data: { datasets: [
-        { label:'Player', data: pts, backgroundColor: bg, borderColor:'rgba(255,255,255,0.4)', borderWidth:1, pointRadius:8, pointHoverRadius:12 },
-        { type:'line', label:'Perfect', data:[{x:minV,y:minV},{x:maxV,y:maxV}], borderColor:'rgba(255,255,255,0.3)', borderDash:[5,5], borderWidth:1, fill:false, pointRadius:0, showLine:true }
+        { label:'Player', data: pts, backgroundColor: bg,
+          borderColor:'rgba(255,255,255,0.4)', borderWidth:1,
+          pointRadius:8, pointHoverRadius:12 },
+        { type:'line', label:'Perfect', data:[{x:minV,y:minV},{x:maxV,y:maxV}],
+          borderColor:'rgba(255,255,255,0.3)', borderDash:[5,5],
+          borderWidth:1, fill:false, pointRadius:0, showLine:true }
       ]},
       options: {
         responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { labels: { filter: i => i.text==='Perfect' }}, tooltip: { callbacks: { label: ctx => {
-          if (ctx.dataset.label==='Perfect') return null;
-          const p=ctx.raw; return [`${p.player}`, `Actual: ${p.x.toFixed(2)}`, `Predicted: ${p.y.toFixed(2)}`, `MAE: ${p.mae.toFixed(2)}`];
-        }}}},
-        scales: { x:{ title:{display:true,text:'Actual pts/40'},grid:{color:ML_GRID},min:minV,max:maxV }, y:{ title:{display:true,text:'Predicted pts/40'},grid:{color:ML_GRID},min:minV,max:maxV }},
+        plugins: {
+          legend: { labels: { filter: i => i.text==='Perfect' }},
+          tooltip: { callbacks: { label: ctx => {
+            if (ctx.dataset.label==='Perfect') return null;
+            const p = ctx.raw;
+            const biasDir = p.bias >= 0 ? 'over-predicted' : 'under-predicted';
+            const lines = [
+              `${p.player}`,
+              `Actual: ${p.x.toFixed(1)} pts/40`,
+              `Predicted: ${p.y.toFixed(1)} pts/40`,
+              `Margin of Error: ±${p.mae.toFixed(1)} pts/40`,
+              `Bias: ${Math.abs(p.bias).toFixed(1)} pts/40 ${biasDir}`,
+            ];
+            if (p.scoring_range) {
+              lines.push(`Game-to-game range: ±${p.scoring_range.toFixed(1)} pts/40`);
+            }
+            lines.push(`Test games: ${p.games}`);
+            return lines;
+          }}}
+        },
+        scales: {
+          x:{ title:{display:true,text:'Actual pts/40'},grid:{color:ML_GRID},min:minV,max:maxV },
+          y:{ title:{display:true,text:'Predicted pts/40'},grid:{color:ML_GRID},min:minV,max:maxV }
+        },
       }
     });
   }
@@ -1799,10 +1841,17 @@
     const ORDER=['pts_per40','reb_per40','ast_per40','stl_per40','blk_per40','to_per40'];
     const SHORT={pts_per40:'PTS',reb_per40:'REB',ast_per40:'AST',to_per40:'TO',stl_per40:'STL',blk_per40:'BLK'};
     ORDER.forEach(stat=>{ const p=card.projections[stat]; if(!p) return;
+      const m=metrics[stat];
       const d=p.predicted-p.season_avg, good=stat==='to_per40'?d<0:d>0;
       const arrow=d>=0?'↑':'↓', dc=Math.abs(d)<0.3?'text-gray-400':good?'text-green-400':'text-red-400';
       const tile=document.createElement('div'); tile.className='proj-tile';
-      tile.innerHTML=`<div class="data-label">${SHORT[stat]}</div><div class="text-2xl font-extrabold text-yellow-400 mt-1">${p.predicted.toFixed(1)}</div><div class="text-[10px] text-gray-500 mt-1">avg ${p.season_avg.toFixed(1)}</div><div class="text-xs font-semibold ${dc} mt-1">${arrow}${Math.abs(d).toFixed(1)}</div>`;
+      const moeStr = m ? `±${m.mae_model.toFixed(1)} margin` : '';
+      tile.innerHTML=`
+        <div class="data-label">${SHORT[stat]}</div>
+        <div class="text-2xl font-extrabold text-yellow-400 mt-1">${p.predicted.toFixed(1)}</div>
+        <div class="text-[10px] text-yellow-400/70 mt-0.5">${moeStr}</div>
+        <div class="text-[10px] text-gray-500 mt-0.5">avg ${p.season_avg.toFixed(1)}</div>
+        <div class="text-xs font-semibold ${dc} mt-1">${arrow}${Math.abs(d).toFixed(1)}</div>`;
       grid.appendChild(tile);
     });
 

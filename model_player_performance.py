@@ -281,8 +281,22 @@ else:
                              predicted_avg = ("predicted_pts_per40", "mean"),
                              mae           = ("abs_error",           "mean"),
                              bias          = ("bias",                "mean"),
+                             # Standard deviation of actual performance —
+                             # high std = volatile player, low std = consistent
+                             actual_std    = ("pts_per40",           "std"),
+                             # Standard deviation of prediction errors —
+                             # how consistent is the model's error for this player
+                             error_std     = ("abs_error",           "std"),
                          )
                          .round(2))
+
+    # Confidence interval: predicted ± 1 MAE (68% confidence)
+    # This tells the dashboard how wide an error bar to draw
+    per_player["ci_low"]  = (per_player["predicted_avg"] - per_player["mae"]).round(2)
+    per_player["ci_high"] = (per_player["predicted_avg"] + per_player["mae"]).round(2)
+    # Consistency grade: players with low std relative to their scoring are predictable
+    per_player["consistency"] = (per_player["actual_std"] /
+                                  per_player["actual_avg"].clip(lower=1)).round(3)
 
     # Only show players with at least 3 test games (statistics aren't meaningful
     # on fewer games, and single-game variance dominates)
@@ -328,12 +342,11 @@ else:
     chart_data = per_player.reset_index().to_dict("records")
     with open(os.path.join(OUT_DIR, "player_prediction_accuracy.json"), "w") as f:
         json.dump({
-            "model_used":   best["label"],
-            "train_rows":   len(best["test_df"]) * 4,
-            "test_rows":    len(test_df),
-            "overall_mae":  round(float(test_df["abs_error"].mean()), 2),
-            "per_player":   chart_data,
-        }, f, indent=2)
+            "model_label": best["label"],
+            "model_mae":   round(float(best["mae_pts_model"]), 2),
+            "overall_mae": round(float(test_df["abs_error"].mean()), 2),
+            "per_player":  chart_data,
+        }, f, indent=2, default=str)
 
     print(f"\n✅  player_prediction_accuracy.json → {OUT_DIR}/")
     print(f"    (Ready for dashboard visualization)")
@@ -408,15 +421,28 @@ for col in ["opp_drtg_pregame", "opp_pace_pregame", "torvik_barthag"]:
     if col in multi_source.columns:
         median_val = multi_source[col].median()
         if pd.isna(median_val):
-            # column is ALL NaN — remove it from feature set and fall back
             multi_features = [f for f in multi_features if f != col]
             print(f"  ⚠  {col} is all NaN — removed from feature set")
         else:
             multi_source[col] = multi_source[col].fillna(median_val)
     else:
-        # column doesn't exist in data yet — remove from feature set
         multi_features = [f for f in multi_features if f != col]
-        print(f"  ⚠  {col} not in data — run feature_engineering.py first. Removed.")
+        print(f"  ⚠  {col} not in data — removed from feature set")
+
+# Drop ANY feature that doesn't exist in the data or is all NaN
+# This catches PBP features like opp_rim_rate_r5 that may not exist
+# in every project setup
+multi_features = [
+    f for f in multi_features
+    if f in multi_source.columns and not multi_source[f].isna().all()
+]
+
+# Impute remaining partial NaN with median
+for col in multi_features:
+    if multi_source[col].isna().any():
+        med = multi_source[col].median()
+        if not pd.isna(med):
+            multi_source[col] = multi_source[col].fillna(med)
 
 # If we've lost all opponent features, fall back entirely to BASE
 opp_features_present = any(
@@ -424,7 +450,7 @@ opp_features_present = any(
 )
 if not opp_features_present:
     print("  Falling back to BASE features (no opponent data available).")
-    multi_features = FEATURES_BASE
+    multi_features = [f for f in FEATURES_BASE if f in multi_source.columns]
 
 # Drop rows missing any feature
 multi_df = multi_source.dropna(subset=multi_features + list(STAT_TARGETS.keys())).copy()
