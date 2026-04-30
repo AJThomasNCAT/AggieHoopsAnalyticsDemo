@@ -1,0 +1,484 @@
+{
+  "base_model": {
+    "label": "BASE (no opponent rating)",
+    "n_rows": 720,
+    "mae_pts_model": 5.94,
+    "mae_pts_base": 5.63,
+    "r2_pts": 0.2,
+    "mae_ts": 0.1766,
+    "acc_over_avg": 58.3,
+    "feature_importance": [
+      {
+        "feature": "usg_pct_r5",
+        "importance_pct": 18.29
+      },
+      {
+        "feature": "reb_per40_r5",
+        "importance_pct": 15.57
+      },
+      {
+        "feature": "pts_per40_season",
+        "importance_pct": 11.67
+      },
+      {
+        "feature": "reb_per40_season",
+        "importance_pct": 10.91
+      },
+      {
+        "feature": "pts_per40_r5",
+        "importance_pct": 7.84
+      },
+      {
+        "feature": "days_rest",
+        "importance_pct": 7.75
+      },
+      {
+        "feature": "ts_pct_season",
+        "importance_pct": 6.93
+      },
+      {
+        "feature": "ts_pct_r5",
+        "importance_pct": 6.01
+      },
+      {
+        "feature": "to_per40_season",
+        "importance_pct": 5.55
+      },
+      {
+        "feature": "ast_per40_r5",
+        "importance_pct": 4.46
+      },
+      {
+        "feature": "is_home",
+        "importance_pct": 2.92
+      },
+      {
+        "feature": "position_enc",
+        "importance_pct": 1.6
+      },
+      {
+        "feature": "on_hot_streak",
+        "importance_pct": 0.49
+      }
+    ],
+    "train_cutoff": "2025-12-30"
+  },
+  "full_model": {
+    "label": "BASE (no opponent rating)",
+    "n_rows": 720,
+    "mae_pts_model": 5.94,
+    "mae_pts_base": 5.63,
+    "r2_pts": 0.2,
+    "mae_ts": 0.1766,
+    "acc_over_avg": 58.3,
+    "feature_importance": [
+      {
+        "feature": "usg_pct_r5",
+        "importance_pct": 18.29
+      },
+      {
+        "feature": "reb_per40_r5",
+        "importance_pct": 15.57
+      },
+      {
+        "feature": "pts_per40_season",
+        "importance_pct": 11.67
+      },
+      {
+        "feature": "reb_per40_season",
+        "importance_pct": 10.91
+      },
+      {
+        "feature": "pts_per40_r5",
+        "importance_pct": 7.84
+      },
+      {
+        "feature": "days_rest",
+        "importance_pct": 7.75
+      },
+      {
+        "feature": "ts_pct_season",
+        "importance_pct": 6.93
+      },
+      {
+        "feature": "ts_pct_r5",
+        "importance_pct": 6.01
+      },
+      {
+        "feature": "to_per40_season",
+        "importance_pct": 5.55
+      },
+      {
+        "feature": "ast_per40_r5",
+        "importance_pct": 4.46
+      },
+      {
+        "feature": "is_home",
+        "importance_pct": 2.92
+      },
+      {
+        "feature": "position_enc",
+        "importance_pct": 1.6
+      },
+      {
+        "feature": "on_hot_streak",
+        "importance_pct": 0.49
+      }
+    ],
+    "train_cutoff": "2025-12-30"
+  },
+  "player_summary": [
+    {
+      "player": "C. Clark",
+      "games": 90,
+      "avg_min": 25.8,
+      "avg_pts": 11.12,
+      "avg_reb": 7.96,
+      "avg_ast": 1.03,
+      "avg_pts_per40": 17.61,
+      "avg_ts_pct": 0.53,
+      "avg_usg_pct": 24.2,
+      "avg_reb_per40": 12.49,
+      "avg_ast_per40": 1.64
+    },
+    {
+      "player": "A. Karriem",
+      "games": 20,
+      "avg_min": 16.25,
+      "avg_pts": 7.0,
+      "avg_reb": 4.3,
+      "avg_ast": 0.65,
+      "avg_pts_per40": 17.0,
+      "avg_ts_pct": 0.43,
+      "avg_usg_pct": 28.79,
+      "avg_reb_per40": 10.22,
+      "avg_ast_per40": 1.59
+    },
+    {
+      "player": "J. Dorsey",
+      "games": 65,
+      "avg_min": 34.12,
+      "avg_pts": 14.14,
+      "avg_reb": 4.97,
+      "avg_ast": 3.65,
+      "avg_pts_per40": 16.73,
+      "avg_ts_pct": 0.5,
+      "avg_usg_pct": 24.87,
+      "avg_reb_per40": 5.86,
+      "avg_ast_per40": 4.29
+    },
+    {
+      "player": "J. Meyers",
+      "games": 9,
+      "avg_min": 13.89,
+      "avg_pts": 5.78,
+      "avg_reb": 2.67,
+      "avg_ast": 1.11,
+      "avg_pts_per40": 16.59,
+      "avg_ts_pct": 0.56,
+      "avg_usg_pct": 26.9,
+      "avg_reb_per40": 7.67,
+      "avg_ast_per40": 3.28
+    },
+    {
+      "player": "E. Andrews",
+      "games": 4,
+      "avg_min": 14.75,
+      "avg_pts": 6.25,
+      "avg_reb": 1.25,
+      "avg_ast": 1.0,
+      "avg_pts_per40": 16.59,
+      "avg_ts_pct": 0.55,
+      "avg_usg_pct": 20.4,
+      "avg_reb_per40": 3.37,
+      "avg_ast_per40": 2.46
+    },
+    {
+      "player": "D. Yarborough",
+      "games": 7,
+      "avg_min": 15.14,
+      "avg_pts": 6.0,
+      "avg_reb": 4.71,
+      "avg_ast": 0.14,
+      "avg_pts_per40": 16.38,
+      "avg_ts_pct": 0.59,
+      "avg_usg_pct": 22.14,
+      "avg_reb_per40": 12.58,
+      "avg_ast_per40": 0.27
+    },
+    {
+      "player": "L. Acox",
+      "games": 23,
+      "avg_min": 14.83,
+      "avg_pts": 5.65,
+      "avg_reb": 3.52,
+      "avg_ast": 0.26,
+      "avg_pts_per40": 16.06,
+      "avg_ts_pct": 0.48,
+      "avg_usg_pct": 26.62,
+      "avg_reb_per40": 9.68,
+      "avg_ast_per40": 0.66
+    },
+    {
+      "player": "C. Hardy",
+      "games": 20,
+      "avg_min": 22.1,
+      "avg_pts": 7.8,
+      "avg_reb": 1.95,
+      "avg_ast": 1.15,
+      "avg_pts_per40": 14.62,
+      "avg_ts_pct": 0.53,
+      "avg_usg_pct": 20.03,
+      "avg_reb_per40": 3.42,
+      "avg_ast_per40": 1.91
+    },
+    {
+      "player": "L. Walker",
+      "games": 1,
+      "avg_min": 14.0,
+      "avg_pts": 5.0,
+      "avg_reb": 1.0,
+      "avg_ast": 2.0,
+      "avg_pts_per40": 14.29,
+      "avg_ts_pct": 0.43,
+      "avg_usg_pct": 26.19,
+      "avg_reb_per40": 2.86,
+      "avg_ast_per40": 5.71
+    },
+    {
+      "player": "N. Willis",
+      "games": 7,
+      "avg_min": 20.71,
+      "avg_pts": 6.71,
+      "avg_reb": 1.86,
+      "avg_ast": 2.0,
+      "avg_pts_per40": 13.13,
+      "avg_ts_pct": 0.62,
+      "avg_usg_pct": 18.03,
+      "avg_reb_per40": 3.48,
+      "avg_ast_per40": 3.8
+    },
+    {
+      "player": "D. Tucker",
+      "games": 60,
+      "avg_min": 33.47,
+      "avg_pts": 10.9,
+      "avg_reb": 4.62,
+      "avg_ast": 1.9,
+      "avg_pts_per40": 13.09,
+      "avg_ts_pct": 0.5,
+      "avg_usg_pct": 20.09,
+      "avg_reb_per40": 5.49,
+      "avg_ast_per40": 2.32
+    },
+    {
+      "player": "M. Bracone",
+      "games": 61,
+      "avg_min": 33.57,
+      "avg_pts": 10.72,
+      "avg_reb": 4.16,
+      "avg_ast": 3.25,
+      "avg_pts_per40": 12.83,
+      "avg_ts_pct": 0.48,
+      "avg_usg_pct": 21.21,
+      "avg_reb_per40": 5.06,
+      "avg_ast_per40": 3.9
+    },
+    {
+      "player": "A. James",
+      "games": 27,
+      "avg_min": 25.67,
+      "avg_pts": 7.89,
+      "avg_reb": 3.67,
+      "avg_ast": 1.19,
+      "avg_pts_per40": 12.33,
+      "avg_ts_pct": 0.63,
+      "avg_usg_pct": 14.61,
+      "avg_reb_per40": 5.43,
+      "avg_ast_per40": 1.75
+    },
+    {
+      "player": "P. Locke",
+      "games": 89,
+      "avg_min": 28.99,
+      "avg_pts": 8.9,
+      "avg_reb": 5.57,
+      "avg_ast": 2.31,
+      "avg_pts_per40": 12.05,
+      "avg_ts_pct": 0.44,
+      "avg_usg_pct": 20.74,
+      "avg_reb_per40": 7.74,
+      "avg_ast_per40": 3.1
+    },
+    {
+      "player": "S. Darks",
+      "games": 9,
+      "avg_min": 15.78,
+      "avg_pts": 4.56,
+      "avg_reb": 2.11,
+      "avg_ast": 1.67,
+      "avg_pts_per40": 10.88,
+      "avg_ts_pct": 0.47,
+      "avg_usg_pct": 19.04,
+      "avg_reb_per40": 5.22,
+      "avg_ast_per40": 4.03
+    },
+    {
+      "player": "D. Howard",
+      "games": 45,
+      "avg_min": 20.22,
+      "avg_pts": 5.4,
+      "avg_reb": 5.09,
+      "avg_ast": 0.69,
+      "avg_pts_per40": 10.87,
+      "avg_ts_pct": 0.44,
+      "avg_usg_pct": 17.62,
+      "avg_reb_per40": 10.75,
+      "avg_ast_per40": 1.27
+    },
+    {
+      "player": "R. Griffin",
+      "games": 18,
+      "avg_min": 13.5,
+      "avg_pts": 3.44,
+      "avg_reb": 2.0,
+      "avg_ast": 0.28,
+      "avg_pts_per40": 10.32,
+      "avg_ts_pct": 0.53,
+      "avg_usg_pct": 18.8,
+      "avg_reb_per40": 5.58,
+      "avg_ast_per40": 0.84
+    },
+    {
+      "player": "J. Brown",
+      "games": 13,
+      "avg_min": 22.54,
+      "avg_pts": 4.92,
+      "avg_reb": 3.69,
+      "avg_ast": 1.54,
+      "avg_pts_per40": 9.37,
+      "avg_ts_pct": 0.4,
+      "avg_usg_pct": 20.1,
+      "avg_reb_per40": 7.04,
+      "avg_ast_per40": 2.97
+    },
+    {
+      "player": "D. Powell",
+      "games": 5,
+      "avg_min": 14.0,
+      "avg_pts": 3.2,
+      "avg_reb": 2.4,
+      "avg_ast": 0.8,
+      "avg_pts_per40": 8.82,
+      "avg_ts_pct": 0.51,
+      "avg_usg_pct": 13.03,
+      "avg_reb_per40": 6.91,
+      "avg_ast_per40": 1.91
+    },
+    {
+      "player": "T. Davis",
+      "games": 28,
+      "avg_min": 17.79,
+      "avg_pts": 3.96,
+      "avg_reb": 2.39,
+      "avg_ast": 0.82,
+      "avg_pts_per40": 8.62,
+      "avg_ts_pct": 0.55,
+      "avg_usg_pct": 10.9,
+      "avg_reb_per40": 5.63,
+      "avg_ast_per40": 1.75
+    },
+    {
+      "player": "K. Curtis",
+      "games": 29,
+      "avg_min": 16.86,
+      "avg_pts": 3.72,
+      "avg_reb": 2.31,
+      "avg_ast": 0.24,
+      "avg_pts_per40": 8.08,
+      "avg_ts_pct": 0.42,
+      "avg_usg_pct": 14.72,
+      "avg_reb_per40": 5.15,
+      "avg_ast_per40": 0.63
+    },
+    {
+      "player": "E. Jessup",
+      "games": 39,
+      "avg_min": 20.85,
+      "avg_pts": 3.82,
+      "avg_reb": 2.15,
+      "avg_ast": 1.1,
+      "avg_pts_per40": 7.08,
+      "avg_ts_pct": 0.41,
+      "avg_usg_pct": 12.77,
+      "avg_reb_per40": 4.05,
+      "avg_ast_per40": 2.21
+    },
+    {
+      "player": "J. Lindsey",
+      "games": 29,
+      "avg_min": 26.55,
+      "avg_pts": 4.14,
+      "avg_reb": 2.76,
+      "avg_ast": 2.38,
+      "avg_pts_per40": 6.47,
+      "avg_ts_pct": 0.46,
+      "avg_usg_pct": 12.97,
+      "avg_reb_per40": 4.22,
+      "avg_ast_per40": 3.73
+    },
+    {
+      "player": "R. Douglas",
+      "games": 14,
+      "avg_min": 19.93,
+      "avg_pts": 2.71,
+      "avg_reb": 1.71,
+      "avg_ast": 2.07,
+      "avg_pts_per40": 5.64,
+      "avg_ts_pct": 0.29,
+      "avg_usg_pct": 14.91,
+      "avg_reb_per40": 2.95,
+      "avg_ast_per40": 4.11
+    },
+    {
+      "player": "S. Muhammad",
+      "games": 1,
+      "avg_min": 15.0,
+      "avg_pts": 2.0,
+      "avg_reb": 1.0,
+      "avg_ast": 0.0,
+      "avg_pts_per40": 5.33,
+      "avg_ts_pct": 1.14,
+      "avg_usg_pct": 5.51,
+      "avg_reb_per40": 2.67,
+      "avg_ast_per40": 0.0
+    },
+    {
+      "player": "M. Hardin",
+      "games": 2,
+      "avg_min": 15.5,
+      "avg_pts": 1.5,
+      "avg_reb": 5.5,
+      "avg_ast": 0.0,
+      "avg_pts_per40": 3.33,
+      "avg_ts_pct": 0.15,
+      "avg_usg_pct": 16.34,
+      "avg_reb_per40": 13.5,
+      "avg_ast_per40": 0.0
+    },
+    {
+      "player": "N. Smith",
+      "games": 9,
+      "avg_min": 13.56,
+      "avg_pts": 0.78,
+      "avg_reb": 0.44,
+      "avg_ast": 1.0,
+      "avg_pts_per40": 2.05,
+      "avg_ts_pct": 0.23,
+      "avg_usg_pct": 8.46,
+      "avg_reb_per40": 1.35,
+      "avg_ast_per40": 3.01
+    }
+  ],
+  "gender": "womens"
+}

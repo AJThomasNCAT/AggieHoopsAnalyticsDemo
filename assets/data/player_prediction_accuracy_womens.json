@@ -1,0 +1,45 @@
+{
+  "model_label": "FULL (with opponent difficulty)",
+  "per_player": [
+    {
+      "player": "P. Locke",
+      "test_games": 3,
+      "actual_avg": 13.84,
+      "predicted_avg": 11.75,
+      "mae": 2.43,
+      "bias": -2.09
+    },
+    {
+      "player": "E. Jessup",
+      "test_games": 4,
+      "actual_avg": 7.29,
+      "predicted_avg": 10.82,
+      "mae": 4.51,
+      "bias": 3.52
+    },
+    {
+      "player": "D. Tucker",
+      "test_games": 4,
+      "actual_avg": 13.19,
+      "predicted_avg": 8.52,
+      "mae": 4.67,
+      "bias": -4.67
+    },
+    {
+      "player": "C. Clark",
+      "test_games": 3,
+      "actual_avg": 20.3,
+      "predicted_avg": 12.81,
+      "mae": 11.39,
+      "bias": -7.49
+    },
+    {
+      "player": "J. Lindsey",
+      "test_games": 3,
+      "actual_avg": 3.81,
+      "predicted_avg": 16.91,
+      "mae": 13.09,
+      "bias": 13.09
+    }
+  ]
+}
